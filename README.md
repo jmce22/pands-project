@@ -15,7 +15,7 @@ I will then discuss any additional analyses I have carried out on the dataset.
 
 ## Table of contents
 * [Background](#background)
-* [Pre-analysis]
+* [Pre-analysis](#preanalysis)
 * [Histograms](#histograms)
 * [Plots](#plots)
 * [Other_Analysis](#otheranalysis)
@@ -32,4 +32,4 @@ The petal of a flowering plant are the leaves of the flower which surround the r
 
 The below is an image of the three flowers analysed in the dataset, along with a label for the sepal and petal of one of the three flower species (Iris Versicolor):
 
-![image]()
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/iris_flowers.png)

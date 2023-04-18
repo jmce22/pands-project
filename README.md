@@ -17,9 +17,18 @@ Fifty data points were measured for each species (one hundred and fifty data poi
 
 ## Table of contents
 * [Background](#background)
+* [Histograms](#histograms)
+* [Plots](#plots)
+* [Other_Analysis](#otheranalysis)
+* [Summary](#summary)
 
 
 &nbsp; 
 
 
 ## Background
+
+The petal of a flowering plant are the leaves of the flower which that surround the reproductive parts of the flower, and which are often brightly coloured to attract pollinators [1]. Sepals usually protect the flower when it is in a bud and structurally support the petals when the flower is in bloom. [2]
+
+The below is an image of the three flowers analysed in the dataset, along with a label for the sepal and petal of one of the three flower species (Iris Versicolor):
+

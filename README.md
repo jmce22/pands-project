@@ -30,8 +30,13 @@ I will also provide a list of references which I used to complete my work.
 
 ## Background
 
-The data set concerns three species of the Iris flowering plant genus: Iris setosa, Iris virginica, and Iris versicolor. \
-Fifty data points were measured for each species (one hundred and fifty data points in total), and these data points related to four features of the flower: sepal length, sepal width, petal length and petal width. 
+
+
+The data set was collected in 1935 by the American botanist Edgar Anderson, and used in 1936 by the British statistician and biologist Ronald A. Fisher. It relates to data collected from samples of three species of the Iris flowering plant genus: Iris setosa, Iris virginica, and Iris versicolor. \
+It is commonly used as an introductory data set by people who are learning how to carry out analyse and visualise data using programming languages.
+
+Fifty samples were collected for each species, giving one hundred and fifty samples in total. \
+For each sample, four features of the flower were measured; these were: sepal length, sepal width, petal length and petal width. These attributes of the samples are contained in columns 1, 2, 3 and 4 respectively within the dataset. The species name of the flower is also included in the dataset in column 5.
 
 The petal of a flowering plant are the leaves of the flower which surround the reproductive parts of the flower, and which are often brightly coloured to attract pollinators [1]. Sepals usually protect the flower when it is in a bud and structurally support the petals when the flower is in bloom. [2]
 

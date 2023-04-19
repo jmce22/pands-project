@@ -5,11 +5,15 @@ This project involves researching Fisher's Iris data set and analysing it using 
 
 This file will firstly give some background information to the dataset in question. 
 
-I will the outline the steps I needed to take before I could get into the actual analysis itself: this includes the importing of libraries which I will use and a description of these, and the details of how my final python script will prints out a summary of each variable to a single text file.
+I will then outline the steps which I needed to take before I could begin the actual analysis itself: this includes importing the libraries which I will use for the project; giving a description of these libraries; and the details of how my final python script will print out a summary of each variable to a single text file.
 
-Next I will discuss the histograms I generated from the data, followed by the scatterplots of each pair of variables.
+Finally I will give details of my analysis of the data set
+* I will discuss the histograms I generated from the data,
+* Followed by the scatterplots of each pair of variables,
+* Finally, I will  discuss any additional analyses I have carried out on the dataset.
 
-I will then discuss any additional analyses I have carried out on the dataset.
+My project will conclude with a summary of my findings, and my thoughts upon conclusion of the project. \
+I will also provide a list of references which I used to complete my work.
 
 &nbsp; 
 
@@ -18,8 +22,9 @@ I will then discuss any additional analyses I have carried out on the dataset.
 * [Pre-analysis](#preanalysis)
 * [Histograms](#histograms)
 * [Plots](#plots)
-* [Other_Analysis](#otheranalysis)
+* [Other analysis](#otheranalysis)
 * [Summary](#summary)
+* [References](#references)
 
 &nbsp; 
 
@@ -33,3 +38,27 @@ The petal of a flowering plant are the leaves of the flower which surround the r
 The below is an image of the three flowers analysed in the dataset, along with a label for the sepal and petal of one of the three flower species (Iris Versicolor):
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/iris_flowers.png)
+
+&nbsp; 
+
+## Pre-analysis
+
+&nbsp; 
+
+## Histograms
+
+&nbsp; 
+
+## Plots
+
+&nbsp; 
+
+## Other Analysis
+
+&nbsp; 
+
+# Summary
+
+&nbsp; 
+
+# References

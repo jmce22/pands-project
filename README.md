@@ -7,10 +7,10 @@ This file will firstly give some background information to the dataset in questi
 
 I will then outline the steps which I needed to take before I could begin the actual analysis itself: this includes importing the libraries which I will use for the project; giving a description of these libraries; and the details of how my final python script will print out a summary of each variable to a single text file.
 
-Finally I will give details of my analysis of the data set
-* I will discuss the histograms I generated from the data,
-* Followed by the scatterplots of each pair of variables,
-* Finally, I will  discuss any additional analyses I have carried out on the dataset.
+Finally I will give details of my analysis of the data set. I will discuss:
+* The histograms I generated from the data
+* The scatterplots of each pair of variables
+* Finally, I will discuss any additional analyses which I have carried out on the dataset.
 
 My project will conclude with a summary of my findings, and my thoughts upon conclusion of the project. \
 I will also provide a list of references which I used to complete my work.
@@ -33,7 +33,7 @@ I will also provide a list of references which I used to complete my work.
 
 
 The data set was collected in 1935 by the American botanist Edgar Anderson, and used in 1936 by the British statistician and biologist Ronald A. Fisher. It relates to data collected from samples of three species of the Iris flowering plant genus: Iris setosa, Iris virginica, and Iris versicolor. \
-It is commonly used as an introductory data set by people who are learning how to carry out analyse and visualise data using programming languages.
+It is commonly used as an introductory data set by people who are learning how to analyse and visualise data using programming languages.
 
 Fifty samples were collected for each species, giving one hundred and fifty samples in total. \
 For each sample, four features of the flower were measured; these were: sepal length, sepal width, petal length and petal width. These attributes of the samples are contained in columns 1, 2, 3 and 4 respectively within the dataset. The species name of the flower is also included in the dataset in column 5.
@@ -62,8 +62,8 @@ The below is an image of the three flowers analysed in the dataset, along with a
 
 &nbsp; 
 
-# Summary
+## Summary
 
 &nbsp; 
 
-# References
+## References

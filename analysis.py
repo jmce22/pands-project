@@ -47,5 +47,23 @@ df = pd.read_csv("iris.data.csv", names=['sepal length', 'sepal width', 'petal l
 #sns.displot(df, x = 'sepal width', kde = False)
 #plt.savefig('sep_wid_hist.png')
 
-sns.pairplot(df)
-plt.savefig('iris_pairplot.png')
+#sns.pairplot(df)
+#plt.savefig('iris_pairplot.png')
+
+# boxplots:
+
+#sns.set_style('whitegrid')
+#sns.boxplot( y=df['sepal length'], x=df['variety'])
+#plt.savefig('sep len boxplot')
+
+sns.set_style('whitegrid')
+sns.boxplot( y=df['sepal width'], x=df['variety'])
+plt.savefig('sep wid boxplot')
+
+sns.set_style('whitegrid')
+sns.boxplot( y=df['petal length'], x=df['variety'])
+plt.savefig('pet len boxplot')
+
+sns.set_style('whitegrid')
+sns.boxplot( y=df['petal width'], x=df['variety'])
+plt.savefig('pet len boxplot')

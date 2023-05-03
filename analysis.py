@@ -30,22 +30,32 @@ df = pd.read_csv("iris.data.csv", names=['sepal length', 'sepal width', 'petal l
 # size of dataframe (number of elements in it)
 # print(df.size)
 
+# summary statistics
+# print(df.describe())
+
+#df.hist(bins = 20)
+#plt.savefig('histograms.png')
+#plt.show()
+
+#df.hist(x = 'petal length', y = 'iris setosa')
+#plt.show()
 
 #sns.set(style="darkgrid")
 #sns.displot(df, x = 'petal length', kde = False)
-#plt.savefig('pet_len_hist.png')
+#plt.savefig('petal_length_hist.png')
+#plt.show()
 
 #sns.set(style="darkgrid")
 #sns.displot(df, x = 'petal width', kde = False)
-#plt.savefig('pet_wid_hist.png')
+#plt.savefig('petal_width_hist.png')
 
 #sns.set(style="darkgrid")
 #sns.displot(df, x = 'sepal length', kde = False)
-#plt.savefig('sep_len_hist.png')
+#plt.savefig('sepal_length_hist.png')
 
 #sns.set(style="darkgrid")
 #sns.displot(df, x = 'sepal width', kde = False)
-#plt.savefig('sep_wid_hist.png')
+#plt.savefig('sepal_width_hist.png')
 
 #sns.pairplot(df)
 #plt.savefig('iris_pairplot.png')
@@ -54,16 +64,22 @@ df = pd.read_csv("iris.data.csv", names=['sepal length', 'sepal width', 'petal l
 
 #sns.set_style('whitegrid')
 #sns.boxplot( y=df['sepal length'], x=df['variety'])
-#plt.savefig('sep len boxplot')
+#plt.savefig('sepal_length_boxplot')
 
-sns.set_style('whitegrid')
-sns.boxplot( y=df['sepal width'], x=df['variety'])
-plt.savefig('sep wid boxplot')
+#sns.set_style('whitegrid')
+#sns.boxplot( y=df['sepal width'], x=df['variety'])
+#plt.savefig('sepal_width_boxplot')
 
-sns.set_style('whitegrid')
-sns.boxplot( y=df['petal length'], x=df['variety'])
-plt.savefig('pet len boxplot')
+#sns.set_style('whitegrid')
+#sns.boxplot( y=df['petal length'], x=df['variety'])
+#plt.savefig('petal_length_boxplot')
 
-sns.set_style('whitegrid')
-sns.boxplot( y=df['petal width'], x=df['variety'])
-plt.savefig('pet len boxplot')
+#sns.set_style('whitegrid')
+#sns.boxplot( y=df['petal width'], x=df['variety'])
+#plt.savefig('petal_length_boxplot')
+
+#sns.violinplot(x=df["sepal length"])
+#plt.savefig('sepal length violin')
+
+#sns.kdeplot(x=df['sepal length'])
+#plt.savefig('kde_plot')

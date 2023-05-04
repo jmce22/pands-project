@@ -20,6 +20,7 @@ I will also provide a list of references which I used to complete my work.
 ## Table of contents
 * [Background](#background)
 * [Pre-analysis](#preanalysis)
+* [Summary of each variable](#summaryofeachvariable)
 * [Histograms](#histograms)
 * [Plots](#plots)
 * [Other analysis](#otheranalysis)
@@ -47,6 +48,11 @@ The below is an image of the three flowers analysed in the dataset, along with a
 &nbsp; 
 
 ## Pre-analysis
+
+&nbsp; 
+
+## Summary of each variable
+
 
 &nbsp; 
 

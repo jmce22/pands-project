@@ -53,7 +53,7 @@ The below is an image of the three flowers analysed in the dataset, along with a
 
 ## Pre-analysis
 
-I downloaded the dataset from I downloaded to iris dataset from https://archive.ics.uci.edu/ml/datasets/iris. I saved it as a csv file into the folder where my I worked on my project. There were no headings for the data when I opened the dataset; however, the site which I downloaded the data from did provide the information about what each of the five columns in the dataset represents. I used this to add the headings to the data so I could manipulate it. /
+I downloaded the Iris dataset from https://archive.ics.uci.edu/ml/datasets/iris. I saved it as a .csv file into the folder where my I worked on my project. There were no headings for the data when I opened the dataset; however, the site which I downloaded the data from did provide the information about what each of the five columns in the dataset represents. I used this to add the headings to the data so I could manipulate it. \
 
 The headings for the five columns were given as below:
 1. sepal length in cm
@@ -61,9 +61,23 @@ The headings for the five columns were given as below:
 3. petal length in cm
 4. petal width in cm
 5. class:
--- Iris Setosa
--- Iris Versicolour
--- Iris Virginica
+* Iris Setosa
+* Iris Versicolour
+* Iris Virginica
+
+To enable me to analyse the dataset, I imported some libraries and modules commonly used for this purpose. These were as follows:
+
+Matplotlib is a libarary used by Python to make plots and graphs. It requires NumPy to run. Matplotlib.pyplot is a collection functions which allows us to do different things to the plots we make, such as create them, add headings, change the colour scheme etc.
+
+Numpy (Numerical Python) is a package used in Python to carry out mathemetical operations on numerical datatypes, such as integers and floating-point numbers. It creates multi-dimensional array objects which allow Python to carry out mathemetical operations much more efficiently than would be the case in Python without NumPy. Matplotlib requires NumPy
+
+Pandas is a powerful and flexible Python package used for data analysis, especially of tabular data, such as the data in the .csv file used for this project. I used pandas to open the Iris dataset. Pandas creates data-structures which allow data to be maniulated, with the most important being 1-dimensional data 'series' and 2-dimensional 'dataframes' (this structure is used here). Pandas is built on top of NumPy.
+
+Seaborn is built on top of matplotlib. It enables us to make more appealing plots, utilising different styles.
+
+sys
+
+
 
 &nbsp; 
 

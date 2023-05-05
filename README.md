@@ -67,7 +67,7 @@ The headings for the five columns were given as below:
 
 To enable me to analyse the dataset, I imported some libraries and modules commonly used for this purpose. These were as follows:
 
-Matplotlib is a libarary used by Python to make plots and graphs. It requires NumPy to run. Matplotlib.pyplot is a collection functions which allows us to do different things to the plots we make, such as create them, add headings, change the colour scheme etc.
+Matplotlib is a library used by Python to make plots and graphs. It requires NumPy to run. Matplotlib.pyplot is a collection functions which allows us to do different things to the plots we make, such as create them, add headings, change the colour scheme etc.
 
 Numpy (Numerical Python) is a package used in Python to carry out mathemetical operations on numerical datatypes, such as integers and floating-point numbers. It creates multi-dimensional array objects which allow Python to carry out mathemetical operations much more efficiently than would be the case in Python without NumPy. Matplotlib requires NumPy
 

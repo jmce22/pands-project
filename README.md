@@ -8,7 +8,7 @@ This file will firstly give some background information to the dataset in questi
 I will then outline the steps which I needed to take before I could begin the actual analysis itself: this includes importing the libraries which I will use for the project; giving a description of these libraries.
 
 Next I will outline some summary statistics relating to the variables within the dataset, as well as some information about the Dataframe itself. The Dataframe is the way the information is stored in pandas: as a two-dimensional structure where each piece of information has a row and column label. \
-My script will redirect the summary statistics for each of the four variables onto a text file.
+My script will redirect the summary statistics for each of the four variables on to a text file.
 
 I will then carry out data visualisation on the Iris dataset, using histograms, scatterplots and some other types of plots. My script will save each plot generated from the data as a .png file, and these can be viewed below.
 
@@ -74,7 +74,7 @@ To enable me to analyse the dataset, I imported some libraries and modules commo
 
 * Seaborn is built on top of matplotlib. It enables us to make more appealing plots, utilising different styles.
 
-* The sys module contains different methods and variables which allow us to interact with the environment in which we are executing the Python code. For example, the sys.stdout method (which I used in this project) provides the functionality to print script output from the terminal onto an external text document, where it can be read.
+* The sys module contains different methods and variables which allow us to interact with the environment in which we are executing the Python code. For example, the sys.stdout method (which I used in this project) provides the functionality to print script output from the terminal on to an external text document, where it can be read.
 
 
 
@@ -82,17 +82,17 @@ To enable me to analyse the dataset, I imported some libraries and modules commo
 
 ## Summary of each variable
 
-The .describe() method in pandas produces summary statistics from the dataset which it used on. In this case, I looked for summary statistics for:
-* each of the four measured variables ('sepal width', 'sepal height', 'petal width' and 'petal height') for all of the flowers as a group (sample size = 150), and
-* each of the four measured variables for *each* variety of Iris flower (3 groups each of sample size = 50).
-I thought it would be interesting to see how different the statistics are for each Iris variety in isolation.
+The *.describe()* method in pandas produces summary statistics from the dataset which it used on. In this case, I looked for summary statistics for:
+1. each of the four measured variables ('sepal width', 'sepal height', 'petal width' and 'petal height') for all of the flowers as a group (sample size = 150), and
+2. each of the four measured variables for *each* variety of Iris flower (3 groups each of sample size = 50).\
+I thought it would be interesting to see how different the statistics are for each Iris variety in isolation, so I used the pandas *groupby()* function in conjunction with the *.describe* method to generate these statistics. I also used the NumPy method *np.transpose()* to invert the way the summary statistics were printed, because when printed without inverting them, the results are not easily readible on the outputted text file.
 
 * count: The count for the group as a whole was 150 samples, while the count for each class was 50 samples. Each sample had 4 variables measured.
 
 * mean (average): For the group as a whole, sepal length has the highest average length (5.843 cm), followed by petal length (3.756 cm), then sepal width (3.05 cm), and finally petal width gave the lowest average length (1.2 cm). \
 This ranking held for each of the three Iris varieties of Setosa, Versicolor and Virginica, but it is interesting to see how much smaller the numbers are for Iris Setosa compared to the other two varieties.
 
-* standard deviation
+* standard deviation: 
 
 * min 
 

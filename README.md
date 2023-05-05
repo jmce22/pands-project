@@ -36,7 +36,6 @@ This should run the code and generate the text file with summary data for the da
 ## Background
 
 
-
 The data set was collected in 1935 by the American botanist Edgar Anderson, and used in 1936 by the British statistician and biologist Ronald A. Fisher. It relates to data collected from samples of three species of the Iris flowering plant genus: Iris setosa, Iris virginica, and Iris versicolor. \
 It is commonly used as an introductory data set by people who are learning how to analyse and visualise data using programming languages.
 
@@ -53,7 +52,7 @@ The below is an image of the three flowers analysed in the dataset, along with a
 
 ## Pre-analysis
 
-I downloaded the Iris dataset from https://archive.ics.uci.edu/ml/datasets/iris. I saved it as a .csv file into the folder where my I worked on my project. There were no headings for the data when I opened the dataset; however, the site which I downloaded the data from did provide the information about what each of the five columns in the dataset represents. I used this to add the headings to the data so I could manipulate it. \
+I downloaded the Iris dataset from https://archive.ics.uci.edu/ml/datasets/iris. I saved it as a .csv file into the folder where my I worked on my project. There were no headings for the data when I opened the dataset; however, the site which I downloaded the data from did provide the information about what each of the five columns in the dataset represents. I used this to add the headings to the data so I could manipulate it.
 
 The headings for the five columns were given as below:
 1. sepal length in cm
@@ -71,7 +70,7 @@ To enable me to analyse the dataset, I imported some libraries and modules commo
 
 * Numpy (Numerical Python) is a package used in Python to carry out mathemetical operations on numerical datatypes, such as integers and floating-point numbers. It creates multi-dimensional array objects which allow Python to carry out mathemetical operations much more efficiently than would be the case in Python without NumPy. 
 
-* Pandas is a powerful and flexible Python package used for data analysis, especially of tabular data, such as the data in the .csv file used for this project. I used pandas to open the Iris dataset. Pandas creates data-structures which allow data to be maniulated, with the most important being 1-dimensional data 'series' and 2-dimensional 'dataframes' (this structure is used here). Pandas is built on top of NumPy.
+* Pandas is a powerful and flexible Python package used for data analysis, especially of tabular data, such as the data in the .csv file used for this project. I used pandas to open the Iris dataset. Pandas creates data-structures which allow data to be manipulated, with the most important being 1-dimensional data 'series' and 2-dimensional 'dataframes' (this structure is used here). Pandas is built on top of NumPy.
 
 * Seaborn is built on top of matplotlib. It enables us to make more appealing plots, utilising different styles.
 
@@ -84,18 +83,23 @@ To enable me to analyse the dataset, I imported some libraries and modules commo
 ## Summary of each variable
 
 The .describe() method in pandas produces summary statistics from the dataset which it used on. In this case, I looked for summary statistics for:
-* each of the four flower variables ('sepal width', 'sepal height', 'petal width' and 'petal height') for all of the flowers as a group (sample size = 150) and
-* each of the four variables for each variety of Iris flower (3 groups each of sample size = 50) 
-
+* each of the four measured variables ('sepal width', 'sepal height', 'petal width' and 'petal height') for all of the flowers as a group (sample size = 150), and
+* each of the four measured variables for *each* variety of Iris flower (3 groups each of sample size = 50).
 I thought it would be interesting to see how different the statistics are for each Iris variety in isolation.
 
-* count
-* mean (average)
+* count: The count for the group as a whole was 150 samples, while the count for each class was 50 samples. Each sample had 4 variables measured.
+
+* mean (average): For the group as a whole, sepal length has the highest average length (5.843 cm), followed by petal length (3.756 cm), then sepal width (3.05 cm), and finally petal width gave the lowest average length (1.2 cm). \
+This ranking held for each of the three Iris varieties of Setosa, Versicolor and Virginica, but it is interesting to see how much smaller the numbers are for Iris Setosa compared to the other two varieties.
+
 * standard deviation
-* min
-* 25th percentile
+
+* min 
+
 * 50th percentile (median)
-* 75th percentile
+
+* 25th and 75th percentile
+
 * max
 
 

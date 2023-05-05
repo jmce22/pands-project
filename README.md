@@ -67,21 +67,36 @@ The headings for the five columns were given as below:
 
 To enable me to analyse the dataset, I imported some libraries and modules commonly used for this purpose. These were as follows:
 
-Matplotlib is a library used by Python to make plots and graphs. It requires NumPy to run. Matplotlib.pyplot is a collection functions which allows us to do different things to the plots we make, such as create them, add headings, change the colour scheme etc.
+* Matplotlib is a library used by Python to make plots and graphs. It requires NumPy to run. Matplotlib.pyplot is a collection functions which allows us to do different things to the plots we make, such as create them, add headings, change the colour scheme etc.
 
-Numpy (Numerical Python) is a package used in Python to carry out mathemetical operations on numerical datatypes, such as integers and floating-point numbers. It creates multi-dimensional array objects which allow Python to carry out mathemetical operations much more efficiently than would be the case in Python without NumPy. Matplotlib requires NumPy
+* Numpy (Numerical Python) is a package used in Python to carry out mathemetical operations on numerical datatypes, such as integers and floating-point numbers. It creates multi-dimensional array objects which allow Python to carry out mathemetical operations much more efficiently than would be the case in Python without NumPy. 
 
-Pandas is a powerful and flexible Python package used for data analysis, especially of tabular data, such as the data in the .csv file used for this project. I used pandas to open the Iris dataset. Pandas creates data-structures which allow data to be maniulated, with the most important being 1-dimensional data 'series' and 2-dimensional 'dataframes' (this structure is used here). Pandas is built on top of NumPy.
+* Pandas is a powerful and flexible Python package used for data analysis, especially of tabular data, such as the data in the .csv file used for this project. I used pandas to open the Iris dataset. Pandas creates data-structures which allow data to be maniulated, with the most important being 1-dimensional data 'series' and 2-dimensional 'dataframes' (this structure is used here). Pandas is built on top of NumPy.
 
-Seaborn is built on top of matplotlib. It enables us to make more appealing plots, utilising different styles.
+* Seaborn is built on top of matplotlib. It enables us to make more appealing plots, utilising different styles.
 
-sys
+* The sys module contains different methods and variables which allow us to interact with the environment in which we are executing the Python code. For example, the sys.stdout method (which I used in this project) provides the functionality to print script output from the terminal onto an external text document, where it can be read.
 
 
 
 &nbsp; 
 
 ## Summary of each variable
+
+The .describe() method in pandas produces summary statistics from the dataset which it used on. In this case, I looked for summary statistics for:
+* each of the four flower variables ('sepal width', 'sepal height', 'petal width' and 'petal height') for all of the flowers as a group (sample size = 150) and
+* each of the four variables for each variety of Iris flower (3 groups each of sample size = 50) 
+
+I thought it would be interesting to see how different the statistics are for each Iris variety in isolation.
+
+* count
+* mean (average)
+* standard deviation
+* min
+* 25th percentile
+* 50th percentile (median)
+* 75th percentile
+* max
 
 
 &nbsp; 

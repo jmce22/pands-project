@@ -53,6 +53,18 @@ The below is an image of the three flowers analysed in the dataset, along with a
 
 ## Pre-analysis
 
+I downloaded the dataset from I downloaded to iris dataset from https://archive.ics.uci.edu/ml/datasets/iris. I saved it as a csv file into the folder where my I worked on my project. There were no headings for the data when I opened the dataset; however, the site which I downloaded the data from did provide the information about what each of the five columns in the dataset represents. I used this to add the headings to the data so I could manipulate it. /
+
+The headings for the five columns were given as below:
+1. sepal length in cm
+2. sepal width in cm
+3. petal length in cm
+4. petal width in cm
+5. class:
+-- Iris Setosa
+-- Iris Versicolour
+-- Iris Virginica
+
 &nbsp; 
 
 ## Summary of each variable

@@ -5,15 +5,18 @@ This project involves researching Fisher's Iris data set and analysing it using 
 
 This file will firstly give some background information to the dataset in question. 
 
-I will then outline the steps which I needed to take before I could begin the actual analysis itself: this includes importing the libraries which I will use for the project; giving a description of these libraries; and the details of how my final python script will print out a summary of each variable to a single text file.
+I will then outline the steps which I needed to take before I could begin the actual analysis itself: this includes importing the libraries which I will use for the project; giving a description of these libraries.
 
-Finally I will give details of my analysis of the data set. I will discuss:
-* The histograms I generated from the data
-* The scatterplots of each pair of variables
-* Finally, I will discuss any additional analyses which I have carried out on the dataset.
+Next I will outline some summary statistics relating to the variables within the dataset, as well as some information about the Dataframe itself. The Dataframe is the way the information is stored in pandas, as a two-dimensional structure where each piece of information has a row and column label. My script will redirect the symmary statistics for each of the four variables onto a text file.
+
+I will then carry out data visualisation on the Iris dataset, using histograms, scatterplots and some other types of plots. My script will save each plot generated from the data as a .png file, and these can be viewed below.
 
 My project will conclude with a summary of my findings, and my thoughts upon conclusion of the project. \
 I will also provide a list of references which I used to complete my work.
+
+Note: To execute my script, please download analysis.py from my repository into a code editor such as VS Code (which I used to complete this project). \
+While located in the folder in which you have saved analysis.py, go to the terminal window and type 'python analysis.py'. \
+This should run the code and generate the text file with summary data for the dataset, and the histograms and other plots which analyse the data.
 
 &nbsp; 
 

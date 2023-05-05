@@ -7,7 +7,8 @@ This file will firstly give some background information to the dataset in questi
 
 I will then outline the steps which I needed to take before I could begin the actual analysis itself: this includes importing the libraries which I will use for the project; giving a description of these libraries.
 
-Next I will outline some summary statistics relating to the variables within the dataset, as well as some information about the Dataframe itself. The Dataframe is the way the information is stored in pandas, as a two-dimensional structure where each piece of information has a row and column label. My script will redirect the symmary statistics for each of the four variables onto a text file.
+Next I will outline some summary statistics relating to the variables within the dataset, as well as some information about the Dataframe itself. The Dataframe is the way the information is stored in pandas: as a two-dimensional structure where each piece of information has a row and column label. \
+My script will redirect the summary statistics for each of the four variables onto a text file.
 
 I will then carry out data visualisation on the Iris dataset, using histograms, scatterplots and some other types of plots. My script will save each plot generated from the data as a .png file, and these can be viewed below.
 
@@ -22,11 +23,11 @@ This should run the code and generate the text file with summary data for the da
 
 ## Table of contents
 * [Background](#background)
-* [Pre-analysis](#preanalysis)
-* [Summary of each variable](#summaryofeachvariable)
+* [Pre-analysis](#pre-analysis)
+* [Summary of each variable](#summary-of-each-variable)
 * [Histograms](#histograms)
 * [Plots](#plots)
-* [Other analysis](#otheranalysis)
+* [Other analysis](#other-analysis)
 * [Summary](#summary)
 * [References](#references)
 

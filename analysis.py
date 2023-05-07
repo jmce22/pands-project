@@ -16,23 +16,23 @@ df = pd.read_csv("iris.data.csv", names=['sepal length', 'sepal width', 'petal l
 # To print the summary statistics to a file, we create a function where all of the print statements contained within get printed to
 # the text file when the function is called. This will allow us to just print the summary statistics to the text file and none of the
 # other output from the script which will be in the terminal.
-# def summary_statistics():
+def summary_statistics():
 
 
 # The function sys.stdout allows us to redirect the print statements contained within it to a text file
 # Reference: https://stackoverflow.com/questions/23364096/how-to-write-output-of-terminal-to-file
-#    f = open("summary statistics.txt", 'w')
-#    sys.stdout = f
+    f = open("summary statistics.txt", 'w')
+    sys.stdout = f
 
-#    summary_stats = df.describe()
+    summary_stats = df.describe()
     
     
 # This firstly transposes the output of the .describe() method, to make it easier to read it when it is printed out. 
 # References: https://numpy.org/doc/stable/reference/generated/numpy.transpose.html 
 
 
-#    transpose_summary = np.transpose(summary_stats)
-#    summary= transpose_summary
+    transpose_summary = np.transpose(summary_stats)
+    summary= transpose_summary
 
     
 # The groupyby function in pandas allows us to split the dataframe into groups separated according to the data in the 
@@ -40,54 +40,65 @@ df = pd.read_csv("iris.data.csv", names=['sepal length', 'sepal width', 'petal l
 # We can then generate summary statistics for each class of Iris in the dataset.
 # Reference: https://www.geeksforgeeks.org/python-pandas-dataframe-groupby/ 
     
-#    summary_stats_by_class = df.groupby("variety").describe()
-#    transpose_summary_class = np.transpose(summary_stats_by_class)
-#    summary_by_class= transpose_summary_class
+    summary_stats_by_class = df.groupby("variety").describe()
+    transpose_summary_class = np.transpose(summary_stats_by_class)
+    summary_by_class= transpose_summary_class
 
 
 # I have added calculations for the Coefficient of Variation summary statistic to the outputted text file, 
 # because this statistic isn't provided directly by the .decribe() method, but I feel this is a useful statistic to 
 # provide a high-level picture of which traits are the most variable within the sample as a whole.
 
-#    meansl = df["sepal length"].mean()
-#    sdsl = df["sepal length"].std()
-#    meansw = df["sepal width"].mean()
-#    sdsw = df["sepal width"].std()
-#    meanpl = df["petal length"].mean()
-#    sdpl = df["petal length"].std()
-#    meanpw = df["petal width"].mean()
-#    sdpw = df["petal width"].std()
-    
+    meansl = df["sepal length"].mean()
+    sdsl = df["sepal length"].std()
+    meansw = df["sepal width"].mean()
+    sdsw = df["sepal width"].std()
+    meanpl = df["petal length"].mean()
+    sdpl = df["petal length"].std()
+    meanpw = df["petal width"].mean()
+    sdpw = df["petal width"].std()
 
-#    print("Summary statistics for the four variables measured for the Iris data set")
-#    print("\n\n")
-#    print(summary)
-#    print("\n\n")
-#    print("Here are some summary statistics for each class of Iris flower: \n")
-#    print(summary_by_class)
-#    print("\n")
-#    print("The coefficient of variation for each trait within the sample as a whole is as follows: \n")
-#    print(f'Sepal length: CoV = {sdsl/meansl}')
-#    print(f'Sepal width: CoV = {sdsw/meansw}')
-#    print(f'Petal length: CoV = {sdpl/meanpl}')
-#    print(f'Petal width: CoV = {sdpw/meanpw}')
-#    print("\n\n")
-#    print("For a description of these summary statistics, please see the README file for this project.")
+    skewsl = df["sepal length"].skew()
+    skewsw = df["sepal width"].skew()
+    skewpl = df["petal length"].skew()
+    skewpw = df["petal width"].skew() 
 
-#    f.close()
+    print("Summary statistics for the four variables measured for the Iris data set: ")
+    print("\n\n")
+    print(summary)
+    print("\n\n")
+    print("Here are some summary statistics for each class of Iris flower: \n")
+    print(summary_by_class)
+    print("\n")
+    print("The coefficient of variation for each trait within the sample as a whole is as follows: \n")
+    print(f'Sepal length: CoV = {sdsl/meansl}')
+    print(f'Sepal width: CoV = {sdsw/meansw}')
+    print(f'Petal length: CoV = {sdpl/meanpl}')
+    print(f'Petal width: CoV = {sdpw/meanpw}')
+    print("\n\n")
+    print("The skewness of each trait within the sample as a whole is as follows: \n ")
+    print(f'Sepal length: Skewness = {skewsl}')
+    print(f'Sepal width: Skewness = {skewsw}')
+    print(f'Petal length: Skewness = {skewpl}')
+    print(f'Petal width: Skewness = {skewpw}')
+    print("\n\n")
+    print("For a description of these summary statistics, please see the README file for this project.")
+
+    f.close()
 
 # this calls the function defined above
-# summary_statistics()
+summary_statistics()
 
 
 
 
-# The below section of this script generates the histograms for the project
+# The below section of this script generates the histograms for the project.
 # sns.set() imposes one of five general themes on to the histograms.
-# sns.displot creates each histogram; here we pass in the Dataframe which we will generate the histogram from,
-# specify the column to be analysed (eg. 'sepal length'), and select the number of bins and colour for the graph. 
+# sns.displot creates each histogram: here we pass in the Dataframe, df, which we will generate the histogram from,
+# specify the column to be analysed (eg. 'sepal length'), and select the number of bins for the histogram.
 # I used the 'hue' argument to cause the data in the histogram to be coloured according to what variety of Iris flower
-# the data relates to. This allows us to compare the distribution of each trait for each variety of Iris flower.
+# the data relates to, and a legend is automatically created. 
+# This allows us to compare the distribution of each trait for each variety of Iris flower.
 # The 'stack' argument causes the data to overlap in a stacked fashion, rather than layering them over each other transparently,
 # which I think makes it harder to compare the data.
 # Reference: https://seaborn.pydata.org/tutorial/distributions.html?highlight=histogram

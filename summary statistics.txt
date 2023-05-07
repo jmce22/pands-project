@@ -1,4 +1,4 @@
-Summary statistics for the four variables measured for the Iris data set
+Summary statistics for the four variables measured for the Iris data set: 
 
 
 
@@ -47,7 +47,7 @@ petal width  count    50.000000        50.000000       50.000000
              max       0.600000         1.800000        2.500000
 
 
-The coefficient of variation for each trait is as follows: 
+The coefficient of variation for each trait within the sample as a whole is as follows: 
 
 Sepal length: CoV = 0.1417112597794403
 Sepal width: CoV = 0.1419758714348964
@@ -56,4 +56,10 @@ Petal width: CoV = 0.63667470108524
 
 
 
+The skewness of each trait within the sample as a whole is as follows: 
+ 
+Sepal length: Skewness = 0.3149109566369728
+Sepal width: Skewness = 0.3340526621720866
+Petal length: Skewness = -0.27446425247378287
+Petal width: Skewness = -0.10499656214412734
 For a description of these summary statistics, please see the README file for this project.

@@ -45,6 +45,21 @@ def summary_statistics():
     transpose_summary_class = np.transpose(summary_stats_by_class)
     summary_by_class= transpose_summary_class
 
+
+# I have added calculations for the Coefficient of Variation summary statistic to the outputted text file, 
+# because this statistic isn't provided directly by the .decribe() method, but I feel this is a useful statistic to 
+# provide a high-level picture of which traits are the most variable within the population as a whole.
+
+    meansl = df["sepal length"].mean()
+    sdsl = df["sepal length"].std()
+    meansw = df["sepal width"].mean()
+    sdsw = df["sepal width"].std()
+    meanpl = df["petal length"].mean()
+    sdpl = df["petal length"].std()
+    meanpw = df["petal width"].mean()
+    sdpw = df["petal width"].std()
+    
+
     print("Summary statistics for the four variables measured for the Iris data set")
     print("\n\n")
     print(summary)
@@ -52,6 +67,12 @@ def summary_statistics():
     print("Here are some summary statistics for each class of Iris flower: \n")
     print(summary_by_class)
     print("\n")
+    print("The coefficient of variation for each trait is as follows: \n")
+    print(f'Sepal length: CoV = {sdsl/meansl}')
+    print(f'Sepal width: CoV = {sdsw/meansw}')
+    print(f'Petal length: CoV = {sdpl/meanpl}')
+    print(f'Petal width: CoV = {sdpw/meanpw}')
+    print("\n\n")
     print("For a description of these summary statistics, please see the README file for this project.")
 
     f.close()
@@ -133,7 +154,4 @@ plt.show()
 #sns.kdeplot(x=df['sepal length'])
 #plt.savefig('kde_plot')
 
-#print(df.groupby('variety').mean())
-
-#with open('summary_statistics.txt', 'w') as f:
  

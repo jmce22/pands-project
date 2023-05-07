@@ -47,4 +47,13 @@ petal width  count    50.000000        50.000000       50.000000
              max       0.600000         1.800000        2.500000
 
 
+The coefficient of variation for each trait is as follows: 
+
+Sepal length: CoV = 0.1417112597794403
+Sepal width: CoV = 0.1419758714348964
+Petal length: CoV = 0.4694272135382034
+Petal width: CoV = 0.63667470108524
+
+
+
 For a description of these summary statistics, please see the README file for this project.

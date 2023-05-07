@@ -70,7 +70,7 @@ To enable me to analyse the dataset, I imported some libraries and modules commo
 
 * Numpy (Numerical Python) is a package used in Python to carry out mathemetical operations on numerical datatypes, such as integers and floating-point numbers. It creates multi-dimensional array objects which allow Python to carry out mathemetical operations much more efficiently than would be the case in Python without NumPy. 
 
-* Pandas is a powerful and flexible Python package used for data analysis, especially of tabular data, such as the data in the .csv file used for this project. I used pandas to open the Iris dataset. Pandas creates data-structures which allow data to be manipulated, with the most important being 1-dimensional data 'series' and 2-dimensional 'dataframes' (this structure is used here). Pandas is built on top of NumPy.
+* Pandas is a powerful and flexible Python package used for data analysis, especially of tabular data, such as the data in the .csv file used for this project. I used pandas to open the Iris dataset. Pandas creates data-structures which allow data to be manipulated, with the most important being 1-dimensional data 'series' and 2-dimensional 'dataframes' (the structure which is used here to manipulate the Iris data). Pandas is built on top of NumPy.
 
 * Seaborn is built on top of matplotlib. It enables us to make more appealing plots, utilising different styles.
 
@@ -82,10 +82,15 @@ To enable me to analyse the dataset, I imported some libraries and modules commo
 
 ## Summary of each variable
 
-The *.describe()* method in pandas produces summary statistics from the dataset which it used on. In this case, I looked for summary statistics for:
-1. each of the four measured variables ('sepal width', 'sepal height', 'petal width' and 'petal height') for all of the flowers as a group (sample size = 150), and
-2. each of the four measured variables for *each* variety of Iris flower (3 groups each of sample size = 50).\
-I thought it would be interesting to see how different the statistics are for each Iris variety in isolation, so I used the pandas *groupby()* function in conjunction with the *.describe* method to generate these statistics. I also used the NumPy method *np.transpose()* to invert the way the summary statistics were printed, because when printed without inverting them, the results are not easily readible on the outputted text file.
+Using pandas, we can generate various summary statistics of the data contained in a pandas dataframe object. One way of doing this is to use methods to generate individual summary statistics for the columns of numerical data in the dataframe: examples include the .mean() and .max() methods, used to calculate the mean value and max value, respectively, of each column of numerical data in the dataframe.
+
+It is possible, however, to produce numerous summary statistics with one command by using the .describe() method. I used this method here, where I looked for summary statistics for:
+1. each of the four measured traits ('sepal width', 'sepal height', 'petal width' and 'petal height') for all of the flowers as a group (sample size = 150), and
+2. each of the four measured traits for *each* variety of Iris flower (3 groups each of sample size = 50).
+
+I generated the second set of statistics because I was interested in seeing how different the statistics would be for each Iris variety in isolation. I used the pandas *groupby()* function in conjunction with the *.describe* method to generate these statistics. I also used the NumPy method *np.transpose()* to invert the way the summary statistics were printed, because when printed without inverting them, the results are not easily readible on the outputted text file.
+
+The statistical properties measured are as follows:
 
 * count: The count for the group as a whole was 150 samples, while the count for each class was 50 samples. Each sample had 4 variables measured.
 
@@ -94,9 +99,9 @@ This ranking held for each of the three Iris varieties of Setosa, Versicolor and
 
 * standard deviation: 
 
-* min 
+* min: the smallest value, in cm, for the trait being measured. The values for 
 
-* 50th percentile (median)
+* 50th percentile (median): the value for the trait being measured, which lies at the midpoint of all values for the trait (50% of values are above this value, and 50% of values are below it). Within the group as a whole, the median value for each of the four traits followed the same ranking as the mean, with the longest median being that of the sepal length (5.8 cm), followed by petal length (4.35 cm), sepal width (3 cm) and petal width (1.3 cm). We can see that the values for the median for three of the four traits are quite close to the values for the mean, but for petal length, the mean is significantly lower (3.756 cm compared to 4.35 cm): this can be explained by the much lower values for the petal length of Iris Setosa compared with Iris Versicolor and Iris Virginica.
 
 * 25th and 75th percentile
 

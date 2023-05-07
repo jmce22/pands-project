@@ -5,7 +5,7 @@ This project involves researching Fisher's Iris data set and analysing it using 
 
 This file will firstly give some background information to the dataset in question. 
 
-I will then outline the steps which I needed to take before I could begin the actual analysis itself: downloading the data-set, adding the correct headings, and including importing the modules, libraries and packages which I used for the project.
+I will then outline the steps which I needed to take before I could begin the actual analysis itself: downloading the data-set, adding the correct headings, and importing the modules, libraries and packages which I used for the project.
 
 Next I will outline some summary statistics relating to the variables within the dataset. 
 My script will redirect the summary statistics for each of the four variables on to a text file.
@@ -96,6 +96,8 @@ The statistical properties measured are as follows:
 This ranking held for each of the three Iris varieties of Setosa, Versicolor and Virginica, but it is interesting to see how much smaller the numbers are for Iris Setosa compared to the other two varieties.
 
 * standard deviation: This is a measure of the dispersion of the values of a given set a data. The value for standard deviation calculated by pandas is calculated using a population size of (N - 1) rather than (N), and this (N - 1) formula is suitable for the relatively small population sizes of 50 and 150 being analysed here.
+The Coefficient of Variation (CoV), which measures the extent of standard deviation of a sample relative to the mean of the sample, is useful to give a sense of how variable a given trait is. The CoV is calculated as (sd/ mean), and among the sample of 150 flowers, the figure for CoV for sepal length and sepal width are remarkable similar, at 0.141, which is a much lower measure of variability than the figures for petal length (0.469) and petal width (0.637). 
+Note: as CoV isn't directly calculated by the *.decribe()* method, I calculated them using the *.mean()* and *.std()* methods and printed the results to the text file.
 
 * min: the smallest value, in cm, for the trait being measured. The smallest value for each trait within the group as a whole are as follows:
 sepal length (4.3 cm), sepal width (2 cm), petal length (1 cm) and petal width (0.1 cm). \

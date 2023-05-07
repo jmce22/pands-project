@@ -58,9 +58,9 @@ The headings for the five columns were given as below:
 3. petal length in cm
 4. petal width in cm
 5. class:
-* Iris Setosa
-* Iris Versicolour
-* Iris Virginica
+* Iris setosa
+* Iris versicolour
+* Iris virginica
 
 To enable me to analyse the dataset, I imported some libraries and modules commonly used for this purpose. These were as follows:
 
@@ -83,7 +83,7 @@ To enable me to analyse the dataset, I imported some libraries and modules commo
 Using pandas, we can generate various summary statistics of the data contained in a pandas Dataframe object. One way of doing this is to use methods to generate individual summary statistics for the columns of numerical data in the Dataframe: examples include the .mean() and .max() methods, used to calculate the mean value and max value, respectively, of each column of numerical data in the dataframe.
 
 It is possible, however, to produce numerous summary statistics with one command by using the *.describe()* method. I used this method here, where I looked for summary statistics for:
-1. each of the four measured traits ('sepal width', 'sepal height', 'petal width' and 'petal height') for all of the flowers as a group (sample size = 150), and
+1. each of the four measured traits ('sepal width', 'sepal length', 'petal width' and 'petal length') for all of the flowers as a group (sample size = 150), and
 2. each of the four measured traits for *each* variety of Iris flower (3 groups each of sample size = 50).
 
 I generated the second set of statistics because I was interested in seeing how different the statistics would be for each Iris variety in isolation. I used the pandas *groupby()* function in conjunction with the *.describe* method to generate these statistics. I also used the NumPy method *np.transpose()* to invert the way the summary statistics were printed, because when printed without inverting them, the results are not easily readible on the outputted text file.
@@ -93,7 +93,7 @@ The statistical properties measured are as follows:
 * count: The count for the group as a whole was 150 samples, while the count for each class was 50 samples. Each sample had 4 variables measured.
 
 * mean (average): For the group as a whole, sepal length has the highest average length (5.843 cm), followed by petal length (3.756 cm), then sepal width (3.05 cm), and finally petal width gave the lowest average length (1.2 cm). \
-This ranking held for each of the three Iris varieties of Setosa, Versicolor and Virginica, but it is interesting to see how much smaller the numbers are for Iris Setosa compared to the other two varieties.
+This ranking held for each of the three Iris varieties of setosa, versicolor and virginica, but it is interesting to see how much smaller the numbers are for Iris Setosa compared to the other two varieties.
 
 * standard deviation: This is a measure of the dispersion of the values of a given set a data. The value for standard deviation calculated by pandas is calculated using a population size of (N - 1) rather than (N), and this (N - 1) formula is suitable for the relatively small population sizes of 50 and 150 being analysed here.
 The Coefficient of Variation (CoV), which measures the extent of standard deviation of a sample relative to the mean of the sample, is useful to give a sense of how variable a given trait is. The CoV is calculated as (sd/ mean), and among the sample of 150 flowers, the figure for CoV for sepal length and sepal width are remarkable similar, at 0.141, which is a much lower measure of variability than the figures for petal length (0.469) and petal width (0.637). 
@@ -101,17 +101,18 @@ Note: as CoV isn't directly calculated by the *.decribe()* method, I calculated 
 
 * min: the smallest value, in cm, for the trait being measured. The smallest value for each trait within the group as a whole are as follows:
 sepal length (4.3 cm), sepal width (2 cm), petal length (1 cm) and petal width (0.1 cm). \
-For sepal length, petal length and petal width, Iris Setosa was the variety which was responsible for the smallest value, although for sepal width, the variety with the smallest value was Iris Versicolor.
+For sepal length, petal length and petal width, Iris setosa was the variety which was responsible for the smallest value, although for sepal width, the variety with the smallest value was Iris versicolor.
 
-* 50th percentile (median): the value for the trait being measured, which lies at the midpoint of all values for the trait (50% of values are above this value, and 50% of values are below it). Within the group as a whole, the median value for each of the four traits followed the same ranking as the mean, with the longest median being that of the sepal length (5.8 cm), followed by petal length (4.35 cm), sepal width (3 cm) and petal width (1.3 cm). We can see that the values for the median for three of the four traits are quite close to the values for the mean, but for petal length, the mean is significantly lower (3.756 cm compared to 4.35 cm): this can be explained by the much lower values for the petal length of Iris Setosa compared with Iris Versicolor and Iris Virginica.
+* 50th percentile (median): the value for the trait being measured which lies at the midpoint of all values for the trait (50% of values are above this value, and 50% of values are below it). Within the group as a whole, the median value for each of the four traits followed the same ranking as the mean, with the longest median being that of the sepal length (5.8 cm), followed by petal length (4.35 cm), sepal width (3 cm) and petal width (1.3 cm). \
+We can see that the values for the median for three of the four traits are quite close to the values for the mean, but for petal length, the mean is significantly lower (3.756 cm compared to 4.35 cm): this can be explained by the much lower values for the petal length of Iris setosa compared with Iris versicolor and Iris virginica.
 
-* 25th and 75th percentile: For these values, we can see that, within the overal sample of 150 flowers, the values constituting the 25th percentile for petal length and petal width deviate much more from the median than is the case for the sepal length and sepal width. A quick look at the summary statistics for petal length and petal width for the three varieties in isolation shows us that the values for these traits are significantly lower in Iris Setosa compared with Iris Versicolor and Iris Virginica, and these lower figures drag down the figure for 25th percentile for each of these traits.
+* 25th and 75th percentile: For these values, we can see that, within the overal sample of 150 flowers, the values constituting the 25th percentile for petal length and petal width deviate much more from the median than is the case for the sepal length and sepal width. A quick look at the summary statistics for petal length and petal width for the three varieties in isolation shows us that the values for these traits are significantly lower in Iris setosa compared with Iris versicolor and Iris virginica, and these lower figures drag down the figure for 25th percentile for each of these traits. \
 The summary statistics for Iris Versicolor and Iris Virginica do not differ as greatly between each other and either do from Iris Setosa (although Iris Virginica seems to have, overall, larger measurements than Versicolor for it's four traits); due to this, the figures for the 75th percentile values are not as distant from the median as the 25th percentile figures are. \
 These values will be illustrated by boxplots later in the project.
 
 * max: the largest value, in cm, for the trait being measured. The largest value for each trait within the group as a whole are as follows:
 sepal length (7.9 cm), petal length (6.9 cm), sepal width (4.4 cm) and petal width (2.5 cm). \ 
-For sepal length, petal length and petal width, Iris Virginica was the variety which was responsible for the largest value, although for sepal width, the variety with the largest value was Iris Versicolor.
+For sepal length, petal length and petal width, Iris virginica was the variety which was responsible for the largest value, although for sepal width, the variety with the largest value was Iris setosa.
 
 
 &nbsp; 

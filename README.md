@@ -5,9 +5,9 @@ This project involves researching Fisher's Iris data set and analysing it using 
 
 This file will firstly give some background information to the dataset in question. 
 
-I will then outline the steps which I needed to take before I could begin the actual analysis itself: this includes importing the libraries which I will use for the project; giving a description of these libraries.
+I will then outline the steps which I needed to take before I could begin the actual analysis itself: downloading the data-set, adding the correct headings, and including importing the modules, libraries and packages which I used for the project.
 
-Next I will outline some summary statistics relating to the variables within the dataset, as well as some information about the Dataframe itself. The Dataframe is the way the information is stored in pandas: as a two-dimensional structure where each piece of information has a row and column label. \
+Next I will outline some summary statistics relating to the variables within the dataset. 
 My script will redirect the summary statistics for each of the four variables on to a text file.
 
 I will then carry out data visualisation on the Iris dataset, using histograms, scatterplots and some other types of plots. My script will save each plot generated from the data as a .png file, and these can be viewed below.
@@ -15,9 +15,7 @@ I will then carry out data visualisation on the Iris dataset, using histograms, 
 My project will conclude with a summary of my findings, and my thoughts upon conclusion of the project. \
 I will also provide a list of references which I used to complete my work.
 
-Note: To execute my script, please download analysis.py from my repository into a code editor such as VS Code (which I used to complete this project). \
-While located in the folder in which you have saved analysis.py, go to the terminal window and type 'python analysis.py'. \
-This should run the code and generate the text file with summary data for the dataset, and the histograms and other plots which analyse the data.
+Note: To execute my script, please download analysis.py from my repository into a code editor such as VS Code (which I used to complete this project). While located in the folder in which you have saved analysis.py, go to the terminal window and type 'python analysis.py'. This should run the code and generate the text file with summary data for the dataset, and the histograms and other plots which analyse the data.
 
 &nbsp; 
 
@@ -70,7 +68,7 @@ To enable me to analyse the dataset, I imported some libraries and modules commo
 
 * Numpy (Numerical Python) is a package used in Python to carry out mathemetical operations on numerical datatypes, such as integers and floating-point numbers. It creates multi-dimensional array objects which allow Python to carry out mathemetical operations much more efficiently than would be the case in Python without NumPy. 
 
-* Pandas is a powerful and flexible Python package used for data analysis, especially of tabular data, such as the data in the .csv file used for this project. I used pandas to open the Iris dataset. Pandas creates data-structures which allow data to be manipulated, with the most important being 1-dimensional data 'series' and 2-dimensional 'dataframes' (the structure which is used here to manipulate the Iris data). Pandas is built on top of NumPy.
+* Pandas is built on top on NumPy, and is a powerful and flexible Python package used for data analysis, especially of tabular data, such as the data in the .csv file used for this project. I used pandas to open the Iris dataset. Pandas creates data-structures which allow data to be manipulated, with the most important being 1-dimensional data 'series' and 2-dimensional 'Dataframes' (the structure which is used here to manipulate the Iris data). The Dataframe in pandas stores data as a two-dimensional structure where each piece of information has a row and column label.
 
 * Seaborn is built on top of matplotlib. It enables us to make more appealing plots, utilising different styles.
 
@@ -82,9 +80,9 @@ To enable me to analyse the dataset, I imported some libraries and modules commo
 
 ## Summary of each variable
 
-Using pandas, we can generate various summary statistics of the data contained in a pandas dataframe object. One way of doing this is to use methods to generate individual summary statistics for the columns of numerical data in the dataframe: examples include the .mean() and .max() methods, used to calculate the mean value and max value, respectively, of each column of numerical data in the dataframe.
+Using pandas, we can generate various summary statistics of the data contained in a pandas Dataframe object. One way of doing this is to use methods to generate individual summary statistics for the columns of numerical data in the Dataframe: examples include the .mean() and .max() methods, used to calculate the mean value and max value, respectively, of each column of numerical data in the dataframe.
 
-It is possible, however, to produce numerous summary statistics with one command by using the .describe() method. I used this method here, where I looked for summary statistics for:
+It is possible, however, to produce numerous summary statistics with one command by using the *.describe()* method. I used this method here, where I looked for summary statistics for:
 1. each of the four measured traits ('sepal width', 'sepal height', 'petal width' and 'petal height') for all of the flowers as a group (sample size = 150), and
 2. each of the four measured traits for *each* variety of Iris flower (3 groups each of sample size = 50).
 
@@ -97,15 +95,21 @@ The statistical properties measured are as follows:
 * mean (average): For the group as a whole, sepal length has the highest average length (5.843 cm), followed by petal length (3.756 cm), then sepal width (3.05 cm), and finally petal width gave the lowest average length (1.2 cm). \
 This ranking held for each of the three Iris varieties of Setosa, Versicolor and Virginica, but it is interesting to see how much smaller the numbers are for Iris Setosa compared to the other two varieties.
 
-* standard deviation: 
+* standard deviation: This is a measure of the dispersion of the values of a given set a data. The value for standard deviation calculated by pandas is calculated using a population size of (N - 1) rather than (N), and this (N - 1) formula is suitable for the relatively small population sizes of 50 and 150 being analysed here.
 
-* min: the smallest value, in cm, for the trait being measured. The values for 
+* min: the smallest value, in cm, for the trait being measured. The smallest value for each trait within the group as a whole are as follows:
+sepal length (4.3 cm), sepal width (2 cm), petal length (1 cm) and petal width (0.1 cm). \
+For sepal length, petal length and petal width, Iris Setosa was the variety which was responsible for the smallest value, although for sepal width, the variety with the smallest value was Iris Versicolor.
 
 * 50th percentile (median): the value for the trait being measured, which lies at the midpoint of all values for the trait (50% of values are above this value, and 50% of values are below it). Within the group as a whole, the median value for each of the four traits followed the same ranking as the mean, with the longest median being that of the sepal length (5.8 cm), followed by petal length (4.35 cm), sepal width (3 cm) and petal width (1.3 cm). We can see that the values for the median for three of the four traits are quite close to the values for the mean, but for petal length, the mean is significantly lower (3.756 cm compared to 4.35 cm): this can be explained by the much lower values for the petal length of Iris Setosa compared with Iris Versicolor and Iris Virginica.
 
-* 25th and 75th percentile
+* 25th and 75th percentile: For these values, we can see that, within the overal sample of 150 flowers, the values constituting the 25th percentile for petal length and petal width deviate much more from the median than is the case for the sepal length and sepal width. A quick look at the summary statistics for petal length and petal width for the three varieties in isolation shows us that the values for these traits are significantly lower in Iris Setosa compared with Iris Versicolor and Iris Virginica, and these lower figures drag down the figure for 25th percentile for each of these traits.
+The summary statistics for Iris Versicolor and Iris Virginica do not differ as greatly between each other and either do from Iris Setosa (although Iris Virginica seems to have, overall, larger measurements than Versicolor for it's four traits); due to this, the figures for the 75th percentile values are not as distant from the median as the 25th percentile figures are. \
+These values will be illustrated by boxplots later in the project.
 
-* max
+* max: the largest value, in cm, for the trait being measured. The largest value for each trait within the group as a whole are as follows:
+sepal length (7.9 cm), petal length (6.9 cm), sepal width (4.4 cm) and petal width (2.5 cm). \ 
+For sepal length, petal length and petal width, Iris Virginica was the variety which was responsible for the largest value, although for sepal width, the variety with the largest value was Iris Versicolor.
 
 
 &nbsp; 

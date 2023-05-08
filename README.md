@@ -166,11 +166,23 @@ In terms of sepal length and sepal width, the ranking of size from smallest to l
 
 ## Plots
 
-A scatterplot is a type of plot which displays the values for two variables by plotting the value of one variable on the x-axis, and the other variable on the y-axis. Such a plot is useful to determine the degree to which two variables are correlated.
-* If x tends to increase while y increases, x is said to be positively correlated with y
-* If x tends to decrease while y increases, x is said to be negatively correlated with y.
+A scatterplot is a type of plot in which the values of two variables are plotted seperately along the x-axis and the y-axis, and the pattern of the plot can be used to determined the degree to which the two variables are correlated. A figure known as the sample correlation coefficient, 'r', can be calculated between two variables to put a figure on the degree of correlation, and it lies between -1 and 1.
+* If x tends to increase while y increases, x is said to be positively correlated with y, and r > 0.
+* If x tends to decrease while y increases, x is said to be negatively correlated with y, and r < 0.
 * A figure close to zero implies little or no correlation between the variables.
 
+Pairplot to depict correlations between pairs of traits among full Iris dataset:
+
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/iris_pairplot.png)
+
+Pairplot for correlctions between pairs of traits among Iris setosa data:
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/setosa_pairplot.png)
+
+Pairplot for correlctions between pairs of traits among Iris versicolor data:
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/versicolor_pairplot.png)
+
+Pairplot for correlctions between pairs of traits among Iris virginica data:
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/virginica_pairplot.png)
 
 
 &nbsp; 

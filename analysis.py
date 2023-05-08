@@ -24,6 +24,13 @@ def summary_statistics():
     f = open("summary statistics.txt", 'w')
     sys.stdout = f
 
+# These three functions generate a sample of rows from the data frame (the first five, a random five and the last five rows, respectively).
+# The reason for printing these out is the give me confidence that the dataframe is set up properly, showing the headings,
+# where the index begins (at zero) and that it contains 150 rows. 
+    first_five_rows = df.head()
+    sample_five_rows = df.sample(n=5)
+    last_five_rows = df.tail()
+
     summary_stats = df.describe()
     
     
@@ -58,18 +65,33 @@ def summary_statistics():
     meanpw = df["petal width"].mean()
     sdpw = df["petal width"].std()
 
+
+# I have also added the skewness of each trait among the population, to get an idea of how close to normal the distribution
+# of each trait is.
     skewsl = df["sepal length"].skew()
     skewsw = df["sepal width"].skew()
     skewpl = df["petal length"].skew()
     skewpw = df["petal width"].skew() 
 
-    print("Summary statistics for the four variables measured for the Iris data set: ")
+    print("Below are some samples of rows of data found within the data frame.") 
+    print("These reassure us that the dataframe has been created correctly, with appropriate headings,\ncapturing all data as expected, and taking a consistent form throughout.")
+    #print(dataframe_info)
+    print("\n")
+    print("First five rows: ")
+    print(first_five_rows)
+    print("\n")
+    print("A random sample of five rows: ")
+    print(sample_five_rows)
+    print("\n")
+    print("Last five rows: ")
+    print(last_five_rows)
     print("\n\n")
+    print("Below are some summary statistics for the four variables measured for the Iris data set: ")
     print(summary)
     print("\n\n")
-    print("Here are some summary statistics for each class of Iris flower: \n")
+    print("Here are the same summary statistics for each class of Iris flower: \n")
     print(summary_by_class)
-    print("\n")
+    print("\n\n")
     print("The coefficient of variation for each trait within the sample as a whole is as follows: \n")
     print(f'Sepal length: CoV = {sdsl/meansl}')
     print(f'Sepal width: CoV = {sdsw/meansw}')
@@ -117,12 +139,12 @@ plt.tight_layout()
 plt.savefig('sepal_width_varieties.png')
 
 
-sns.displot(df, x ="petal length", bins = 20, hue ="variety", multiple = "stack").set(title = "Petal length for each Iris variety", xlabel = "Petal length in cm")
+petal_length = sns.displot(df, x ="petal length", bins = 20, hue ="variety", multiple = "stack").set(title = "Petal length for each Iris variety", xlabel = "Petal length in cm")
 plt.tight_layout()
 plt.savefig('petal_length_varieties.png')
 
 
-sns.displot(df, x ="petal width", bins = 20, hue ="variety", multiple = "stack").set(title = "Petal width for each Iris variety", xlabel = "Petal width in cm")
+petal_width = sns.displot(df, x ="petal width", bins = 20, hue ="variety", multiple = "stack").set(title = "Petal width for each Iris variety", xlabel = "Petal width in cm")
 plt.tight_layout()
 plt.savefig('petal_width_varieties.png')
 

@@ -13,7 +13,7 @@ This project involves researching Fisher's Iris data set and analysing it using 
 
 This file will firstly give some background information to the dataset in question. 
 
-I will then outline the steps which I needed to take before I could begin the actual analysis itself: downloading the data-set, adding the correct headings, and importing the modules, libraries and packages which I used for the project.
+I will then outline the steps which I needed to take before I could begin the actual analysis itself: downloading the data-set, preparing the dataset by adding the correct headings, and importing the modules, libraries and packages which I used for the project.
 
 Next I will outline some summary statistics relating to the variables within the dataset. 
 My script will redirect the summary statistics for each of the four variables on to a text file.
@@ -118,7 +118,7 @@ These values will be illustrated by boxplots later in the project.
 sepal length (7.9 cm), petal length (6.9 cm), sepal width (4.4 cm) and petal width (2.5 cm). \ 
 For sepal length, petal length and petal width, Iris virginica was the variety which was responsible for the largest value, although for sepal width, the variety with the largest value was Iris setosa.
 
-* standard deviation: This is a measure of the dispersion of the values of a given set a data. The value for standard deviation calculated by pandas is calculated using a population size of (N - 1) rather than (N), and this (N - 1) formula is suitable for the relatively small population sizes of 50 and 150 being analysed here.
+* standard deviation: This is a measure of the dispersion of the values of a given set a data. The value for standard deviation calculated by pandas is calculated using a population size of (N - 1) rather than (N), and this (N - 1) formula is suitable for the relatively small population sizes of 50 and 150 being analysed here. Rather than analyse the figures for standard deviation in isolation, I thought it would be more appropriate to calculate the coefficient of variation for each trait instead (see below), as this gives a more meaningful picture of the degree of dispersion of values for each trait which can then be compared with the same statistic for traits.
 
 * The Coefficient of Variation (CoV), which measures the extent of standard deviation of a sample relative to the mean of the sample, is useful to give a sense of how variable a given trait is. The CoV is calculated as (sd/ mean), and among the sample of 150 flowers, the figure for CoV for sepal length and sepal width are remarkable similar, at 0.141, which is a much lower measure of variability than the figures for petal length (0.469) and petal width (0.637). 
 Note: as CoV isn't directly calculated by the *.decribe()* method, I calculated them using the *.mean()* and *.std()* methods and printed the results to the text file.
@@ -131,6 +131,12 @@ For sepal length and sepal width, the values for skewness are slightly positive 
 &nbsp; 
 
 ## Histograms
+
+To begin visualising the data, I created four histograms using Seaborn. I decided to create one histogram for each trait, and to include on each histogram the contribution of each Iris flower to the data in the histogram. I achieved this using the "hue" argument, where I could split the histogram into three different colours, depending on which value is found in the "variety" column associated with the point of data being included on the histogram. I then specified that the histograms should be stacked on top of each other, rather than overlapping each other, as I found that this allowed me to more easily get a sense of how the data is distributed: to achieve this, I used the argument "multiple = stack".
+
+I added a title and changed the label on the x-axis by appending the .set() function to the sns.displot function. I also improved the appearance of each histogram by using the plt.tight_layout() to increase the amount of space for the heading at the top. I then saved each histogram as a .png file and these are included below:
+
+
 
 &nbsp; 
 

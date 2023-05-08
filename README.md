@@ -123,7 +123,7 @@ For sepal length, petal length and petal width, Iris virginica was the variety w
 * The Coefficient of Variation (CoV), which measures the extent of standard deviation of a sample relative to the mean of the sample, is useful to give a sense of how variable a given trait is. The CoV is calculated as (sd/ mean), and among the sample of 150 flowers, the figure for CoV for sepal length and sepal width are remarkable similar, at 0.141, which is a much lower measure of variability than the figures for petal length (0.469) and petal width (0.637). 
 Note: as CoV isn't directly calculated by the *.decribe()* method, I calculated them using the *.mean()* and *.std()* methods and printed the results to the text file.
 
-* Skewness: I generated figures for the skewness of the distrubution fof values for each trait within the dataset. Skewness measures the degree of asymmetry of a distribution, with a value of zero representing a normal distribution. A negative value for skewness indicates that the distribution is left-skewed, with the left-tail long relative to the right. A positive value indicates the opposite; that the tail is right-skewed and therefore longer relative to the left. A value which lies between -0.5 and 0.5 is considered to represent a failr symmetrical plot, and all four traits fall within this range for skewness.
+* Skewness: I generated figures for the skewness of the distrubution for values for each trait within the dataset. Skewness measures the degree of asymmetry of a distribution, with a value of zero representing a normal distribution. A negative value for skewness indicates that the distribution is left-skewed, with the left-tail long relative to the right. A positive value indicates the opposite; that the distribution is right-skewed and therefore the right-tail is longer relative to the left. A value which lies between -0.5 and 0.5 is considered to represent a fairly symmetrical plot, and all four traits fall within this range for skewness.
 For petal length and petal width, the values for skewness are slightly negative (-0.274 and -0.105, respectively), indicating that there is a slight weighting of values for these traits towards the right (and a correspondingly longer left-tail): this can be explained by the significantly higher values for these traits found in Iris vertosa and Iris virginica than are found in Iris setosa.
 For sepal length and sepal width, the values for skewness are slightly positive (0.315 and 0.334, respectively), which shows that there is a slight weighting of the values for these traits towards the left: from looking at the histograms for sepal length and sepal width, we can see that the values for sepal length trail to the right mostly due to the higher measurements for Iris virginica, and the values for sepal width trail to the right due to the higher measurements for Iris setosa.
 
@@ -136,6 +136,26 @@ To begin visualising the data, I created four histograms using Seaborn. I decide
 
 I added a title and changed the label on the x-axis by appending the .set() function to the sns.displot function. I also improved the appearance of each histogram by using the plt.tight_layout() to increase the amount of space for the heading at the top. I then saved each histogram as a .png file and these are included below:
 
+i) Petal length:
+
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_length_varieties.png)
+
+ii) Petal width:
+
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_width_varieties.png)
+
+iii) Sepal length:
+
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_length_varieties.png)
+
+iv) Sepal width:
+
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_width_varieties.png)
+
+
+The most obvious finding from the histograms are the *much* smaller values for petal length and petal width for Iris setosa compared to Iris versicolor and Iris virginica. It is also clear that Iris virginica has larger petals overall compared to Iris versicolor.
+
+In terms of sepal length and sepal width, the ranking of size from smallest to largest measurements (setosa < versivolor < virginica) holds for sepal length, albeit to a less marked degree than for either of the petal characteristics. However, for sepal width, it appears that setosa has the largest measurements overall, with the measurements for versicolor and virginica being noticeably lower, with virginica having slightly higher values overall.
 
 
 &nbsp; 

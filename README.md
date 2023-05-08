@@ -88,9 +88,11 @@ To enable me to analyse the dataset, I imported some libraries and modules commo
 
 ## Summary of each variable
 
-Using pandas, we can generate various summary statistics of the data contained in a pandas Dataframe object. One way of doing this is to use methods to generate individual summary statistics for the columns of numerical data in the Dataframe: examples include the .mean() and .max() methods, used to calculate the mean value and max value, respectively, of each column of numerical data in the dataframe.
+Using pandas, we can generate various summary statistics of the data contained in a pandas Dataframe object. Before I did this, however, I wanted to make sure that the DataFrame had been created properly and that I could be confident that I could use it to generate summary statistics. To be reassured, I printed the first five rows, a random five rows and the last five rows of the DataFrame. This allowed me to see that the headings are applied correctly, that the index ranges from 0 to 149 (and therefore contains 150 values) and that the contents of the DataFrame seem to be a full 5 x 150 array.
 
-It is possible, however, to produce numerous summary statistics with one command by using the *.describe()* method. I used this method here, where I looked for summary statistics for:
+One way of compiling summary statistics for a DataFrame is to use seperate methods to generate seperate individual summary statistics for the columns of numerical data in the DataFrame: examples include the .mean() and .max() methods, used to calculate the mean value and max value, respectively, of each column of numerical data in the DataFrame.
+
+It is possible, however, to produce multiple summary statistics with one command by using the *.describe()* method. I used this method here, where I looked for summary statistics for:
 1. each of the four measured traits ('sepal width', 'sepal length', 'petal width' and 'petal length') for all of the flowers as a group (sample size = 150), and
 2. each of the four measured traits for *each* variety of Iris flower (3 groups each of sample size = 50).
 
@@ -132,7 +134,9 @@ For sepal length and sepal width, the values for skewness are slightly positive 
 
 ## Histograms
 
-To begin visualising the data, I created four histograms using Seaborn. I decided to create one histogram for each trait, and to include on each histogram the contribution of each Iris flower to the data in the histogram. I achieved this using the "hue" argument, where I could split the histogram into three different colours, depending on which value is found in the "variety" column associated with the point of data being included on the histogram. I then specified that the histograms should be stacked on top of each other, rather than overlapping each other, as I found that this allowed me to more easily get a sense of how the data is distributed: to achieve this, I used the argument "multiple = stack".
+To begin visualising the data, I created four histograms using Seaborn. A histogram is a chart used to depict the frequency at which different values occur within a dataset. It does this using vertical narrow bars, or 'bins', of equal width, where each bin represents a range of values. Data points from the dataset are placed in a bin according to their value and the number of data points which fall into each bin can be counted from the y-axis. This produces a useful visual representation of the spread of values within a dataset.
+
+I decided to create one histogram for each trait, and to include on each histogram the contribution of each Iris flower to the data in the histogram. I achieved this using the "hue" argument, where I could split the histogram into three different colours, depending on which value is found in the "variety" column associated with the point of data being included on the histogram. I then specified that the histograms should be stacked on top of each other, rather than overlapping each other, as I found that this allowed me to more easily get a sense of how the data is distributed: to achieve this, I used the argument "multiple = stack".
 
 I added a title and changed the label on the x-axis by appending the .set() function to the sns.displot function. I also improved the appearance of each histogram by using the plt.tight_layout() to increase the amount of space for the heading at the top. I then saved each histogram as a .png file and these are included below:
 

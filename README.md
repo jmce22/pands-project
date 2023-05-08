@@ -8,7 +8,7 @@
 
 ---
 
-This repository contains the project for the Programming and Scripting module of the Higher Diploma in Data Analytics from ATU.\
+This repository contains my submission for the project for the Programming and Scripting module of the Higher Diploma in Data Analytics from ATU.\
 This project involves researching Fisher's Iris data set and analysing it using Python.
 
 This file will firstly give some background information to the dataset in question. 
@@ -166,7 +166,12 @@ In terms of sepal length and sepal width, the ranking of size from smallest to l
 
 ## Plots
 
-A scatterplot is a type of plot which displays the values for two variables by plotting the value of one variable on the x-axis, and the other variable on the y-axis. Such a plot is useful to determine the degree to which two variables are correlated. 
+A scatterplot is a type of plot which displays the values for two variables by plotting the value of one variable on the x-axis, and the other variable on the y-axis. Such a plot is useful to determine the degree to which two variables are correlated.
+* If x tends to increase while y increases, x is said to be positively correlated with y
+* If x tends to decrease while y increases, x is said to be negatively correlated with y.
+* A figure close to zero implies little or no correlation between the variables.
+
+
 
 &nbsp; 
 

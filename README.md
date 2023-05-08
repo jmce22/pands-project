@@ -100,7 +100,7 @@ I generated the second set of statistics because I was interested in seeing how 
 
 A description of the statistical properties measured, and an overview of the figures obtained for this dataset, are given below:
 
-* count: The count for the group as a whole was 150 samples, while the count for each class was 50 samples. Each sample had 4 variables measured.
+* count: This returns the number of 'non-empty' values for each column of numerical values. In this case, each 'trait' column was shown to contain 150 samples, while the count within each 'trait' column for each class of Iris was 50 samples. Each sample had 4 traits measured. This statistic reassures us that there are no null values in the dataset.
 
 * mean (average): For the group as a whole, sepal length has the highest average length (5.843 cm), followed by petal length (3.756 cm), then sepal width (3.05 cm), and finally petal width gave the lowest average length (1.2 cm). \
 This ranking held for each of the three Iris varieties of setosa, versicolor and virginica, but it is interesting to see how much smaller the numbers are for Iris Setosa compared to the other two varieties.
@@ -165,6 +165,8 @@ In terms of sepal length and sepal width, the ranking of size from smallest to l
 &nbsp; 
 
 ## Plots
+
+A scatterplot is a type of plot which displays the values for two variables by plotting the value of one variable on the x-axis, and the other variable on the y-axis. Such a plot is useful to determine the degree to which two variables are correlated. 
 
 &nbsp; 
 

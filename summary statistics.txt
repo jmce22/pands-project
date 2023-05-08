@@ -14,11 +14,11 @@ First five rows:
 
 A random sample of five rows: 
     sepal length  sepal width  petal length  petal width          variety
-61           5.9          3.0           4.2          1.5  Iris-versicolor
-52           6.9          3.1           4.9          1.5  Iris-versicolor
-67           5.8          2.7           4.1          1.0  Iris-versicolor
-81           5.5          2.4           3.7          1.0  Iris-versicolor
-11           4.8          3.4           1.6          0.2      Iris-setosa
+28           5.2          3.4           1.4          0.2      Iris-setosa
+90           5.5          2.6           4.4          1.2  Iris-versicolor
+45           4.8          3.0           1.4          0.3      Iris-setosa
+22           4.6          3.6           1.0          0.2      Iris-setosa
+91           6.1          3.0           4.6          1.4  Iris-versicolor
 
 
 Last five rows: 

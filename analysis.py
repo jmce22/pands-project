@@ -112,8 +112,6 @@ def summary_statistics():
 summary_statistics()
 
 
-
-
 # The below section of this script generates the histograms for the project.
 # sns.set() imposes one of five general themes on to the histograms.
 # sns.displot creates each histogram: here we pass in the Dataframe, df, which we will generate the histogram from,
@@ -123,35 +121,67 @@ summary_statistics()
 # This allows us to compare the distribution of each trait for each variety of Iris flower.
 # The 'stack' argument causes the data to overlap in a stacked fashion, rather than layering them over each other transparently,
 # which I think makes it harder to compare the data.
+# I experimented with different Seaborn palettes and decided upon the reversed form of the 'Set1' palette, as I find the 
+# combination of colours attractive and earthy, which is appropriate for a data analysis project about Iris flowers! 
+# They also contrast enough to make it easy to know which data is sourced from which Iris variety.
 # Reference: https://seaborn.pydata.org/tutorial/distributions.html?highlight=histogram
+# Reference: https://r02b.github.io/seaborn_palettes/ 
 
 sns.set(style="darkgrid")
 
-
-sepal_length = sns.displot(df, x ="sepal length", bins = 20, hue ="variety", multiple = "stack").set(title = "Sepal length for each Iris variety", xlabel = "Sepal length in cm")
-# sns.move_legend(sepal_length, "upper left", bbox_to_anchor=(1, 1))
+sepal_length = sns.displot(df, x ="sepal length", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Sepal length for each Iris variety", xlabel = "Sepal length in cm")
 plt.tight_layout()
 plt.savefig('sepal_length_varieties.png')
 
 
-sepal_width = sns.displot(df, x ="sepal width", bins = 20, hue ="variety", multiple = "stack").set(title = "Sepal width for each Iris variety", xlabel = "Sepal width in cm")
+sepal_width = sns.displot(df, x ="sepal width", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Sepal width for each Iris variety", xlabel = "Sepal width in cm")
 plt.tight_layout()
 plt.savefig('sepal_width_varieties.png')
 
 
-petal_length = sns.displot(df, x ="petal length", bins = 20, hue ="variety", multiple = "stack").set(title = "Petal length for each Iris variety", xlabel = "Petal length in cm")
+petal_length = sns.displot(df, x ="petal length", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Petal length for each Iris variety", xlabel = "Petal length in cm")
 plt.tight_layout()
 plt.savefig('petal_length_varieties.png')
 
 
-petal_width = sns.displot(df, x ="petal width", bins = 20, hue ="variety", multiple = "stack").set(title = "Petal width for each Iris variety", xlabel = "Petal width in cm")
+petal_width = sns.displot(df, x ="petal width", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Petal width for each Iris variety", xlabel = "Petal width in cm")
 plt.tight_layout()
 plt.savefig('petal_width_varieties.png')
 
 
+# This section of my script relates to scatterplots. To capture the 6 different trait-pair combinations, I have used a pairplot.
+# I created a pairplot based on the data set as a whole which show the correlation between the 6 different pairs of traits
+# within the whole sample, and also created three pairplots where each is based only on the data relating to a single Iris species.
 
-#sns.pairplot(df)
-#plt.savefig('iris_pairplot.png')
+
+sns.set(style = "white")
+
+sns.pairplot(df, hue = "variety", palette="Dark2")
+plt.savefig('iris_pairplot.png')
+
+
+# The df.loc[] property allows us to create three 'sub-DataFrames' from the overall Dataframe, based on the condition 
+# that the entry in the 'variety' column equals one of the three varieties of Iris. I will then assign it to a variable 
+# and use that variable to create pairplots for each trait within each class of Iris flower. 
+# Reference: https://sparkbyexamples.com/pandas/pandas-dataframe-loc/
+
+setosa = df.loc[df['variety']=="Iris-setosa"]
+versicolor = df.loc[df['variety']=="Iris-versicolor"]
+virginica = df.loc[df['variety']=="Iris-virginica"]
+
+
+sns.pairplot(setosa, palette="Dark2")
+plt.savefig('setosa_pairplot.png')
+
+sns.pairplot(versicolor, palette="Dark2")
+plt.savefig('versicolor_pairplot.png')
+
+sns.pairplot(virginica, palette="Dark2")
+plt.savefig('virginica_pairplot.png')
+
+
+
+
 
 # boxplots:
 

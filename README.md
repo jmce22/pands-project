@@ -142,19 +142,19 @@ I added a title and changed the label on the x-axis by appending the .set() func
 
 i) Petal length:
 
-![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_length_varieties.png)
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_length_hist.png)
 
 ii) Petal width:
 
-![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_width_varieties.png)
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_width_hist.png)
 
 iii) Sepal length:
 
-![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_length_varieties.png)
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_length_hist.png)
 
 iv) Sepal width:
 
-![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_width_varieties.png)
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_width_hist.png)
 
 
 The most obvious finding from the histograms are the *much* smaller values for petal length and petal width for Iris setosa compared to Iris versicolor and Iris virginica. It is also clear that Iris virginica has larger petals overall compared to Iris versicolor.
@@ -167,9 +167,11 @@ In terms of sepal length and sepal width, the ranking of size from smallest to l
 ## Plots
 
 A scatterplot is a type of plot in which the values of two variables are plotted seperately along the x-axis and the y-axis, and the pattern of the plot can be used to determined the degree to which the two variables are correlated. A figure known as the sample correlation coefficient, 'r', can be calculated between two variables to put a figure on the degree of correlation, and it lies between -1 and 1.
-* If x tends to increase while y increases, x is said to be positively correlated with y, and r > 0.
-* If x tends to decrease while y increases, x is said to be negatively correlated with y, and r < 0.
-* A figure close to zero implies little or no correlation between the variables.
+* If x tends to increase while y increases, x is said to be positively correlated with y, and r > 0. This is indicated by a positively sloping line from the bottom left corner of the axis. a 45-degree angle with the x-axis indicates a perfect positive correlation between variables.
+* If x tends to decrease while y increases, x is said to be negatively correlated with y, and r < 0. This is indicated by a negatively sloping line from the top left corner of the axis. A 45-degree angle with the x-axis indicates a perfect negative correlation between variables.
+* A figure close to zero implies little or no correlation between the variables and is indicated by a flat or almost-flat line through the middle of the plot.
+
+![image](https://raw.githubusercontent.com/jmce22/pands-project/main/correlation_coeff.png)
 
 Pairplot to depict correlations between pairs of traits among full Iris dataset:
 

@@ -24,7 +24,7 @@ My project will conclude with an overall summary of my findings, and my thoughts
 I will also provide a list of references which I used to complete my work.
 
 **To execute my script**:
-Please download *analysis.py* from my repository (*jmce22/pands-project*) into a code editor such as VS Code. While located in the folder in which you have saved *analysis.py*, go to the terminal window and type 'python analysis.py'. This should run the code and generate the text file with summary data for the dataset, and print into the folder the histograms and other plots which analyse the data.
+Please download *analysis.py* from my repository (*jmce22/pands-project*) into a code editor such as VS Code. While located in the folder in which you have saved *analysis.py*, go to the terminal window and type 'python analysis.py'. This should run the code and generate the text file with summary data for the dataset, and print into the folder the histograms, pairplots and other plots which analyse the data.
 
 &nbsp; 
 
@@ -113,17 +113,17 @@ For sepal length, petal length and petal width, Iris setosa was the variety whic
 * *50th percentile* (median): here, the median value for a trait being measured is that value which lies at the midpoint of all values for the trait (50% of values are above this value, and 50% of values are below it). Within the group as a whole, the median value for each of the four traits followed the same ranking as the mean, with the largest median value being that for the sepal length (5.8 cm), followed by petal length (4.35 cm), sepal width (3 cm) and petal width (1.3 cm). \
 We can see that the values for the median for three of the four traits are quite close to the values for the mean, but for petal length, the mean is significantly lower (3.756 cm compared to 4.35 cm): this can be explained by the much lower values for the petal length of Iris setosa compared with Iris versicolor and Iris virginica. In this case of petal width, the mean and median values for setosa are significantly lower than those for versicolor, while the mean and median for virginica are significantly higher, with the result that the median and mean for the group overall is closest to the mean and median of versicolor.
 
-* *25th and 75th percentile*: For these values, we can see that, within the overal sample of 150 flowers, the values constituting the 25th percentile for petal length and petal width deviate much more from the median than is the case for the sepal length and sepal width. A quick look at the summary statistics for petal length and petal width for the three varieties in isolation shows us that the values for these traits are significantly lower in Iris setosa compared with Iris versicolor and Iris virginica, and these lower figures drag down the figure for 25th percentile for each of these traits. \
-The summary statistics for Iris Versicolor and Iris Virginica do not differ as greatly between each other and either do from Iris Setosa (although Iris Virginica seems to have, overall, larger measurements than Versicolor for it's four traits); due to this, the figures for the 75th percentile values are not as distant from the median as the 25th percentile figures are. \
+* *25th and 75th percentile*: For these values, we can see that, within the overal sample of 150 flowers, the values constituting the 25th percentile for petal length and petal width deviate much more from the median than is the case for the sepal length and sepal width. A quick look at the summary statistics for petal length and petal width for the three varieties in isolation shows us that the values for these traits are significantly lower in Iris setosa compared with Iris versicolor and Iris virginica, and these lower figures for setosa drag down the figure for 25th percentile for each of these traits. \
+The summary statistics for versicolor and virginica do not differ as greatly between each other as either do from setosa (although virginica seems to have, overall, larger measurements than versicolor for its four traits); as a result, the figures for the 75th percentile values are not as distant from the median as the 25th percentile figures are. \
 These values will be illustrated by boxplots later in the project.
 
 * *max*: the largest value, in cm, for the trait being measured. The largest value for each trait within the group as a whole are as follows:
 sepal length (7.9 cm), petal length (6.9 cm), sepal width (4.4 cm) and petal width (2.5 cm). \ 
-For sepal length, petal length and petal width, Iris virginica was the variety which was responsible for the largest value, although for sepal width, the variety with the largest value was Iris setosa.
+For sepal length, petal length and petal width, virginica was the variety which was responsible for the largest value, although for sepal width, the variety with the largest value was setosa.
 
-* *standard deviation*: This is a measure of the dispersion of the values of a given set a data. The value for standard deviation calculated by pandas is calculated using a population size of (N - 1) rather than (N), and this (N - 1) formula is suitable for the relatively small population sizes of 50 and 150 being analysed here. Rather than analyse the figures for standard deviation in isolation, I thought it would be more appropriate to calculate the coefficient of variation for each trait instead (see below), as this gives a more meaningful picture of the degree of dispersion of values for each trait which can then be compared with the same statistic for traits.
+* *standard deviation*: This is a measure of how far the values of a given dataset tend to lie from the mean of the values of the dataset. The value for standard deviation calculated by pandas is calculated using a population size of (N - 1) rather than (N), and this (N - 1) formula is suitable for the relatively small population sizes of 50 and 150 being analysed here. Rather than analyse the figures for standard deviation in isolation, I thought it would be more appropriate to calculate the coefficient of variation for each trait instead (see below), as this gives a more meaningful picture of the degree of dispersion of values for each trait and allow us to better compare results between traits.
 
-* The *Coefficient of Variation (CoV)*, which measures the extent of standard deviation of a sample relative to the mean of the sample, is useful to give a sense of how variable a given trait is. The CoV is calculated as (sd/ mean), and among the sample of 150 flowers, the figure for CoV for sepal length and sepal width are remarkable similar, at 0.141, which is a much lower measure of variability than the figures for petal length (0.469) and petal width (0.637). 
+* The *Coefficient of Variation (CoV)*, or relative standard deviation, measures the extent of standard deviation of a sample relative to the mean of the sample, is useful to give a sense of how variable a given trait is. The CoV is calculated as (sd/ mean), and among the sample of 150 flowers, the figure for CoV for sepal length and sepal width are remarkable similar, at 0.141, which is a much lower measure of variability than the figures for petal length (0.469) and petal width (0.637). From looking at the histograms (below) for petal length and petal width, it is clear that the values for these two petal traits for setosa are much lower than they are for versicolor and virginica, and the aggregation of approximately two thirds of the datapoints to the right hand-side of the histogram, and one third to the left hand side, causes the mean value to deviate more on average from the values of the datapoints than is the case for either of the two sepal traits (both of which display more balanced distributions in their histograms). 
 Note: as CoV isn't directly calculated by the *.decribe()* method, I calculated them using the *.mean()* and *.std()* methods and printed the results to the text file.
 
 * *Skewness*: I generated figures for the skewness of the distrubution for values for each trait within the dataset. Skewness measures the degree of asymmetry of a distribution, with a value of zero representing a normal distribution. A negative value for skewness indicates that the distribution is left-skewed, with the left-tail long relative to the right. A positive value indicates the opposite; that the distribution is right-skewed and therefore the right-tail is longer relative to the left. A value which lies between -0.5 and 0.5 is considered to represent a fairly symmetrical plot, and all four traits fall within this range for skewness.
@@ -135,32 +135,35 @@ For sepal length and sepal width, the values for skewness are slightly positive 
 
 ## Histograms
 
-To begin visualising the data, I created four histograms using Seaborn. A histogram is a chart used to depict the frequency at which different values occur within a dataset. It does this using vertical narrow bars, or 'bins', of equal width, where each bin represents a range of values. Data points from the dataset are placed in a bin according to their value and the number of data points which fall into each bin can be counted from the y-axis. This produces a useful visual representation of the spread of values within a dataset.
+To begin visualising the data, I created four histograms using Seaborn. A histogram is a chart used to depict the frequency at which different values occur within a dataset. It does this using narrow vertical bars, or 'bins', of equal width, where each bin represents a range of values. Data points from the dataset are placed in a bin according to their value and the number of data points which fall into each bin is counted on the y-axis. This produces a useful visual representation of the spread of values within a dataset.
 
-I decided to create one histogram for each trait, and to include on each histogram the contribution of each Iris flower to the data in the histogram. I achieved this using the *hue* argument, where I could split the histogram into three different colours, depending on which value is found in the "variety" column associated with the point of data being included on the histogram. I then specified that the histograms should be stacked on top of each other, rather than overlapping each other, as I found that this allowed me to more easily get a sense of how the data is distributed: to achieve this, I used the argument *multiple = stack*.
+I decided to create one histogram for each trait, and to include on each histogram the contribution of each Iris flower to the data in the histogram. I achieved this passing the *hue* argument into the sns.displot function which I used to generate each histogram: this allowed me to split the histogram into three different colours, with the colours denoting which species of Iris the data belongs to (ie. which value is found in the "variety" column on the same row of the DataFrame as the point of data being included in the histogram). 
+
+I then specified that the histograms should be stacked on top of each other, rather than overlapping each other, as I found that this enabled me to more easily get a sense of how the data is distributed: to create these stacked histograms, I passed the argument *multiple = stack* into the function *sns.displot*.
 
 I added a title and changed the label on the x-axis by appending the *.set()* function to the sns.displot function. I also improved the appearance of each histogram by using the *plt.tight_layout()* to increase the amount of space for the heading at the top. I then saved each histogram as a .png file and these are included below:
+/
 
-i) Petal length:
+### i) Petal length: ###
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_length_hist.png)
 
-ii) Petal width:
+### ii) Petal width: ###
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_width_hist.png)
 
-iii) Sepal length:
+### iii) Sepal length: ###
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_length_hist.png)
 
-iv) Sepal width:
+### iv) Sepal width: ###
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_width_hist.png)
 
 
-The most obvious finding from the histograms are the *much* smaller values for petal length and petal width for Iris setosa compared to Iris versicolor and Iris virginica. It is also clear that Iris virginica has larger petals overall compared to Iris versicolor.
+The most obvious visual result from the histograms are the *much* smaller values for petal length and petal width for Iris setosa compared to Iris versicolor and Iris virginica. It is also clear that virginica has larger petals overall compared to versicolor.
 
-In terms of sepal length and sepal width, the ranking of size from smallest to largest measurements (setosa < versivolor < virginica) holds for sepal length, albeit to a less marked degree than for either of the petal characteristics. However, for sepal width, it appears that setosa has the largest measurements overall, with the measurements for versicolor and virginica being noticeably lower, with virginica having slightly higher values overall.
+In terms of sepal length and sepal width, the ranking of size from smallest to largest measurements (setosa < versivolor < virginica) holds for sepal length, albeit to a less marked degree than for either of the petal characteristics. However, for sepal width, it appears that setosa has the largest measurements overall, with the measurements for versicolor and virginica being noticeably lower, with virginica having slightly higher values for sepal width than versicolor overall.
 
 
 &nbsp; 

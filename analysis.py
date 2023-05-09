@@ -146,7 +146,7 @@ plt.savefig('petal_width_varieties.png')
 
 sns.set(style = "white")
 
-sns.pairplot(df, hue = "variety", palette="Dark2", height=2, aspect=1.5)
+sns.pairplot(df, hue = "variety", palette="Dark2", height=2, aspect=1.3)
 plt.savefig('iris_pairplot.png')
 
 
@@ -162,13 +162,13 @@ virginica = df.loc[df['variety']=="Iris-virginica"]
 #sns.pairplot(df, vars=["sepal width", "sepal length"])
 #plt.savefig("sepal_pairplot.png")
 
-sns.pairplot(setosa)
+sns.pairplot(setosa, height= 2, aspect=1.3)
 plt.savefig('setosa_pairplot.png')
 
-sns.pairplot(versicolor)
+sns.pairplot(versicolor, height=2, aspect=1.3)
 plt.savefig('versicolor_pairplot.png')
 
-sns.pairplot(virginica)
+sns.pairplot(virginica, height=2, aspect=1.3)
 plt.savefig('virginica_pairplot.png')
 
 

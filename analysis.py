@@ -113,7 +113,6 @@ summary_statistics()
 
 
 # The below section of this script generates the histograms for the project.
-
 # Reference: https://seaborn.pydata.org/tutorial/distributions.html?highlight=histogram
 # Reference: https://r02b.github.io/seaborn_palettes/ 
 
@@ -123,53 +122,58 @@ sepal_length = sns.displot(df, x ="sepal length", bins = 20, hue ="variety", pal
 plt.tight_layout()
 plt.savefig('sepal_length_varieties.png')
 
-
 sepal_width = sns.displot(df, x ="sepal width", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Sepal width for each Iris variety", xlabel = "Sepal width in cm")
 plt.tight_layout()
 plt.savefig('sepal_width_varieties.png')
 
-
 petal_length = sns.displot(df, x ="petal length", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Petal length for each Iris variety", xlabel = "Petal length in cm")
 plt.tight_layout()
 plt.savefig('petal_length_varieties.png')
-
 
 petal_width = sns.displot(df, x ="petal width", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Petal width for each Iris variety", xlabel = "Petal width in cm")
 plt.tight_layout()
 plt.savefig('petal_width_varieties.png')
 
 
-# This section of my script relates to scatterplots. To capture the 6 different trait-pair combinations, I have used a pairplot.
-# I created a pairplot based on the data set as a whole which show the correlation between the 6 different pairs of traits
+# This section of my script relates to scatterplots. To capture the 6 different trait-pair combinations, I have used pairplots.
+# I created a pairplot based on the data set as a whole to show the correlation between the 6 different pairs of traits
 # within the whole sample, and also created three pairplots where each is based only on the data relating to a single Iris species.
+# The 'corner' arguement removes the top right corner of each pairplot. 
+# The 'kind' = reg arguement creates a regression plot, to give a sense of the strength of correlation between the variables.
+# For both the whole sample pairplot and the individual species ones, I experiemented with different sizes and colours; 
+# for the individual plots, this required passing in keyword arguments:
+# See reference: https://www.youtube.com/watch?v=-eyiVTLJuqI  around 11 mins.
+# I added a title using the fig.suptitle() method, including increasing the fontsize.
 
 
 sns.set(style = "white")
 
-sns.pairplot(df, hue = "variety", palette="Dark2", height=2, aspect=1.3)
+iris_pairplot = sns.pairplot(df, hue = "variety", palette="Dark2", height=2.5, aspect=1.3, corner=True, kind="reg")
+iris_pairplot.fig.suptitle("Pairplot of traits for full Iris sample", fontsize = "xx-large")
 plt.savefig('iris_pairplot.png')
 
 
 # The df.loc[] property allows us to create three 'sub-DataFrames' from the overall Dataframe, based on the condition 
 # that the entry in the 'variety' column equals one of the three varieties of Iris. I will then assign it to a variable 
-# and use that variable to create pairplots for each trait within each class of Iris flower. 
+# and use that variable to create pairplots for each variety of Iris flower. 
 # Reference: https://sparkbyexamples.com/pandas/pandas-dataframe-loc/
 
 setosa = df.loc[df['variety']=="Iris-setosa"]
 versicolor = df.loc[df['variety']=="Iris-versicolor"]
 virginica = df.loc[df['variety']=="Iris-virginica"]
 
-#sns.pairplot(df, vars=["sepal width", "sepal length"])
-#plt.savefig("sepal_pairplot.png")
-
-sns.pairplot(setosa, height= 2, aspect=1.3)
+setosa_pairplot = sns.pairplot(setosa, diag_kws = dict(color='grey'), plot_kws = dict(color = 'brown'), height=3, aspect=1, corner=True, kind = "reg")
+setosa_pairplot.fig.suptitle("Pairplot of setosa traits", fontsize = "xx-large")
 plt.savefig('setosa_pairplot.png')
 
-sns.pairplot(versicolor, height=2, aspect=1.3)
+versicolor_pairplot = sns.pairplot(versicolor, diag_kws=dict(color='grey'), plot_kws=dict(color = 'orange'),  height=3, aspect=1, corner=True, kind = "reg")
+versicolor_pairplot.fig.suptitle("Pairplot of versicolor traits", fontsize = "xx-large")
 plt.savefig('versicolor_pairplot.png')
 
-sns.pairplot(virginica, height=2, aspect=1.3)
+virginica_pairplot = sns.pairplot(virginica, diag_kws=dict(color='grey'), plot_kws=dict(color = 'green'), height=3, aspect=1, corner=True, kind ="reg")
+virginica_pairplot.fig.suptitle("Pairplot of virginica traits", fontsize = "xx-large")
 plt.savefig('virginica_pairplot.png')
+
 
 
 # boxplots:

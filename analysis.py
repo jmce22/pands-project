@@ -120,19 +120,19 @@ sns.set(style="darkgrid")
 
 sepal_length = sns.displot(df, x ="sepal length", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Sepal length for each Iris variety", xlabel = "Sepal length in cm")
 plt.tight_layout()
-plt.savefig('sepal_length_varieties.png')
+plt.savefig('sepal_length_hist.png')
 
 sepal_width = sns.displot(df, x ="sepal width", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Sepal width for each Iris variety", xlabel = "Sepal width in cm")
 plt.tight_layout()
-plt.savefig('sepal_width_varieties.png')
+plt.savefig('sepal_width_hist.png')
 
 petal_length = sns.displot(df, x ="petal length", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Petal length for each Iris variety", xlabel = "Petal length in cm")
 plt.tight_layout()
-plt.savefig('petal_length_varieties.png')
+plt.savefig('petal_length_hist.png')
 
 petal_width = sns.displot(df, x ="petal width", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Petal width for each Iris variety", xlabel = "Petal width in cm")
 plt.tight_layout()
-plt.savefig('petal_width_varieties.png')
+plt.savefig('petal_width_hist.png')
 
 
 # This section of my script relates to scatterplots. To capture the 6 different trait-pair combinations, I have used pairplots.
@@ -148,8 +148,9 @@ plt.savefig('petal_width_varieties.png')
 
 sns.set(style = "white")
 
-iris_pairplot = sns.pairplot(df, hue = "variety", palette="Dark2", height=2.5, aspect=1.3, corner=True, kind="reg")
+iris_pairplot = sns.pairplot(df, hue = "variety", palette="Dark2", height=3, aspect=1, corner=True, kind="reg")
 iris_pairplot.fig.suptitle("Pairplot of traits for full Iris sample", fontsize = "xx-large")
+plt.tight_layout()
 plt.savefig('iris_pairplot.png')
 
 

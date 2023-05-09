@@ -113,17 +113,7 @@ summary_statistics()
 
 
 # The below section of this script generates the histograms for the project.
-# sns.set() imposes one of five general themes on to the histograms.
-# sns.displot creates each histogram: here we pass in the Dataframe, df, which we will generate the histogram from,
-# specify the column to be analysed (eg. 'sepal length'), and select the number of bins for the histogram.
-# I used the 'hue' argument to cause the data in the histogram to be coloured according to what variety of Iris flower
-# the data relates to, and a legend is automatically created. 
-# This allows us to compare the distribution of each trait for each variety of Iris flower.
-# The 'stack' argument causes the data to overlap in a stacked fashion, rather than layering them over each other transparently,
-# which I think makes it harder to compare the data.
-# I experimented with different Seaborn palettes and decided upon the reversed form of the 'Set1' palette, as I find the 
-# combination of colours attractive and earthy, which is appropriate for a data analysis project about Iris flowers! 
-# They also contrast enough to make it easy to know which data is sourced from which Iris variety.
+
 # Reference: https://seaborn.pydata.org/tutorial/distributions.html?highlight=histogram
 # Reference: https://r02b.github.io/seaborn_palettes/ 
 
@@ -156,7 +146,7 @@ plt.savefig('petal_width_varieties.png')
 
 sns.set(style = "white")
 
-sns.pairplot(df, hue = "variety", palette="Dark2")
+sns.pairplot(df, hue = "variety", palette="Dark2", height=2, aspect=1.5)
 plt.savefig('iris_pairplot.png')
 
 
@@ -169,18 +159,17 @@ setosa = df.loc[df['variety']=="Iris-setosa"]
 versicolor = df.loc[df['variety']=="Iris-versicolor"]
 virginica = df.loc[df['variety']=="Iris-virginica"]
 
+#sns.pairplot(df, vars=["sepal width", "sepal length"])
+#plt.savefig("sepal_pairplot.png")
 
-sns.pairplot(setosa, palette="Dark2")
+sns.pairplot(setosa)
 plt.savefig('setosa_pairplot.png')
 
-sns.pairplot(versicolor, palette="Dark2")
+sns.pairplot(versicolor)
 plt.savefig('versicolor_pairplot.png')
 
-sns.pairplot(virginica, palette="Dark2")
+sns.pairplot(virginica)
 plt.savefig('virginica_pairplot.png')
-
-
-
 
 
 # boxplots:

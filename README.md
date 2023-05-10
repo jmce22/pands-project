@@ -352,6 +352,30 @@ My four pairplots are shown below, and following the plots I have given my inter
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/virginica_pairplot.png)
 
+My interpretation of the findings are as below:
+
+a) Sepal length vs Sepal width:
+There appears to be a strong positive correlation between these two traits for each flower.
+
+b) Petal length vs Petal width
+
+
+c) Sepal length vs Petal length
+
+
+d) Sepal width vs Petal width
+
+
+e) Sepal length vs Petal width
+
+
+f) Petal length vs Sepal width
+
+
+
+
+
+
 
 &nbsp; 
 

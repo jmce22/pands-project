@@ -1,3 +1,4 @@
+
 # Importing the libraries I will use to complete the project
 
 import matplotlib.pyplot as plt
@@ -37,11 +38,10 @@ def summary_statistics():
 # This firstly transposes the output of the .describe() method, to make it easier to read it when it is printed out. 
 # References: https://numpy.org/doc/stable/reference/generated/numpy.transpose.html 
 
-
     transpose_summary = np.transpose(summary_stats)
     summary= transpose_summary
 
-    
+
 # The groupyby function in pandas allows us to split the dataframe into groups separated according to the data in the 
 # column with heading 'variety'. 
 # We can then generate summary statistics for each class of Iris in the dataset.
@@ -68,14 +68,15 @@ def summary_statistics():
 
 # I have also added the skewness of each trait among the population, to get an idea of how close to normal the distribution
 # of each trait is.
+
     skewsl = df["sepal length"].skew()
     skewsw = df["sepal width"].skew()
     skewpl = df["petal length"].skew()
     skewpw = df["petal width"].skew() 
 
+    print("\n\n")
     print("Below are some samples of rows of data found within the data frame.") 
     print("These reassure us that the dataframe has been created correctly, with appropriate headings,\ncapturing all data as expected, and taking a consistent form throughout.")
-    #print(dataframe_info)
     print("\n")
     print("First five rows: ")
     print(first_five_rows)
@@ -92,21 +93,30 @@ def summary_statistics():
     print("Here are the same summary statistics for each class of Iris flower: \n")
     print(summary_by_class)
     print("\n\n")
-    print("The coefficient of variation for each trait within the sample as a whole is as follows: \n")
+    print("The coefficient of variation for each trait within the sample as a whole is as follows: ")
     print(f'Sepal length: CoV = {sdsl/meansl}')
     print(f'Sepal width: CoV = {sdsw/meansw}')
     print(f'Petal length: CoV = {sdpl/meanpl}')
     print(f'Petal width: CoV = {sdpw/meanpw}')
     print("\n\n")
-    print("The skewness of each trait within the sample as a whole is as follows: \n ")
+    print("The skewness of each trait within the sample as a whole is as follows: ")
     print(f'Sepal length: Skewness = {skewsl}')
     print(f'Sepal width: Skewness = {skewsw}')
     print(f'Petal length: Skewness = {skewpl}')
     print(f'Petal width: Skewness = {skewpw}')
     print("\n\n")
+    print("Finally, here are the correlation coefficients for each pair of traits: ")
+    print("Sepal length vs Sepal width: ", np.corrcoef(df['sepal length'], df['sepal width'])[0,1])
+    print("Petal length vs Petal width: ",  np.corrcoef(df['petal length'], df['petal width'])[0,1], "\n")
+    print("Sepal length vs Petal length: ", np.corrcoef(df['sepal length'], df['petal length'])[0,1])
+    print("Sepal width vs Petal width: ", np.corrcoef(df['sepal width'], df['petal width'])[0,1], "\n")
+    print("Sepal length vs Petal width: ",  np.corrcoef(df['sepal length'], df['petal width'])[0,1])
+    print("Sepal width vs Petal length: ",  np.corrcoef(df['sepal width'], df['petal length'])[0,1])
+    print("\n\n")
     print("For a description of these summary statistics, please see the README file for this project.")
 
     f.close()
+
 
 # this calls the function defined above
 summary_statistics()
@@ -148,7 +158,24 @@ plt.savefig('petal_width_hist.png')
 
 sns.set(style = "white")
 
-iris_pairplot = sns.pairplot(df, hue = "variety", palette="Dark2", height=3, aspect=1, corner=True, kind="reg")
+iris_pairplot = sns.pairplot(df, hue = "variety", palette="Dark2", height=3, aspect=1, corner=True)
+
+# To plot a regression line in each non-diagonal segment of the overall Iris pairplot, I sought help by asking 
+# a question on stackoverflow: https://stackoverflow.com/questions/76217544/how-to-fit-regression-lines-on-each-non-diagonal-segment-of-a-pairplot-while-re
+# I wanted to retain the colour-coding of the data-points according to which Iris species they were sourced from, but wanted
+# to include just one regression line per segment (which applied to the whole sample), rather than three regression lines per segment
+# (as can be generated using the kind = "reg" argument.)
+# The contributor defined a function called 'regline', which plots a single regression line: this function is then passed into 
+# the .map_offdiag() function, which enables us to apply the 'regline' function to each non-diagonal segment in the pairplot.
+# by using x=x.name and y=y.name, we convert each trait name to a string, and each combination of traits can have a regression
+# line imposed on their values, because the function takes the names of the traits from the x and y axes of the pairplot.
+# Values for 'data' and 'color' are provided for the regline function when it is called.
+
+def regline(x, y, **kwargs):
+    sns.regplot(data=kwargs['data'], x=x.name, y=y.name, scatter=False, color=kwargs['color'])
+## Call the function for each non-diagonal subplot within pairplot
+iris_pairplot.map_offdiag(regline, color='red', data=df)
+
 iris_pairplot.fig.suptitle("Pairplot of traits for full Iris sample", fontsize = "xx-large")
 plt.tight_layout()
 plt.savefig('iris_pairplot.png')
@@ -158,6 +185,7 @@ plt.savefig('iris_pairplot.png')
 # that the entry in the 'variety' column equals one of the three varieties of Iris. I will then assign it to a variable 
 # and use that variable to create pairplots for each variety of Iris flower. 
 # Reference: https://sparkbyexamples.com/pandas/pandas-dataframe-loc/
+# For each of the individual Iris pairplots, the argument kind = "reg" allows us to impose regression lines straight on to the plots.
 
 setosa = df.loc[df['variety']=="Iris-setosa"]
 versicolor = df.loc[df['variety']=="Iris-versicolor"]
@@ -174,7 +202,6 @@ plt.savefig('versicolor_pairplot.png')
 virginica_pairplot = sns.pairplot(virginica, diag_kws=dict(color='grey'), plot_kws=dict(color = 'green'), height=3, aspect=1, corner=True, kind ="reg")
 virginica_pairplot.fig.suptitle("Pairplot of virginica traits", fontsize = "xx-large")
 plt.savefig('virginica_pairplot.png')
-
 
 
 # boxplots:

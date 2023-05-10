@@ -161,7 +161,7 @@ Skewness measures the degree of asymmetry of a distribution, with a value of zer
 For petal length and petal width, the values for skewness are slightly negative (-0.274 and -0.105, respectively), indicating that there is a slight weighting of values for these traits towards the right (and a correspondingly longer left-tail): this can be explained by the significantly higher values for these traits found in Iris vertosa and Iris virginica than are found in Iris setosa.  \
 For sepal length and sepal width, the values for skewness are slightly positive (0.315 and 0.334, respectively), which shows that there is a slight weighting of the values for these traits towards the left: from looking at the histograms for sepal length and sepal width, we can see that the values for sepal length trail to the right mostly due to the higher measurements for Iris virginica, and the values for sepal width trail to the right due to the higher measurements for Iris setosa.
 
-Below is the code for this section:
+Below is the code I used for this section:
 
 
 ```
@@ -295,18 +295,22 @@ These three scenarios are illustrated in the image below:
 
 To capture the six different trait-pair combinations within this sample I have used pairplots. I created a pairplot based on the data set as a whole to show the correlation between the 6 different pairs of traits within the whole sample, and also created three further pairplots to depect the correlation between traits for each Iris species in isolation.
 
-I modified my plots to enhance their appearnace and to make it easier to interpret the them. I used the 'corner' arguement to removes the top right corner of each pairplot, as the top right corner showed redundant information which I felt cluttered the appearance of the plot and made it harder to interpret.
+In order to create the three pairplots for the individual Iris species, I needed to split the dataset into three sub-datasets. To do this, I used the *df.loc[]* property to create three 'sub-DataFrames' from the overall Dataframe. I split the dataset based on the condition that the entry in the 'variety' column equals one of the three varieties of Iris (for example, *df['variety']=="Iris-setosa"*). I then assigned each sub-DataFrame to an appropriate variable name for use in the formulas for the pairplots for each Iris species. I found this code within this page: https://sparkbyexamples.com/pandas/pandas-dataframe-loc/
 
-I used the 'kind' = reg arguement creates a regression plot, to give a sense of the strength of correlation between the variables.
-For both the whole sample pairplot and the individual species ones, I experiemented with different sizes and colours; 
-For the individual plots, this required passing in keyword arguments:
-See reference: https://www.youtube.com/watch?v=-eyiVTLJuqI  around 11 mins.
-I added a title using the fig.suptitle() method, including increasing the fontsize.
+I modified my plots to enhance their appearance and to make them easier to interpret. I used the *corner* argument to removes the top right corner of each pairplot, as the top right corner showed redundant information which I felt cluttered the appearance of the plot and made it harder to interpret. 
+
+To produce a clearer picture of the strength of correlation between the different traits, I used the *kind = "reg"* argument to insert regression lines into each segment of my pairplots. I particularly like the regression lines in the individual Iris pairplots, as the bold colours of the plots and data points against the white background make it easy to interpret the nature of the relationship between the traits.
+
+I experimented with many different colours for the plots. For the overall plot, I passed in the  the *hue* argument to seperate the datapoints by 'variety' of Iris, and then passed in the *palette* argument with the palette "Dark2", to produce a distinct colour scheme for the plot. For the individual species plots, I needed to pass in separate "keyword arguments" for the diagonal component (*diag_kws = dict(color = )*) and for the plots (*plot_kws = dict(color = )*). I figured our how to modify the colors of the invidual plots in this way from watching the following youtube video (especially around 11 mins in): https://www.youtube.com/watch?v=-eyiVTLJuqI.
+The diagonal component of each pairplot gives an overview of the distribution pattern for each individual trait, but as I was more interested in the comparison of each trait with the other traits, I chose to make the diagonal component grey for each plot. I then choose bold and distinct colours for the other componetns of each plot.
+
+I also experimented with different figures for height and aspect, and settled on a height of '3' and an aspect of '1', as I felt these dimensions resulted in a desirable size for the plots when I uploaded them to this Readme document (aspect is the extent to which the horizontal dimension of the plot is multiplied by the given height).
+
+I also added a title using the fig.suptitle() method, and increased the fontsize of the title.
 
 
 
-
-Below is the code used for this section:
+Below is the code I used for this section:
 
 
 ```

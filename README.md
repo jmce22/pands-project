@@ -30,9 +30,11 @@ Please download *analysis.py* from my repository (*jmce22/pands-project*) into a
 &nbsp; 
 
 ## Table of contents
-* [Background](#background)
+* [Background of dataset](#background-of-dataset)
 * [Pre-analysis](#pre-analysis)
 * [Summary of each variable](#summary-of-each-variable)
+    * [Explanation of code](#explanation-of-code)
+    * [Outline of summary statistics](#outline-of-summary-statistics)
 * [Histograms](#histograms)
     * [Background](#background)
     * [Explanation of code](#explanation-of-code)
@@ -49,7 +51,7 @@ Please download *analysis.py* from my repository (*jmce22/pands-project*) into a
 
 &nbsp; 
 
-## Background
+## Background of dataset
 
 
 The data set was collected in 1935 by the American botanist Edgar Anderson, and used in 1936 by the British statistician and biologist Ronald A. Fisher. It relates to data collected from samples of three species of the Iris flowering plant genus: Iris setosa, Iris virginica, and Iris versicolor. \
@@ -115,7 +117,9 @@ df = pd.read_csv("iris.data.csv", names=['sepal length', 'sepal width', 'petal l
 
 ## Summary of each variable
 
-Using pandas, we can generate various summary statistics of the data contained in a pandas DataFrame object. For this project, we were instructed to "output a summary of each variable to a text file", and I found this a challenge initially. I spent time trying to work out a way to do this by converting the summary statistics to a string using the *to.string()* method and then writing them to the text file using *"with open("summary.txt", "w") as f"* to open the file. However, I found a very useful piece of code on the site https://stackoverflow.com/questions/23364096/how-to-write-output-of-terminal-to-file to write the output of the terminal to the txt file.
+### Explanation of code ###
+
+Using pandas, we can generate various summary statistics of the data contained in a pandas DataFrame object. For this project, we were instructed to *"output a summary of each variable to a text file"*, and I found this a challenge initially. I spent time trying to work out a way to do this by converting the summary statistics to a string using the *to.string()* method and then writing them to the text file using *"with open("summary.txt", "w") as f"* to open the file. However, I found a very useful piece of code on the site https://stackoverflow.com/questions/23364096/how-to-write-output-of-terminal-to-file to write the output of the terminal to the txt file.
 
 ```
 import sys
@@ -136,40 +140,6 @@ i). each of the four measured traits ('sepal width', 'sepal length', 'petal widt
 ii). each of the four measured traits for *each* variety of Iris flower (three groups, each with a sample size of 50).
 
 I generated the second set of statistics because I was interested in finding out how different the statistics would be for each Iris variety in isolation. I used the pandas *groupby()* function in conjunction with the *.describe* method to generate these statistics. I also used the NumPy method *np.transpose()* to invert the way the summary statistics were printed, because when printed without inverting them, the results are not easily readible on the outputted text file. I used https://numpy.org/doc/stable/reference/generated/numpy.transpose.html to work this out and was relieved when it produced a good result.
-
-Below I give a description of the statistical properties measured and an overview of the figures obtained for this dataset:
-
-* *count*: This returns the number of 'non-empty' values for each column of numerical values. In this case, each 'trait' column was shown to contain 150 samples, while the count within each 'trait' column for each class of Iris was 50 samples. Each sample had 4 traits measured. This statistic reassures us that there are no null values in the dataset.
-
-* *mean* (average): For the group as a whole, sepal length has the highest average length (5.843 cm), followed by petal length (3.756 cm), then sepal width (3.05 cm), and finally petal width gave the lowest average length (1.2 cm).  \
-This ranking held for each of the three Iris varieties, but it is interesting to see how much smaller the measurements are for Iris Setosa compared with the other two varieties.
-
-* *min*: the smallest value, in cm, for the trait being measured. The smallest measurement for each trait within the group as a whole are as follows:
-sepal length (4.3 cm), sepal width (2 cm), petal length (1 cm) and petal width (0.1 cm).  \
-For sepal length, petal length and petal width, Iris setosa was the variety which was responsible for the smallest value, while for sepal width, the variety with the smallest value was Iris versicolor.
-
-* *50th percentile* (median): here, the median value for a trait being measured is that value which lies at the midpoint of all values for the trait (50% of values are above this value, and 50% of values are below it). Within the group as a whole, the median value for each of the four traits followed the same ranking as the mean, with the largest median value being that for the sepal length (5.8 cm), followed by petal length (4.35 cm), sepal width (3 cm) and petal width (1.3 cm).  \
-We can see that the values for the median for three of the four traits are quite close to the values for the mean, but for petal length, the mean is significantly lower (3.756 cm compared to 4.35 cm): this can be explained by the much lower values for the petal length of Iris setosa compared with Iris versicolor and Iris virginica. In this case of petal width, the mean and median values for setosa are significantly lower than those for versicolor, while the mean and median for virginica are significantly higher, with the result that the median and mean for the group overall is closest to the mean and median of versicolor.
-
-* *25th and 75th percentile*: For these values, we can see that, within the overal sample of 150 flowers, the values constituting the 25th percentile for petal length and petal width deviate much more from the median than is the case for the sepal length and sepal width. A quick look at the summary statistics for petal length and petal width for the three varieties in isolation shows us that the values for these traits are significantly lower in Iris setosa compared with Iris versicolor and Iris virginica, and these lower figures for setosa drag down the figure for 25th percentile for each of these traits.  \
-The summary statistics for versicolor and virginica do not differ as greatly between each other as either do from setosa (although virginica seems to have, overall, larger measurements than versicolor for its four traits); as a result, the figures for the 75th percentile values are not as distant from the median as the 25th percentile figures are. These values will be illustrated by boxplots later in the project.
-
-* *max*: the largest value, in cm, for the trait being measured. The largest value for each trait within the group as a whole are as follows:
-sepal length (7.9 cm), petal length (6.9 cm), sepal width (4.4 cm) and petal width (2.5 cm).
-For sepal length, petal length and petal width, virginica was the variety which was responsible for the largest value, although for sepal width, the variety with the largest value was setosa.
-
-* *standard deviation*: This is a measure of how far the values of a given dataset tend to lie from the mean of the values of the dataset. The value for standard deviation calculated by pandas is calculated using a population size of (N - 1) rather than (N), and this (N - 1) formula is suitable for the relatively small population sizes of 50 and 150 being analysed here. Rather than analyse the figures for standard deviation in isolation, I thought it would be more appropriate to calculate the coefficient of variation for each trait instead (see below), as this gives a more meaningful picture of the degree of dispersion of values for each trait and allow us to better compare results between traits.
-
-* The *Coefficient of Variation (CoV)*, or relative standard deviation, measures the extent of standard deviation of a sample relative to the mean of the sample, is useful to give a sense of how variable a given trait is. The CoV is calculated as (sd/ mean), and among the sample of 150 flowers, the figure for CoV for sepal length and sepal width are remarkable similar, at 0.141, which is a much lower measure of variability than the figures for petal length (0.469) and petal width (0.637).  \
-From looking at the histograms (next section) for petal length and petal width, it is clear that the values for these two petal traits for setosa are much lower than they are for versicolor and virginica, and the aggregation of approximately two thirds of the datapoints to the right hand-side of the histogram, and one third to the left hand side, causes the mean value to deviate more on average from the values of the datapoints than is the case for either of the two sepal traits (both of which display more balanced distributions in their histograms).  \
-Note: as CoV isn't directly calculated by the *.describe()* method, I calculated them using the *.mean()* and *.std()* methods and printed the results to the text file.
-
-* *Skewness*: I generated figures for the skewness of the distrubution for values for each trait within the dataset. I did this using the code DataFrame['column name'].skew().  \
-Skewness measures the degree of asymmetry of a distribution, with a value of zero representing a normal distribution. A negative value for skewness indicates that the distribution is left-skewed, with the left-tail long relative to the right. A positive value indicates the opposite; that the distribution is right-skewed and therefore the right-tail is longer relative to the left. A value which lies between -0.5 and 0.5 is considered to represent a fairly symmetrical plot, and all four traits fall within this range for skewness.  \
-For petal length and petal width, the values for skewness are slightly negative (-0.274 and -0.105, respectively), indicating that there is a slight weighting of values for these traits towards the right (and a correspondingly longer left-tail): this can be explained by the significantly higher values for these traits found in Iris vertosa and Iris virginica than are found in Iris setosa.  \
-For sepal length and sepal width, the values for skewness are slightly positive (0.315 and 0.334, respectively), which shows that there is a slight weighting of the values for these traits towards the left: from looking at the histograms for sepal length and sepal width, we can see that the values for sepal length trail to the right mostly due to the higher measurements for Iris virginica, and the values for sepal width trail to the right due to the higher measurements for Iris setosa.
-
-* *Correlation coefficients*: I included the correlation coefficient, 'r', for each of the six pairs of traits. This statistic, which always lies between -1 and 1, is explained in the Plots section, along with the figures generated for trait-pairs for the overall Iris dataset. I mention them here because I have outputted the figures to the summary statistics text file.
 
 Below is the code I used for this section:
 
@@ -254,6 +224,44 @@ def summary_statistics():
 summary_statistics()
 
 ```
+
+### Outline of summary statistics ###
+
+Below I give a description of the statistical properties measured and an overview of the figures obtained for this dataset:
+
+* *count*: This returns the number of 'non-empty' values for each column of numerical values. In this case, each 'trait' column was shown to contain 150 samples, while the count within each 'trait' column for each class of Iris was 50 samples. Each sample had 4 traits measured. This statistic reassures us that there are no null values in the dataset.
+
+* *mean* (average): For the group as a whole, sepal length has the highest average length (5.843 cm), followed by petal length (3.756 cm), then sepal width (3.05 cm), and finally petal width gave the lowest average length (1.2 cm).  \
+This ranking held for each of the three Iris varieties, but it is interesting to see how much smaller the measurements are for Iris Setosa compared with the other two varieties.
+
+* *min*: the smallest value, in cm, for the trait being measured. The smallest measurement for each trait within the group as a whole are as follows:
+sepal length (4.3 cm), sepal width (2 cm), petal length (1 cm) and petal width (0.1 cm).  \
+For sepal length, petal length and petal width, Iris setosa was the variety which was responsible for the smallest value, while for sepal width, the variety with the smallest value was Iris versicolor.
+
+* *50th percentile* (median): here, the median value for a trait being measured is that value which lies at the midpoint of all values for the trait (50% of values are above this value, and 50% of values are below it). Within the group as a whole, the median value for each of the four traits followed the same ranking as the mean, with the largest median value being that for the sepal length (5.8 cm), followed by petal length (4.35 cm), sepal width (3 cm) and petal width (1.3 cm).  \
+We can see that the values for the median for three of the four traits are quite close to the values for the mean, but for petal length, the mean is significantly lower (3.756 cm compared to 4.35 cm): this can be explained by the much lower values for the petal length of Iris setosa compared with Iris versicolor and Iris virginica. In this case of petal width, the mean and median values for setosa are significantly lower than those for versicolor, while the mean and median for virginica are significantly higher, with the result that the median and mean for the group overall is closest to the mean and median of versicolor.
+
+* *25th and 75th percentile*: For these values, we can see that, within the overal sample of 150 flowers, the values constituting the 25th percentile for petal length and petal width deviate much more from the median than is the case for the sepal length and sepal width. A quick look at the summary statistics for petal length and petal width for the three varieties in isolation shows us that the values for these traits are significantly lower in Iris setosa compared with Iris versicolor and Iris virginica, and these lower figures for setosa drag down the figure for 25th percentile for each of these traits.  \
+The summary statistics for versicolor and virginica do not differ as greatly between each other as either do from setosa (although virginica seems to have, overall, larger measurements than versicolor for its four traits); as a result, the figures for the 75th percentile values are not as distant from the median as the 25th percentile figures are. These values will be illustrated by boxplots later in the project.
+
+* *max*: the largest value, in cm, for the trait being measured. The largest value for each trait within the group as a whole are as follows:
+sepal length (7.9 cm), petal length (6.9 cm), sepal width (4.4 cm) and petal width (2.5 cm).
+For sepal length, petal length and petal width, virginica was the variety which was responsible for the largest value, although for sepal width, the variety with the largest value was setosa.
+
+* *standard deviation*: This is a measure of how far the values of a given dataset tend to lie from the mean of the values of the dataset. The value for standard deviation calculated by pandas is calculated using a population size of (N - 1) rather than (N), and this (N - 1) formula is suitable for the relatively small population sizes of 50 and 150 being analysed here. Rather than analyse the figures for standard deviation in isolation, I thought it would be more appropriate to calculate the coefficient of variation for each trait instead (see below), as this gives a more meaningful picture of the degree of dispersion of values for each trait and allow us to better compare results between traits.
+
+* The *Coefficient of Variation (CoV)*, or relative standard deviation, measures the extent of standard deviation of a sample relative to the mean of the sample, is useful to give a sense of how variable a given trait is. The CoV is calculated as (sd/ mean), and among the sample of 150 flowers, the figure for CoV for sepal length and sepal width are remarkable similar, at 0.141, which is a much lower measure of variability than the figures for petal length (0.469) and petal width (0.637).  \
+From looking at the histograms (next section) for petal length and petal width, it is clear that the values for these two petal traits for setosa are much lower than they are for versicolor and virginica, and the aggregation of approximately two thirds of the datapoints to the right hand-side of the histogram, and one third to the left hand side, causes the mean value to deviate more on average from the values of the datapoints than is the case for either of the two sepal traits (both of which display more balanced distributions in their histograms).  \
+Note: as CoV isn't directly calculated by the *.describe()* method, I calculated them using the *.mean()* and *.std()* methods and printed the results to the text file.
+
+* *Skewness*: I generated figures for the skewness of the distrubution for values for each trait within the dataset. I did this using the code DataFrame['column name'].skew().  \
+Skewness measures the degree of asymmetry of a distribution, with a value of zero representing a normal distribution. A negative value for skewness indicates that the distribution is left-skewed, with the left-tail long relative to the right. A positive value indicates the opposite; that the distribution is right-skewed and therefore the right-tail is longer relative to the left. A value which lies between -0.5 and 0.5 is considered to represent a fairly symmetrical plot, and all four traits fall within this range for skewness.  \
+For petal length and petal width, the values for skewness are slightly negative (-0.274 and -0.105, respectively), indicating that there is a slight weighting of values for these traits towards the right (and a correspondingly longer left-tail): this can be explained by the significantly higher values for these traits found in Iris vertosa and Iris virginica than are found in Iris setosa.  \
+For sepal length and sepal width, the values for skewness are slightly positive (0.315 and 0.334, respectively), which shows that there is a slight weighting of the values for these traits towards the left: from looking at the histograms for sepal length and sepal width, we can see that the values for sepal length trail to the right mostly due to the higher measurements for Iris virginica, and the values for sepal width trail to the right due to the higher measurements for Iris setosa.
+
+* *Correlation coefficients*: I included the correlation coefficient, 'r', for each of the six pairs of traits. This statistic, which always lies between -1 and 1, is explained in the Plots section, along with the figures generated for trait-pairs for the overall Iris dataset. I mention them here because I have outputted the figures to the summary statistics text file.
+
+
 
 &nbsp; 
 

@@ -198,9 +198,9 @@ def summary_statistics():
     skewpl = df["petal length"].skew()
     skewpw = df["petal width"].skew() 
 
+    print("\n\n")
     print("Below are some samples of rows of data found within the data frame.") 
     print("These reassure us that the dataframe has been created correctly, with appropriate headings,\ncapturing all data as expected, and taking a consistent form throughout.")
-    #print(dataframe_info)
     print("\n")
     print("First five rows: ")
     print(first_five_rows)
@@ -217,17 +217,25 @@ def summary_statistics():
     print("Here are the same summary statistics for each class of Iris flower: \n")
     print(summary_by_class)
     print("\n\n")
-    print("The coefficient of variation for each trait within the sample as a whole is as follows: \n")
+    print("The coefficient of variation for each trait within the sample as a whole is as follows: ")
     print(f'Sepal length: CoV = {sdsl/meansl}')
     print(f'Sepal width: CoV = {sdsw/meansw}')
     print(f'Petal length: CoV = {sdpl/meanpl}')
     print(f'Petal width: CoV = {sdpw/meanpw}')
     print("\n\n")
-    print("The skewness of each trait within the sample as a whole is as follows: \n ")
+    print("The skewness of each trait within the sample as a whole is as follows: ")
     print(f'Sepal length: Skewness = {skewsl}')
     print(f'Sepal width: Skewness = {skewsw}')
     print(f'Petal length: Skewness = {skewpl}')
     print(f'Petal width: Skewness = {skewpw}')
+    print("\n\n")
+    print("Finally, here are the correlation coefficients for each pair of traits: ")
+    print("Sepal length vs Sepal width: ", np.corrcoef(df['sepal length'], df['sepal width'])[0,1])
+    print("Petal length vs Petal width: ",  np.corrcoef(df['petal length'], df['petal width'])[0,1], "\n")
+    print("Sepal length vs Petal length: ", np.corrcoef(df['sepal length'], df['petal length'])[0,1])
+    print("Sepal width vs Petal width: ", np.corrcoef(df['sepal width'], df['petal width'])[0,1], "\n")
+    print("Sepal length vs Petal width: ",  np.corrcoef(df['sepal length'], df['petal width'])[0,1])
+    print("Sepal width vs Petal length: ",  np.corrcoef(df['sepal width'], df['petal length'])[0,1])
     print("\n\n")
     print("For a description of these summary statistics, please see the README file for this project.")
 
@@ -248,7 +256,19 @@ I decided to create one histogram for each trait, and to include on each histogr
 I then specified that the histograms should be stacked on top of each other, rather than overlapping each other, as I found that this enabled me to more easily get a sense of how the data is distributed: to create these stacked histograms, I passed the argument *multiple = stack* into the function *sns.displot*.
 
 I added a title and changed the label on the x-axis by appending the *.set()* function to the sns.displot function. I also improved the appearance of each histogram by using the *plt.tight_layout()* to increase the amount of space for the heading at the top. I then saved each histogram as a .png file and these are included below:
-/
+
+code used to create histograms:
+
+```
+sns.set(style="darkgrid")
+
+sepal_length = sns.displot(df, x ="sepal length", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Sepal length for each Iris variety", xlabel = "Sepal length in cm")
+plt.tight_layout()
+plt.savefig('sepal_length_hist.png')
+
+(similar code for the three other histograms)
+
+```
 
 ### i) Petal length: ###
 
@@ -299,7 +319,9 @@ In order to create the three pairplots for the individual Iris species, I needed
 
 I modified my plots to enhance their appearance and to make them easier to interpret. I used the *corner* argument to removes the top right corner of each pairplot, as the top right corner showed redundant information which I felt cluttered the appearance of the plot and made it harder to interpret. 
 
-To produce a clearer picture of the strength of correlation between the different traits, I used the *kind = "reg"* argument to insert regression lines into each segment of my pairplots. I particularly like the regression lines in the individual Iris pairplots, as the bold colours of the plots and data points against the white background make it easy to interpret the nature of the relationship between the traits.
+To produce a clearer picture of the strength of correlation between the different traits, I wanted to include regression lines in my pairplots. Initially, I used the *kind = "reg"* argument in all four of my plots to insert regression lines into each non-diagonal segment. I really liked the regression lines in the individual Iris pairplots, as the bold colours of the plots and data points against the white background make it easy to interpret the nature of the relationship between the traits. However, I wasn't satisfied with the result for the overall pairplot, as the *kind = reg"* argument led to three regression lines in each segment (one for each Iris species) rather than just one regression line per segment, as I wanted. I turned to the website stackoverflow for help, and I asked my first question on it: https://stackoverflow.com/questions/76217544/how-to-fit-regression-lines-on-each-non-diagonal-segment-of-a-pairplot-while-re.  \
+It turned out that I couldn't simultaneously split the data into three groups using the *hue* argument, while also imposing just one regression line per segment using the *kind = "reg"* argument. The contributor (username: "Redox") defined a function called 'regline', which plots a single regression line: this function is then passed into the *.map_offdiag()* function, which enables us to apply the 'regline' function to each non-diagonal segment of the pairplot. By using *x=x.name* and *y=y.name*, we convert each trait name to a string, and each combination of traits can have a regression line imposed on the plot of their values, because the function takes the names of the traits from the x and y axes of the pairplot. Values for 'data' and 'color' are given for the regline function when it is called.  \
+I found the quick response the my question on stackoverflow to be very helpful, as I had spent a lot of time to no avail trying to figure out how to achieve this outcome with the overall pairplot. I will consider using the site in future to get help with coding problems if I am really stuck.
 
 I experimented with many different colours for the plots. For the overall plot, I passed in the  the *hue* argument to seperate the datapoints by 'variety' of Iris, and then passed in the *palette* argument with the palette "Dark2", to produce a distinct colour scheme for the plot. For the individual species plots, I needed to pass in separate "keyword arguments" for the diagonal component (*diag_kws = dict(color = )*) and for the plots (*plot_kws = dict(color = )*). I figured our how to modify the colors of the invidual plots in this way from watching the following youtube video (especially around 11 mins in): https://www.youtube.com/watch?v=-eyiVTLJuqI.
 The diagonal component of each pairplot gives an overview of the distribution pattern for each individual trait, but as I was more interested in the comparison of each trait with the other traits, I chose to make the diagonal component grey for each plot. I then choose bold and distinct colours for the other componetns of each plot.
@@ -316,7 +338,13 @@ Below is the code I used for this section:
 ```
 sns.set(style = "white")
 
-iris_pairplot = sns.pairplot(df, hue = "variety", palette="Dark2", height=3, aspect=1, corner=True, kind="reg")
+iris_pairplot = sns.pairplot(df, hue = "variety", palette="Dark2", height=3, aspect=1, corner=True)
+
+def regline(x, y, **kwargs):
+    sns.regplot(data=kwargs['data'], x=x.name, y=y.name, scatter=False, color=kwargs['color'])
+
+iris_pairplot.map_offdiag(regline, color='red', data=df)
+
 iris_pairplot.fig.suptitle("Pairplot of traits for full Iris sample", fontsize = "xx-large")
 plt.tight_layout()
 plt.savefig('iris_pairplot.png')

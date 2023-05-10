@@ -34,7 +34,15 @@ Please download *analysis.py* from my repository (*jmce22/pands-project*) into a
 * [Pre-analysis](#pre-analysis)
 * [Summary of each variable](#summary-of-each-variable)
 * [Histograms](#histograms)
+    * [Background](#background)
+    * [Explanation of code](#explanation-of-code)
+    * [Histograms](#histograms)
+    * [Interpretation of findings](#interpretation-of-findings)
 * [Plots](#plots)
+    * [Background](#background)
+    * [Explanation of code](#explanation-of-code)
+    * [Pairplots](#pairplots)
+    * [Interpretation of findings](#interpretation-of-findings)
 * [Other analysis](#other-analysis)
 * [Summary](#summary)
 * [References](#references)
@@ -251,7 +259,11 @@ summary_statistics()
 
 ## Histograms
 
+### Background ###
+
 To begin visualising the data, I created four histograms using Seaborn. A histogram is a chart used to depict the frequency at which different values occur within a dataset. It does this using narrow vertical bars, or 'bins', of equal width, where each bin represents a range of values. Data points from the dataset are placed in a bin according to their value and the number of data points which fall into each bin is counted on the y-axis. This produces a useful visual representation of the spread of values within a dataset.
+
+### Explanation of code ###
 
 I decided to create one histogram for each trait, and to include on each histogram the contribution of each Iris flower to the data in the histogram. I achieved this passing the *hue* argument into the sns.displot function which I used to generate each histogram: this allowed me to split the histogram into three different colours, with the colours denoting which species of Iris the data belongs to (ie. which value is found in the "variety" column on the same row of the DataFrame as the point of data being included in the histogram). 
 
@@ -272,22 +284,26 @@ plt.savefig('sepal_length_hist.png')
 
 ```
 
-### i) Petal length: ###
+### Histograms ###
+
+**i) Petal length **
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_length_hist.png)
 
-### ii) Petal width: ###
+**ii) Petal width **
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_width_hist.png)
 
-### iii) Sepal length: ###
+**iii) Sepal length **
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_length_hist.png)
 
-### iv) Sepal width: ###
+**iv) Sepal width: **
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_width_hist.png)
 
+
+### Interpretation of findings ###
 
 The most obvious visual result from the histograms are the *much* smaller values for petal length and petal width for Iris setosa compared to Iris versicolor and Iris virginica. It is also clear that virginica has larger petals overall compared to versicolor.
 
@@ -297,6 +313,8 @@ In terms of sepal length and sepal width, the ranking of size from smallest to l
 &nbsp; 
 
 ## Plots
+
+### Background ###
 
 A scatterplot is a type of plot in which the values of two variables are plotted seperately along the x-axis and the y-axis, and the pattern of the plot can be used to determined the degree to which the two variables are correlated. A figure known as the sample correlation coefficient, 'r', can be calculated between two variables to put a figure on the degree of correlation, and it lies between -1 and 1. Regression lines ('line of least squares' or 'line of best fit') can be drawn through the plot, to visually illustrate the degree of correlation between the variables. This is the line that minimises the sum of distances between the data points and the line.
 
@@ -314,15 +332,18 @@ These three scenarios are illustrated in the image below:
 
 &nbsp; 
 
+### Explanation of code ###
 
-To capture the six different trait-pair combinations within this sample I have used pairplots. I created a pairplot based on the data set as a whole to show the correlation between the 6 different pairs of traits within the whole sample, and also created three further pairplots to depect the correlation between traits for each Iris species in isolation.
+To capture the six different trait-pair combinations within this sample I have used pairplots. Pairplots combine multiple scatterplots into one plot. I created a pairplot based on the data set as a whole to show the correlation between the 6 different pairs of traits within the whole sample, and also created three further pairplots to depect the correlation between traits for each Iris species in isolation.
 
 In order to create the three pairplots for the individual Iris species, I needed to split the dataset into three sub-datasets. To do this, I used the *df.loc[]* property to create three 'sub-DataFrames' from the overall Dataframe. I split the dataset based on the condition that the entry in the 'variety' column equals one of the three varieties of Iris (for example, *df['variety']=="Iris-setosa"*). I then assigned each sub-DataFrame to an appropriate variable name for use in the formulas for the pairplots for each Iris species. I found this code within this page: https://sparkbyexamples.com/pandas/pandas-dataframe-loc/
 
 I modified my plots to enhance their appearance and to make them easier to interpret. I used the *corner* argument to removes the top right corner of each pairplot, as the top right corner showed redundant information which I felt cluttered the appearance of the plot and made it harder to interpret. 
 
-To produce a clearer picture of the strength of correlation between the different traits, I wanted to include regression lines in my pairplots. Initially, I used the *kind = "reg"* argument in all four of my plots to insert regression lines into each non-diagonal segment. I really liked the regression lines in the individual Iris pairplots, as the bold colours of the plots and data points against the white background make it easy to interpret the nature of the relationship between the traits. However, I wasn't satisfied with the result for the overall pairplot, as the *kind = reg"* argument led to three regression lines in each segment (one for each Iris species) rather than just one regression line per segment, as I wanted. I turned to the website stackoverflow for help, and I asked my first question on it: https://stackoverflow.com/questions/76217544/how-to-fit-regression-lines-on-each-non-diagonal-segment-of-a-pairplot-while-re.  \
-It turned out that I couldn't simultaneously split the data into three groups using the *hue* argument, while also imposing just one regression line per segment using the *kind = "reg"* argument. The contributor (username: "Redox") defined a function called 'regline', which plots a single regression line: this function is then passed into the *.map_offdiag()* function, which enables us to apply the 'regline' function to each non-diagonal segment of the pairplot. By using *x=x.name* and *y=y.name*, we convert each trait name to a string, and each combination of traits can have a regression line imposed on the plot of their values, because the function takes the names of the traits from the x and y axes of the pairplot. Values for 'data' and 'color' are given for the regline function when it is called.  \
+To produce a clearer picture of the strength of correlation between the different traits, I wanted to include regression lines in my pairplots. Initially, I used the *kind = "reg"* argument in all four of my plots to insert regression lines into each non-diagonal segment. I really liked the regression lines in the individual Iris pairplots, as the bold colours of the plots and data points against the white background make it easy to interpret the nature of the relationship between the traits. However, I wasn't satisfied with the result for the overall pairplot, as the *kind = reg"* argument led to three regression lines in each segment (one for each Iris species) rather than just one regression line per segment, as I wanted. I turned to the website stackoverflow for help, and I asked my first question on it: https://stackoverflow.com/questions/76217544/how-to-fit-regression-lines-on-each-non-diagonal-segment-of-a-pairplot-while-re.  
+
+It turned out that I couldn't simultaneously split the data into three groups using the *hue* argument, while also imposing just one regression line per segment using the *kind = "reg"* argument. The contributor (username: "Redox") defined a function called 'regline', which plots a single regression line: this function is then passed into the *.map_offdiag()* function, which enables us to apply the 'regline' function to each non-diagonal segment of the pairplot. By using *x=x.name* and *y=y.name*, we convert each trait name to a string, and each combination of traits can have a regression line imposed on the plot of their values, because the function takes the names of the traits from the x and y axes of the pairplot. Values for 'data' and 'color' are given for the regline function when it is called.
+
 I found the quick response the my question on stackoverflow to be very helpful, as I had spent a lot of time to no avail trying to figure out how to achieve this outcome with the overall pairplot. I will consider using the site in future to get help with coding problems if I am really stuck.
 
 I experimented with many different colours for the plots. For the overall plot, I passed in the  the *hue* argument to seperate the datapoints by 'variety' of Iris, and then passed in the *palette* argument with the palette "Dark2", to produce a distinct colour scheme for the plot. For the individual species plots, I needed to pass in separate "keyword arguments" for the diagonal component (*diag_kws = dict(color = )*) and for the plots (*plot_kws = dict(color = )*). I figured our how to modify the colors of the invidual plots in this way from watching the following youtube video (especially around 11 mins in): https://www.youtube.com/watch?v=-eyiVTLJuqI.
@@ -331,7 +352,6 @@ The diagonal component of each pairplot gives an overview of the distribution pa
 I also experimented with different figures for height and aspect, and settled on a height of '3' and an aspect of '1', as I felt these dimensions resulted in a desirable size for the plots when I uploaded them to this Readme document (aspect is the extent to which the horizontal dimension of the plot is multiplied by the given height).
 
 I also added a title using the fig.suptitle() method, and increased the fontsize of the title.
-
 
 
 Below is the code I used for this section:
@@ -363,43 +383,45 @@ plt.savefig('setosa_pairplot.png')
 
 ```
 
+### Pairplots ###
 
-My four pairplots are shown below, and following the plots I have given my interpretation of their contents.
+My four pairplots are shown below. following the plots I have given my interpretation of their contents.
 
-### i) Pairplot to depict correlations between pairs of traits among full Iris dataset: ###
+**i) Overall pairplot**
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/iris_pairplot.png)
 
-### ii) Pairplot for correlations between pairs of traits among Iris setosa data: ###
+**ii) Setosa pairplot**
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/setosa_pairplot.png)
 
-### iii) Pairplot for correlations between pairs of traits among Iris versicolor data: ###
+**iii) Versicolor pairplot**
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/versicolor_pairplot.png)
 
-### iv) Pairplot for correlations between pairs of traits among Iris virginica data: ###
+**iv) Virginica pairplot**
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/virginica_pairplot.png)
 
-My interpretation of the findings are as below:
 
-a) Sepal length vs Sepal width:
+### Interpretation of findings ###
+
+a) *Sepal length vs Sepal width:*
 For the sample overall, the correlation coefficient is -0.109, which represents a very weak negative relationship. This is interesting, because the plot for these two traits for each Iris species in isolation show a significant positive correlation. My interpretation, from viewing the group regression line, is this: because Iris setosa has the largest sepals out of the three species and has the smallest petals, when we include it in the regression plot of sepal length vs sepal width, its high sepal values act to pivot the group regression line upwards on the left hand-side of the graph. As a result, the correlation coefficient for the group for this trait is dissimilar to that which holds for the invidiual Iris species. This may indiciate that the species are fundamentally disimilar in their traits, and in the picture I have included in this file, setosa does look quite different to versicolor and virginica.
 
-b) Petal length vs Petal width:
+b) *Petal length vs Petal width:*
 For the sample overall, the correlation coefficient is almost perfectly positive at a value of 0.963. This result appears closest to that which is found for versicolor, although setosa and virginica also show a definite positive relationship between petal length and petal width.
 
-c) Sepal length vs Petal length:
+*c) Sepal length vs Petal length:*
 For the sample overall, the correlation coefficient is 0.872. Again, this is a very strong positive relationship, which holds for both versicolor and virginica; sepal length seems to be correlated with petal length much less strongly with setosa, although the relationship is still positive.
 
-d) Sepal width vs Petal width:
+*d) Sepal width vs Petal width:*
 For the sample overall, the correlation coefficient is -0.357. This is a moderate negative relationship. Like for sepal width and sepal length, the group correlation does not reflect the correlation found in the individual samples: versicolor and virginica each show a solid positive relationship between sepal width and petal width, with setosa also showing a moderate positive relationship. In a similar fashion as I outlined above, it seems to me that the combination of highest sepal width measurments and lowest petal width measurements on average acts to pivot the group regression line downwards. Remember that the regression line tries to minimise the distance between all the points and the line, and if there are many data points aggregated near the bottom right of the plot, the regression line will pivot downwards in that direction.
 
-e) Sepal length vs Petal width:
+*e) Sepal length vs Petal width:*
 For the sample overall, the correlation coefficient between these two traits is 0.818. This struck me as a strong correlation considering that differences in appearance of the three species, and the follow on that the petals of one species might not be strong correlated with the sepals of another species. The regression lines for the individual plots are flatter than the group line, although versicolor still shows a definite positive relationship.
 
-f) Petal length vs Sepal width:
+*f) Petal length vs Sepal width:*
 For the sample overall, the correlation coefficient betwen the two traits is -0.42. The same analysis for 'sepal width vs petal width' applies here: setosa's high values for sepal width and low values for petal length drag the group regression line towards the bottom right corner, causing the group regression line to look different to positively sloped lines for the individual traits. That said, the positive relationship for setosa is weak, virginica is a bit stronger and vertosa shows the strongest relationship between petal length and sepal width.
 
 

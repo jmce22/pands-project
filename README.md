@@ -161,6 +161,8 @@ Skewness measures the degree of asymmetry of a distribution, with a value of zer
 For petal length and petal width, the values for skewness are slightly negative (-0.274 and -0.105, respectively), indicating that there is a slight weighting of values for these traits towards the right (and a correspondingly longer left-tail): this can be explained by the significantly higher values for these traits found in Iris vertosa and Iris virginica than are found in Iris setosa.  \
 For sepal length and sepal width, the values for skewness are slightly positive (0.315 and 0.334, respectively), which shows that there is a slight weighting of the values for these traits towards the left: from looking at the histograms for sepal length and sepal width, we can see that the values for sepal length trail to the right mostly due to the higher measurements for Iris virginica, and the values for sepal width trail to the right due to the higher measurements for Iris setosa.
 
+* *Correlation coefficients*: I included the correlation coefficient, 'r', for each of the six pairs of traits. This statistic, which always lies between -1 and 1, is explained in the Plots section, along with the figures generated for trait-pairs for the overall Iris dataset. I mention them here because I have outputted the figures to the summary statistics text file.
+
 Below is the code I used for this section:
 
 
@@ -383,25 +385,22 @@ My four pairplots are shown below, and following the plots I have given my inter
 My interpretation of the findings are as below:
 
 a) Sepal length vs Sepal width:
-There appears to be a strong positive correlation between these two traits for each flower.
+For the sample overall, the correlation coefficient is -0.109, which represents a very weak negative relationship. This is interesting, because the plot for these two traits for each Iris species in isolation show a significant positive correlation. My interpretation, from viewing the group regression line, is this: because Iris setosa has the largest sepals out of the three species and has the smallest petals, when we include it in the regression plot of sepal length vs sepal width, its high sepal values act to pivot the group regression line upwards on the left hand-side of the graph. As a result, the correlation coefficient for the group for this trait is dissimilar to that which holds for the invidiual Iris species. This may indiciate that the species are fundamentally disimilar in their traits, and in the picture I have included in this file, setosa does look quite different to versicolor and virginica.
 
-b) Petal length vs Petal width
+b) Petal length vs Petal width:
+For the sample overall, the correlation coefficient is almost perfectly positive at a value of 0.963. This result appears closest to that which is found for versicolor, although setosa and virginica also show a definite positive relationship between petal length and petal width.
 
+c) Sepal length vs Petal length:
+For the sample overall, the correlation coefficient is 0.872. Again, this is a very strong positive relationship, which holds for both versicolor and virginica; sepal length seems to be correlated with petal length much less strongly with setosa, although the relationship is still positive.
 
-c) Sepal length vs Petal length
+d) Sepal width vs Petal width:
+For the sample overall, the correlation coefficient is -0.357. This is a moderate negative relationship. Like for sepal width and sepal length, the group correlation does not reflect the correlation found in the individual samples: versicolor and virginica each show a solid positive relationship between sepal width and petal width, with setosa also showing a moderate positive relationship. In a similar fashion as I outlined above, it seems to me that the combination of highest sepal width measurments and lowest petal width measurements on average acts to pivot the group regression line downwards. Remember that the regression line tries to minimise the distance between all the points and the line, and if there are many data points aggregated near the bottom right of the plot, the regression line will pivot downwards in that direction.
 
+e) Sepal length vs Petal width:
+For the sample overall, the correlation coefficient between these two traits is 0.818. This struck me as a strong correlation considering that differences in appearance of the three species, and the follow on that the petals of one species might not be strong correlated with the sepals of another species. The regression lines for the individual plots are flatter than the group line, although versicolor still shows a definite positive relationship.
 
-d) Sepal width vs Petal width
-
-
-e) Sepal length vs Petal width
-
-
-f) Petal length vs Sepal width
-
-
-
-
+f) Petal length vs Sepal width:
+For the sample overall, the correlation coefficient betwen the two traits is -0.42. The same analysis for 'sepal width vs petal width' applies here: setosa's high values for sepal width and low values for petal length drag the group regression line towards the bottom right corner, causing the group regression line to look different to positively sloped lines for the individual traits. That said, the positive relationship for setosa is weak, virginica is a bit stronger and vertosa shows the strongest relationship between petal length and sepal width.
 
 
 

@@ -276,27 +276,76 @@ In terms of sepal length and sepal width, the ranking of size from smallest to l
 
 ## Plots
 
-A scatterplot is a type of plot in which the values of two variables are plotted seperately along the x-axis and the y-axis, and the pattern of the plot can be used to determined the degree to which the two variables are correlated. A figure known as the sample correlation coefficient, 'r', can be calculated between two variables to put a figure on the degree of correlation, and it lies between -1 and 1.
-* If x tends to increase while y increases, x is said to be positively correlated with y, and r > 0. This is indicated by a positively sloping line from the bottom left corner of the axis. a 45-degree angle with the x-axis indicates a perfect positive correlation between variables.
+A scatterplot is a type of plot in which the values of two variables are plotted seperately along the x-axis and the y-axis, and the pattern of the plot can be used to determined the degree to which the two variables are correlated. A figure known as the sample correlation coefficient, 'r', can be calculated between two variables to put a figure on the degree of correlation, and it lies between -1 and 1. Regression lines ('line of least squares' or 'line of best fit') can be drawn through the plot, to visually illustrate the degree of correlation between the variables. This is the line that minimises the sum of distances between the data points and the line.
+
+* If x tends to increase while y increases, x is said to be positively correlated with y, and r > 0. This is indicated by a positively sloping line from the bottom left corner of the axis. A 45-degree angle with the x-axis indicates a perfect positive correlation between variables.
 * If x tends to decrease while y increases, x is said to be negatively correlated with y, and r < 0. This is indicated by a negatively sloping line from the top left corner of the axis. A 45-degree angle with the x-axis indicates a perfect negative correlation between variables.
 * A figure close to zero implies little or no correlation between the variables and is indicated by a flat or almost-flat line through the middle of the plot.
-These three scenarios are illustrated in the image below:
+These three scenarios are illustrated in the image below:  
+
+
+&nbsp; 
+
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/correlation_coeff.png)
 
 
+&nbsp; 
 
-Pairplot to depict correlations between pairs of traits among full Iris dataset:
+
+To capture the six different trait-pair combinations within this sample I have used pairplots. I created a pairplot based on the data set as a whole to show the correlation between the 6 different pairs of traits within the whole sample, and also created three further pairplots to depect the correlation between traits for each Iris species in isolation.
+
+I modified my plots to enhance their appearnace and to make it easier to interpret the them. I used the 'corner' arguement to removes the top right corner of each pairplot, as the top right corner showed redundant information which I felt cluttered the appearance of the plot and made it harder to interpret.
+
+I used the 'kind' = reg arguement creates a regression plot, to give a sense of the strength of correlation between the variables.
+For both the whole sample pairplot and the individual species ones, I experiemented with different sizes and colours; 
+For the individual plots, this required passing in keyword arguments:
+See reference: https://www.youtube.com/watch?v=-eyiVTLJuqI  around 11 mins.
+I added a title using the fig.suptitle() method, including increasing the fontsize.
+
+
+
+
+Below is the code used for this section:
+
+
+```
+sns.set(style = "white")
+
+iris_pairplot = sns.pairplot(df, hue = "variety", palette="Dark2", height=3, aspect=1, corner=True, kind="reg")
+iris_pairplot.fig.suptitle("Pairplot of traits for full Iris sample", fontsize = "xx-large")
+plt.tight_layout()
+plt.savefig('iris_pairplot.png')
+
+setosa = df.loc[df['variety']=="Iris-setosa"]
+versicolor = df.loc[df['variety']=="Iris-versicolor"]
+virginica = df.loc[df['variety']=="Iris-virginica"]
+
+setosa_pairplot = sns.pairplot(setosa, diag_kws = dict(color='grey'), plot_kws = dict(color = 'brown'), height=3, aspect=1, corner=True, kind = "reg")
+setosa_pairplot.fig.suptitle("Pairplot of setosa traits", fontsize = "xx-large")
+plt.savefig('setosa_pairplot.png')
+
+(similar code for versicolor and virginica pairplots)
+
+```
+
+
+My four pairplots are shown below, and following the plots I have given my interpretation of their contents.
+
+### i) Pairplot to depict correlations between pairs of traits among full Iris dataset: ###
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/iris_pairplot.png)
 
-Pairplot for correlations between pairs of traits among Iris setosa data:
+### ii) Pairplot for correlations between pairs of traits among Iris setosa data: ###
+
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/setosa_pairplot.png)
 
-Pairplot for correlations between pairs of traits among Iris versicolor data:
+### iii) Pairplot for correlations between pairs of traits among Iris versicolor data: ###
+
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/versicolor_pairplot.png)
 
-Pairplot for correlations between pairs of traits among Iris virginica data:
+### iv) Pairplot for correlations between pairs of traits among Iris virginica data: ###
+
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/virginica_pairplot.png)
 
 

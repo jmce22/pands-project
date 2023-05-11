@@ -273,16 +273,16 @@ To begin visualising the data, I created four histograms using Seaborn. A histog
 
 ### Explanation of code ###
 
-I decided to create one histogram for each trait, and to include on each histogram the contribution of each Iris flower to the data in the histogram. I achieved this passing the *hue* argument into the sns.displot function which I used to generate each histogram: this allowed me to split the histogram into three different colours, with the colours denoting which species of Iris the data belongs to (ie. which value is found in the "variety" column on the same row of the DataFrame as the point of data being included in the histogram). 
+My first step was to set the style whic I wanted my histograms to take, and I used the function *sns.set_theme()* to do this. I decided to create one histogram for each trait, and to include on each histogram the contribution of each Iris flower to the data in the histogram. I achieved this passing the *hue* argument into the sns.displot function which I used to generate each histogram: this allowed me to split the histogram into three different colours, with the colours denoting which species of Iris the data belongs to (ie. which value is found in the "variety" column on the same row of the DataFrame as the point of data being included in the histogram).
 
 I then specified that the histograms should be stacked on top of each other, rather than overlapping each other, as I found that this enabled me to more easily get a sense of how the data is distributed: to create these stacked histograms, I passed the argument *multiple = stack* into the function *sns.displot*.
 
-I added a title and changed the label on the x-axis by appending the *.set()* function to the sns.displot function. I also improved the appearance of each histogram by using the *plt.tight_layout()* to increase the amount of space for the heading at the top. I then saved each histogram as a .png file and these are included below:
+I added a title and changed the label on the x-axis by appending the *.set()* function to the *sns.displot* function. I also improved the appearance of each histogram by using the *plt.tight_layout()* to increase the amount of space for the heading at the top. I then saved each histogram as a .png file and these are included below:
 
 code used to create histograms:
 
 ```
-sns.set(style="darkgrid")
+sns.set_theme(style="darkgrid")
 
 sepal_length = sns.displot(df, x ="sepal length", bins = 20, hue ="variety", palette = "Set1_r", multiple = "stack").set(title = "Sepal length for each Iris variety", xlabel = "Sepal length in cm")
 plt.tight_layout()
@@ -294,19 +294,19 @@ plt.savefig('sepal_length_hist.png')
 
 ### Histograms ###
 
-**i) Petal length **
+**i) Petal length**
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_length_hist.png)
 
-**ii) Petal width **
+**ii) Petal width**
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/petal_width_hist.png)
 
-**iii) Sepal length **
+**iii) Sepal length**
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_length_hist.png)
 
-**iv) Sepal width: **
+**iv) Sepal width:**
 
 ![image](https://raw.githubusercontent.com/jmce22/pands-project/main/sepal_width_hist.png)
 
@@ -352,7 +352,7 @@ To produce a clearer picture of the strength of correlation between the differen
 
 It turned out that I couldn't simultaneously split the data into three groups using the *hue* argument, while also imposing just one regression line per segment using the *kind = "reg"* argument. The contributor (username: "Redox") defined a function called 'regline', which plots a single regression line: this function is then passed into the *.map_offdiag()* function, which enables us to apply the 'regline' function to each non-diagonal segment of the pairplot. By using *x=x.name* and *y=y.name*, we convert each trait name to a string, and each combination of traits can have a regression line imposed on the plot of their values, because the function takes the names of the traits from the x and y axes of the pairplot. Values for 'data' and 'color' are given for the regline function when it is called.
 
-I found the quick response the my question on stackoverflow to be very helpful, as I had spent a lot of time to no avail trying to figure out how to achieve this outcome with the overall pairplot. I will consider using the site in future to get help with coding problems if I am really stuck.
+I found the quick response the my question on stackoverflow to be very helpful, as I had spent a lot of time to no avail trying to figure out how to achieve this outcome with the overall pairplot. I will consider using the site in future to research an answer to a problem if I am very stuck.
 
 I experimented with many different colours for the plots. For the overall plot, I passed in the  the *hue* argument to seperate the datapoints by 'variety' of Iris, and then passed in the *palette* argument with the palette "Dark2", to produce a distinct colour scheme for the plot. For the individual species plots, I needed to pass in separate "keyword arguments" for the diagonal component (*diag_kws = dict(color = )*) and for the plots (*plot_kws = dict(color = )*). I figured our how to modify the colors of the invidual plots in this way from watching the following youtube video (especially around 11 mins in): https://www.youtube.com/watch?v=-eyiVTLJuqI.
 The diagonal component of each pairplot gives an overview of the distribution pattern for each individual trait, but as I was more interested in the comparison of each trait with the other traits, I chose to make the diagonal component grey for each plot. I then choose bold and distinct colours for the other componetns of each plot.
@@ -366,7 +366,7 @@ Below is the code I used for this section:
 
 
 ```
-sns.set(style = "white")
+sns.set_theme(style = "white")
 
 iris_pairplot = sns.pairplot(df, hue = "variety", palette="Dark2", height=3, aspect=1, corner=True)
 
@@ -441,6 +441,15 @@ For the sample overall, the correlation coefficient betwen the two traits is -0.
 &nbsp; 
 
 ## Summary
+
+
+Even though they are members of the same Iris family, each Iris species tested has distinct trait measurements on average and so the dataset as a whole should be seen as three separate datasets. Setosa especially seems distinct from the other two species.
+
+The Iris data set is a brilliant place to start for somebody who is learning how to analyse a dataset using python for the first time. It is intuitively easy to understand, and because so many people have analysed it before, there are many resources available online to help beginners learn how to analyse it for themselves.
+
+The inclusion of numerical and string data within the dataset gives us a chance to work with both data types. The need to analyse each variety seperately, allows the user to practice separating the data into subgroups according to the contents of the 'variety' column. The variability of the statistics gives the student something to work with and it is an intuitively easy dataset to understand. It is a good sized dataset to produce informative scatterplots and histograms.
+
+This concludes my project for the Programming and Scripting module. I found the module to be a steep learning curve but I am glad that I persisted with it. I have greater confidence in my abilities now to research solutions to a programming assignment or task, and to write up a readme file outlining the work I have completed. Once I got the hang of creating histograms and plots, I enjoyed experimenting with enhancing the appearance of them. I will definitely use these data analysis tools for my own purposes in future, for work and personal use, and I look forward to contuining to improve my knowledge and skills.
 
 &nbsp; 
 

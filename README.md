@@ -445,3 +445,100 @@ For the sample overall, the correlation coefficient betwen the two traits is -0.
 &nbsp; 
 
 ## References
+
+**Background:**
+
+1.	(Anderson, E.A (dataset donated by Marshall, M)) 1935. *Iris Data Set*. Archive.ics.uci.edu. Retrieved May 11th 2023, from https://archive.ics.uci.edu/ml/datasets/iris
+
+2.	(author/s unknown)(n.d). *Iris flower data set*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Iris_flower_data_set.
+
+3.	(author/s unknown)(n.d). *Edgar Anderson*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Edgar_Anderson 
+
+4.	(author/s unknown)(n.d). *Petal*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Petal
+
+5.	(author/s unknown)(n.d). *Sepal*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Sepal 
+
+6.	(Machupalli, V) 19th March 2018. *A predictive Machine Learning model from Build to Retrain*. IBM.com. Retrieved 11th May 2023 from https://www.ibm.com/cloud/blog/predictive-machine-learning-model-build-retrain. (source of Iris photograph).
+
+
+**Pre-analysis:**
+
+7.	(author/s unknown)(n.d). *Introductory*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/tutorials/introductory/index.html 
+
+8.	(author/s unknown)(n.d). *NumPy: the absolute basics for beginners*. Numpy.org. Retrieved 11th May 2023 from https://numpy.org/doc/stable/user/absolute_beginners.html 
+
+9.	(author/s unknown)(n.d). *Pandas Tutorial*. W3schools.com. Retrieved 11th May 2023 from https://www.w3schools.com/python/pandas/default.asp 
+
+10.	(author/s unknown)(n.d). *seaborn: statistical data visualization*. Retrieved 11th May 2023 from https://seaborn.pydata.org/ 
+
+11.	(author/s unknown) (n.d). *Matplotlib vs. seaborn vs. Plotly vs. MATLAB vs. ggplot2 vs. pandas.* Ritza.co. Retrieved 11th May 2023 from https://ritza.co/articles/matplotlib-vs-seaborn-vs-plotly-vs-MATLAB-vs-ggplot2-vs-pandas/ (for an overview of how the various softwares relate to each other).
+
+12.	(author/s unknown) 22nd May 2022. *Python sys Module*. Geeksforgeeks.org. Retrieved 11th May 2023 from https://www.geeksforgeeks.org/python-sys-module/ 
+
+13.	(Trivedi, A) 3rd May 2023. *sys Module in Python*. Scalar.com. Retrieved 11th May 2023 from https://www.scaler.com/topics/sys-module-in-python/ 
+
+14.	(“ankurv343”) 1st August 2020. *Add column names to dataframe in Pandas*. Geeksforgeeks.org. Retrieved 11th May 2023 from https://www.geeksforgeeks.org/add-column-names-to-dataframe-in-pandas/  
+
+**Summary of each variable:**
+
+15.	(“Luk32”) 29th April 2014. *How to write output of terminal to file.* Stackoverflow.com. Retrieved 11th May 2023 from https://stackoverflow.com/questions/23364096/how-to-write-output-of-terminal-to-file 
+
+16.	Beatty, A. 25th February 2023. *pands 6.1 functions syntax.* ATU lectures. Retrieved 11th May 2023 from https://web.microsoftstream.com/video/10124936-7470-493c-8e8b-35286b0cb60d?referrer=https:%2F%2Fvlegalwaymayo.atu.ie%2F . (For the syntax of writing a function).
+
+17.	(author/s unknown) (n.d) *pandas.DataFrame.* Pandas.pydata.org. Retrieved 11th May 2023 from https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html. (For information on methods used on DataFrame, such as .head() and .describe())
+
+18.	(author/s unknown) (n.d) *Group by: split-apply-combine*. Pandas.pydata.org. Retrieved 11th May 2023 from https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html 
+
+19.	(author/s unknown) (n.d). *numpy.transpose* Numpy.org. Retrieved 11th May 2023 from https://numpy.org/doc/stable/reference/generated/numpy.transpose.html  
+
+20.	(author/s unknown) (n.d). *Pandas Series.std()*. Javatpoint.com. Retrieved 11th May 2023 from https://www.javatpoint.com/pandas-standard-deviation 
+
+21.	(Hayes, A) 16th September 2022. *Co-efficient of Variation Meaning and How to Use It*. Investopedia.com. Retrieved 11th May 2023 from https://www.investopedia.com/terms/c/coefficientofvariation.asp 
+
+22.	(“Malli”) 24th January 2023. *How to Get Column Average or Mean in pandas DataFrame*. Sparkbyexamples.com. Retrieved 11th May 2023 from https://sparkbyexamples.com/pandas/pandas-get-column-average-mean/ (for calculating column mean and std to calculate CoV of traits).
+
+23.	(Chan, K.R) 24th June 2022. *How to test normality, skewness and kurtosis using Python*. Medium.com. Retrieved 11th May 2023 from https://medium.com/omics-diary/how-to-test-normality-skewness-and-kurtosis-using-python-18fb2d8e35b9 (for information about skewness).
+
+24.	(author/s unknown) (n.d). *Correlation Coefficient*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Correlation_coefficient 
+
+25.	(Arnaoot, N) 3rd June 2022. *Iris Statistical Analysis & Predictions*. Retrieved 11th May 2023 from Kaggle.com https://www.kaggle.com/code/narnaoot/iris-statistical-analysis-predictions?scriptVersionId=97348274 (line 16 – code for testing out correlation coefficients)
+
+**Histograms:**
+
+26.	(author/s unknown) (n.d). *Histogram*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Histogram 
+
+27.	(author/s unknown) (n.d). *Visualizing distributions of data*. Seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/tutorial/distributions.html?highlight=histogram#visualizing-distributions-of-data  
+
+28.	(Author/s unknown). 8th November 2022. *Seaborn Color Palettes and How to Use Them*. Github.io. Retrieved 11th May 2023 from https://r02b.github.io/seaborn_palettes/ 
+
+29.	(Author/s unknown) (n.d). *Tight Layout guide*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/tutorials/intermediate/tight_layout_guide.html 
+
+30.	(Author/s unknown) (n.d). *seaborn.set_theme*. Seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/generated/seaborn.set_theme.html#seaborn.set_theme 
+
+31.	(“Zach”) 8th April 2021. *How to Add a Title to Seaborn Plots (With Examples)*. Statology.com. Retrieved 11th May 2023 from https://www.statology.org/seaborn-title/ 
+
+**Plots:**
+
+32.	(Author/s unknown) (n.d) *Scatter Plot*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Scatter_plot 
+
+33.	(Chen, J) 23rd August 2022. *Line of Best Fit: Definition, How It Works, and Calculation*. Investopedia.org. Retrieved 11th May 2023 from https://www.investopedia.com/terms/l/line-of-best-fit.asp 
+
+34.	(Nickolas, S) 31st May 2021. *What Do Correlation Coefficients Positive, Negative, and Zero Mean?* Investopedia.com. Retrieved 11th May 2023 from https://www.investopedia.com/ask/answers/032515/what-does-it-mean-if-correlation-coefficient-positive-negative-or-zero.asp (For illustration of correlation coefficient/ regression lines)
+
+35.	(author/s unknown) (n.d). *Seaborn.pairplot*. seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/generated/seaborn.pairplot.html 
+
+36.	(author/s unknown) 21st January 2023. *Pandas DataFrame loc[] Syntax and Examples*. Sparkbyexamples.com. Retrieved 11th May 2023 from https://sparkbyexamples.com/pandas/pandas-dataframe-loc/ 
+
+37.	(“Learnerea”) 10th November 2021. *Python Seaborn - 15|What is a Pair Plot and How to Create this Using Seaborn in Python*. Youtube.com. Retrieved 11th May 2023 from https://www.youtube.com/watch?v=-eyiVTLJuqI 
+
+38.	("Redox") 10th May 2023. *How to fit regression lines on each non-diagonal segment of a pairplot, while retaining breakdown of data points by hue*. Stackoverflow.com. Retrieved 11th May 2023 from https://stackoverflow.com/questions/76217544/how-to-fit-regression-lines-on-each-non-diagonal-segment-of-a-pairplot-while-re 
+
+39.	(Author/s unknown) (n.d) *Seaborn.regplot*. seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/generated/seaborn.regplot.html 
+
+40.	(“Zach”) 7th April 2021. *How to Adjust the Figure Size of a Seaborn Plot*. Statology.org. Retrieved 11th May 2023 from https://www.statology.org/seaborn-figure-size/ 
+
+41.	(Author/s unknown) (n.d). *matplotlib.pyplot.suptitle*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html 
+
+42.	(Author/s unknown) (n.d) *set_fontsize(fontsize)*. Matplotlib.org. Retrieved 11th May 2023 https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize 
+
+

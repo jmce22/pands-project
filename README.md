@@ -11,11 +11,11 @@
 This repository contains my submission for the project for the Programming and Scripting module of the Higher Diploma in Data Analytics from ATU.
 This project involves researching Fisher's Iris data set and carrying out exploratory data analysis on it using Python.
 
-I used Visual Studio Code (version 1.77.3) to write my scripts and to uploaded them to a repository on github for assessment.
+I used Visual Studio Code (version 1.77.3) to write my scripts and to upload them to a repository on GitHub for assessment.
 
 This file will firstly give some background information to the dataset in question. 
 
-I will then outline the steps which I needed to take before I could begin the actual analysis itself: downloading the data-set, preparing the dataset by adding the correct headings, and importing the modules, libraries and packages which I used for the project.
+I will then outline the steps which I needed to take before I could begin the actual analysis itself: downloading the dataset, preparing the dataset by adding the correct headings, and importing the modules, libraries and packages which I used to complete the project.
 
 Next I will outline some summary statistics relating to the variables within the dataset. 
 My script will redirect the summary statistics for each of the four variables on to a text file.
@@ -40,7 +40,7 @@ Please download *analysis.py* from my repository (*jmce22/pands-project*) into a
     * [Explanation of code](#explanation-of-code)
     * [Histograms](#histograms)
     * [Interpretation of findings](#interpretation-of-findings)
-* [Plots](#plots)
+* [Scatterplots](#scatterplots)
     * [Background](#background)
     * [Explanation of code](#explanation-of-code)
     * [Pairplots](#pairplots)
@@ -136,8 +136,8 @@ Before setting out to analyse the dataset, I wanted to ensure that the DataFrame
 One way of compiling summary statistics for a DataFrame is to use seperate methods to generate seperate individual summary statistics for the columns of numerical data in the DataFrame: examples include the *.mean()* and *.max()* methods, used to calculate the mean value and max value, respectively, of each column of numerical data in the DataFrame.
 
 It is possible, however, to produce multiple summary statistics with one command by using the *.describe()* method. I used this method here, where I looked for summary statistics for:  \
-i). each of the four measured traits ('sepal width', 'sepal length', 'petal width' and 'petal length') for all of the flowers as a group (sample size = 150), and
-ii). each of the four measured traits for *each* variety of Iris flower (three groups, each with a sample size of 50).
+- each of the four measured traits ('sepal width', 'sepal length', 'petal width' and 'petal length') for all of the flowers as a group (sample size = 150)
+- each of the four measured traits for *each* variety of Iris flower (three groups, each with a sample size of 50).
 
 I generated the second set of statistics because I was interested in finding out how different the statistics would be for each Iris variety in isolation. I used the pandas *groupby()* function in conjunction with the *.describe* method to generate these statistics. I also used the NumPy method *np.transpose()* to invert the way the summary statistics were printed, because when printed without inverting them, the results are not easily readible on the outputted text file. I used https://numpy.org/doc/stable/reference/generated/numpy.transpose.html to work this out and was relieved when it produced a good result.
 
@@ -255,11 +255,11 @@ From looking at the histograms (next section) for petal length and petal width, 
 Note: as CoV isn't directly calculated by the *.describe()* method, I calculated them using the *.mean()* and *.std()* methods and printed the results to the text file.
 
 * *Skewness*: I generated figures for the skewness of the distrubution for values for each trait within the dataset. I did this using the code DataFrame['column name'].skew().  \
-Skewness measures the degree of asymmetry of a distribution, with a value of zero representing a normal distribution. A negative value for skewness indicates that the distribution is left-skewed, with the left-tail long relative to the right. A positive value indicates the opposite; that the distribution is right-skewed and therefore the right-tail is longer relative to the left. A value which lies between -0.5 and 0.5 is considered to represent a fairly symmetrical plot, and all four traits fall within this range for skewness.  \
-For petal length and petal width, the values for skewness are slightly negative (-0.274 and -0.105, respectively), indicating that there is a slight weighting of values for these traits towards the right (and a correspondingly longer left-tail): this can be explained by the significantly higher values for these traits found in Iris vertosa and Iris virginica than are found in Iris setosa.  \
+Skewness measures the degree of asymmetry of a distribution, with a value of zero representing a normal distribution. A negative value for skewness indicates that the distribution is left-skewed, with the left-tail long relative to the right. A positive value indicates the opposite; that the distribution is right-skewed and therefore the right-tail is longer relative to the left. A value which lies between -0.5 and 0.5 is considered to represent a fairly symmetrical plot, and all four traits fall within this range for skewness.  
+For petal length and petal width, the values for skewness are slightly negative (-0.274 and -0.105, respectively), indicating that there is a slight weighting of values for these traits towards the right (and a correspondingly longer left-tail): this can be explained by the significantly higher values for these traits found in Iris vertosa and Iris virginica than are found in Iris setosa.  
 For sepal length and sepal width, the values for skewness are slightly positive (0.315 and 0.334, respectively), which shows that there is a slight weighting of the values for these traits towards the left: from looking at the histograms for sepal length and sepal width, we can see that the values for sepal length trail to the right mostly due to the higher measurements for Iris virginica, and the values for sepal width trail to the right due to the higher measurements for Iris setosa.
 
-* *Correlation coefficients*: I included the correlation coefficient, 'r', for each of the six pairs of traits. This statistic, which always lies between -1 and 1, is explained in the Plots section, along with the figures generated for trait-pairs for the overall Iris dataset. I mention them here because I have outputted the figures to the summary statistics text file.
+* *Correlation coefficients*: I included the correlation coefficient, 'r', for each of the six pairs of traits. This statistic, which always lies between -1 and 1, is explained in the Plots section, along with the figures generated for trait-pairs for the overall Iris dataset. I mention them here because I have outputted the figures to the summary statistics text file. Note: I learned from the code on line 16 on this link how to produce correlation coefficients for each individual colum: https://www.kaggle.com/code/narnaoot/iris-statistical-analysis-predictions?scriptVersionId=97348274. Here, the contents of the first column name passed into the function *np.corrcoef* gets tested for correlation with the content of the second column passed in. *[0,1]* refers to the element of a (2 x 2) correlation matrix which we are interested in (https://www.geeksforgeeks.org/create-a-correlation-matrix-using-python/).
 
 
 
@@ -320,7 +320,7 @@ In terms of sepal length and sepal width, the ranking of size from smallest to l
 
 &nbsp; 
 
-## Plots
+## Scatterplots
 
 ### Background ###
 
@@ -354,10 +354,10 @@ It turned out that I couldn't simultaneously split the data into three groups us
 
 I found the quick response the my question on stackoverflow to be very helpful, as I had spent a lot of time to no avail trying to figure out how to achieve this outcome with the overall pairplot. I will consider using the site in future to research an answer to a problem if I am very stuck.
 
-I experimented with many different colours for the plots. For the overall plot, I passed in the  the *hue* argument to seperate the datapoints by 'variety' of Iris, and then passed in the *palette* argument with the palette "Dark2", to produce a distinct colour scheme for the plot. For the individual species plots, I needed to pass in separate "keyword arguments" for the diagonal component (*diag_kws = dict(color = )*) and for the plots (*plot_kws = dict(color = )*). I figured our how to modify the colors of the invidual plots in this way from watching the following youtube video (especially around 11 mins in): https://www.youtube.com/watch?v=-eyiVTLJuqI.
-The diagonal component of each pairplot gives an overview of the distribution pattern for each individual trait, but as I was more interested in the comparison of each trait with the other traits, I chose to make the diagonal component grey for each plot. I then choose bold and distinct colours for the other componetns of each plot.
+I experimented with many different colours for the plots. For the overall plot, I passed in the *hue* argument to seperate the datapoints by 'variety' of Iris, and then passed in the *palette* argument with the palette "Dark2", to produce a distinctive colour scheme for the plot. For the individual species plots, I needed to pass in separate "keyword arguments" for the diagonal component (*diag_kws = dict(color = )*) and for the plots (*plot_kws = dict(color = )*). I figured our how to modify the colors of the individual plots in this way from watching the following youtube video (especially around 11 mins in): https://www.youtube.com/watch?v=-eyiVTLJuqI.
+The diagonal component of each pairplot gives an overview of the distribution pattern for each individual trait, but as I was more interested in the comparison of each trait with the other traits, I chose to make the diagonal component grey for each plot. I then choose bold and different colours for the other components of each plot.
 
-I also experimented with different figures for height and aspect, and settled on a height of '3' and an aspect of '1', as I felt these dimensions resulted in a desirable size for the plots when I uploaded them to this Readme document (aspect is the extent to which the horizontal dimension of the plot is multiplied by the given height).
+I also experimented with different figures for height and aspect, and settled on a height of '3' and an aspect of '1', as I felt these dimensions resulted in a desirable size for the plots when I uploaded them to this README file (aspect is the extent to which the horizontal dimension of the plot is multiplied by the given height).
 
 I also added a title using the fig.suptitle() method, and increased the fontsize of the title.
 
@@ -442,18 +442,22 @@ For the sample overall, the correlation coefficient betwen the two traits is -0.
 
 ## Summary
 
-
 Even though they are members of the same Iris family, each Iris species tested has distinct trait measurements on average and so the dataset as a whole should be seen as three separate datasets. Setosa especially seems distinct from the other two species.
 
 The Iris data set is a brilliant place to start for somebody who is learning how to analyse a dataset using python for the first time. It is intuitively easy to understand, and because so many people have analysed it before, there are many resources available online to help beginners learn how to analyse it for themselves.
 
-The inclusion of numerical and string data within the dataset gives us a chance to work with both data types. The need to analyse each variety seperately, allows the user to practice separating the data into subgroups according to the contents of the 'variety' column. The variability of the statistics gives the student something to work with and it is an intuitively easy dataset to understand. It is a good sized dataset to produce informative scatterplots and histograms.
+The inclusion of numerical and string data within the dataset gives us a chance to work with both data types. The task of analysing each variety of Iris seperately, allows the user to practice separating the data into subgroups according to the contents of the 'variety' column. 
 
-This concludes my project for the Programming and Scripting module. I found the module to be a steep learning curve but I am glad that I persisted with it. I have greater confidence in my abilities now to research solutions to a programming assignment or task, and to write up a readme file outlining the work I have completed. Once I got the hang of creating histograms and plots, I enjoyed experimenting with enhancing the appearance of them. I will definitely use these data analysis tools for my own purposes in future, for work and personal use, and I look forward to contuining to improve my knowledge and skills.
+The variability of the dataset gives the student some interesting material to work with. It is a good datset on which practice generating summary statistics, and the statistics for the group overall can be compared with the results for the individual species. 
+
+It is a good-sized dataset to practice producing informative scatterplots and histograms, and testing out the many adjustments and enhancements which can be made to such plots.
+
+This concludes my project for the Programming and Scripting module. I found the module to be a steep learning curve but I am glad that I persisted with it. I have greater confidence in my abilities now to research solutions to a programming assignment or task, and to write up a README file outlining the work I have completed. Once I got the hang of creating histograms and plots, I enjoyed experimenting with enhancing the appearance of them. I will definitely use these data analysis tools in future, for work and personal use, and I look forward to continuing to improve my knowledge and skills.
 
 &nbsp; 
 
 ## References
+(using APA reference style)
 
 **Background:**
 
@@ -510,7 +514,7 @@ This concludes my project for the Programming and Scripting module. I found the 
 
 24.	(author/s unknown) (n.d). *Correlation Coefficient*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Correlation_coefficient 
 
-25.	(Arnaoot, N) 3rd June 2022. *Iris Statistical Analysis & Predictions*. Retrieved 11th May 2023 from Kaggle.com https://www.kaggle.com/code/narnaoot/iris-statistical-analysis-predictions?scriptVersionId=97348274 (line 16 – code for testing out correlation coefficients)
+25.	(Arnaoot, N) 3rd June 2022. *Iris Statistical Analysis & Predictions*. Retrieved 11th May 2023 from Kaggle.com https://www.kaggle.com/code/narnaoot/iris-statistical-analysis-predictions?scriptVersionId=97348274 (line 16 – code for testing out correlation coefficients). (also: https://www.geeksforgeeks.org/create-a-correlation-matrix-using-python/ for explanation of [0,1])
 
 **Histograms:**
 
@@ -526,7 +530,7 @@ This concludes my project for the Programming and Scripting module. I found the 
 
 31.	(“Zach”) 8th April 2021. *How to Add a Title to Seaborn Plots (With Examples)*. Statology.com. Retrieved 11th May 2023 from https://www.statology.org/seaborn-title/ 
 
-**Plots:**
+**Scatterplots:**
 
 32.	(Author/s unknown) (n.d) *Scatter Plot*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Scatter_plot 
 
@@ -548,6 +552,11 @@ This concludes my project for the Programming and Scripting module. I found the 
 
 41.	(Author/s unknown) (n.d). *matplotlib.pyplot.suptitle*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html 
 
-42.	(Author/s unknown) (n.d) *set_fontsize(fontsize)*. Matplotlib.org. Retrieved 11th May 2023 https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize 
+42.	(Author/s unknown) (n.d) *set_fontsize(fontsize)*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize 
+
+**Other analyses**
+
+
+
 
 

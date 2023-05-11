@@ -554,7 +554,7 @@ This concludes my project for the Programming and Scripting module. I found the 
 
 42.	(Author/s unknown) (n.d) *set_fontsize(fontsize)*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize 
 
-**Other analyses**
+
 
 
 

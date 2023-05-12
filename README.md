@@ -566,9 +566,11 @@ This concludes my project for the Programming and Scripting module. I found the 
 44.	(Author/s unknown) (n.d) *set_fontsize(fontsize)*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize 
 
 **Summary:**
-45. (Burns, E.) March 2021. *Machine learning*. Techtarget.com. Retrieved 12th May 2023 from https://www.techtarget.com/searchenterpriseai/definition/machine-learning-ML 
+
+45.   (Burns, E.) March 2021. *Machine learning*. Techtarget.com. Retrieved 12th May 2023 from https://www.techtarget.com/searchenterpriseai/definition/machine-learning-ML 
 
 **Writing README:**
+
 46.   (Author/s unknown) (n.d) *Markdown Cheat Sheet*. Markdownguide.org. Retrieved 11th May 2023 from https://www.markdownguide.org/cheat-sheet/
 
 

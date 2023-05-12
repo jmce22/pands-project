@@ -36,7 +36,7 @@ def summary_statistics():
     summary_stats = df.describe()
     
     
-# This firstly transposes the output of the .describe() method, to make it easier to read it when it is printed out. 
+# This transposes the output of the .describe() method, to make it easier to read it when it is printed out. 
 # References: https://numpy.org/doc/stable/reference/generated/numpy.transpose.html 
 
     transpose_summary = np.transpose(summary_stats)
@@ -119,11 +119,12 @@ def summary_statistics():
     f.close()
 
 
-# The following section of this script generates the histograms for the project.
-# See Histogram section of README for explanation of code.
+# The following section of this script generates and saves the histograms for the project.
+# See Histogram section of README for a more thorough explanation of code and references I used to help me write this code.
 # Reference: https://seaborn.pydata.org/tutorial/distributions.html?highlight=histogram
 # Reference: https://r02b.github.io/seaborn_palettes/ 
 
+# Histograms:
 
 sns.set_theme(style="darkgrid")
 
@@ -144,9 +145,10 @@ plt.tight_layout()
 plt.savefig('petal_width_hist.png')
 
 
-# The following section relates to scatterplots. 
+
+# The following section generates and saves the scatterplots for the project.
 # I created a pairplot for the overall Iris dataset and one each for the three Iris species in isolation.
-# Please see Scatterplot section of README for an explanation of the scatterplot code.
+# See Scatterplot section of README for a more thorough explanation of code and references I used to help me write the code.
 
 # The use of the function 'regline' in the code for the overall Iris pairplot allowed me to have just one regression line 
 # per segment in the overall Iris plot, instead of the three lines which are generated when the 'kind = "reg"' argument is used
@@ -154,6 +156,9 @@ plt.savefig('petal_width_hist.png')
 # Reference: answer to a question I asked on stackoverflow:
 # https://stackoverflow.com/questions/76217544/how-to-fit-regression-lines-on-each-non-diagonal-segment-of-a-pairplot-while-re
 # Also, reference for information on arguments: https://www.youtube.com/watch?v=-eyiVTLJuqI  (around 11 mins in).
+
+
+# Overall pairplot:
 
 sns.set_theme(style = "white")
 
@@ -171,6 +176,7 @@ plt.tight_layout()
 plt.savefig('iris_pairplot.png')
 
 
+# Individual pairplots:
 # The df.loc[] property allows us to create three 'sub-DataFrames' from the overall DataFrame, based on the condition 
 # that the entry in the 'variety' column equals one of the three varieties of Iris.
 # Reference: https://sparkbyexamples.com/pandas/pandas-dataframe-loc/
@@ -178,7 +184,6 @@ plt.savefig('iris_pairplot.png')
 setosa = df.loc[df['variety']=="Iris-setosa"]
 versicolor = df.loc[df['variety']=="Iris-versicolor"]
 virginica = df.loc[df['variety']=="Iris-virginica"]
-
 
 # For each of the individual Iris pairplots, the argument kind = "reg" allows us to impose regression lines straight on to the plots.
 setosa_pairplot = sns.pairplot(setosa, diag_kws = dict(color='grey'), plot_kws = dict(color = 'brown'), height=3, aspect=1, corner=True, kind = "reg")

@@ -11,7 +11,7 @@
 This repository contains my submission for the project for the Programming and Scripting module of the Higher Diploma in Data Analytics from ATU.
 This project involves researching Fisher's Iris data set and carrying out exploratory data analysis on it using Python.
 
-I used Visual Studio Code (version 1.77.3) to write my scripts and to upload them to a repository on GitHub for assessment.
+I used Visual Studio Code (version 1.78.2) to write my scripts and to upload them to a repository on GitHub for assessment.
 
 This file will firstly give some background information to the dataset in question. 
 
@@ -442,9 +442,11 @@ The Iris data set is a brilliant place to start for somebody who is learning how
 
 The inclusion of numerical and string data within the dataset gives us a chance to work with both data types. The task of analysing each variety of Iris separately, allows the user to practice separating the data into subgroups according to the contents of the 'variety' column. 
 
-The variability of the dataset gives the student some interesting material to work with. It is a good dataset on which practice generating summary statistics, and the statistics for the group overall can be compared with the results for the individual species. 
+The variability of the dataset gives the student some interesting material to work with. It is a good dataset on which to practice generating interesting summary statistics, with noteworthy differences between the statistics for the group overall and those for the individual species provide
 
-It is a good-sized dataset to practice producing informative scatterplots and histograms, and testing out the many adjustments and enhancements which can be made to such plots.
+It is also a good-sized dataset to practice producing informative scatterplots and histograms, and testing out the many adjustments and enhancements which can be made to such plots.
+
+Beyond exploratory data analysis, the iris dataset is used in machine learning, which is a sub-field of artificial intelligence which allows software to become more accurate at predicting outcomes over time, without being explicitly programmed by a human being to become so. I will learn more about machine learning further into my Higher Diploma.
 
 This concludes my project for the Programming and Scripting module. I found the module to be a steep learning curve, but I am glad that I persisted with it. I have greater confidence in my abilities now to research solutions to a programming assignment or task, and to write up a README file outlining the work I have completed. Once I got the hang of creating histograms and plots, I enjoyed experimenting with enhancing the appearance of them. I will use these data analysis tools in future, for work and personal use, and I look forward to continuing to improve my knowledge and skills in this area.
 
@@ -489,7 +491,7 @@ This concludes my project for the Programming and Scripting module. I found the 
 
 15.	(“Luk32”) 29th April 2014. *How to write output of terminal to file.* Stackoverflow.com. Retrieved 11th May 2023 from https://stackoverflow.com/questions/23364096/how-to-write-output-of-terminal-to-file 
 
-16.	Beatty, A. 25th February 2023. *pands 6.1 functions syntax.* ATU lectures. Retrieved 11th May 2023 from https://web.microsoftstream.com/video/10124936-7470-493c-8e8b-35286b0cb60d?referrer=https:%2F%2Fvlegalwaymayo.atu.ie%2F . (For the syntax of writing a function).
+16.	(Beatty, A) 25th February 2023. *pands 6.1 functions syntax.* ATU lectures. Retrieved 11th May 2023 from https://web.microsoftstream.com/video/10124936-7470-493c-8e8b-35286b0cb60d?referrer=https:%2F%2Fvlegalwaymayo.atu.ie%2F . (For the syntax of writing a function).
 
 17.	(author/s unknown) (n.d) *pandas.DataFrame.* Pandas.pydata.org. Retrieved 11th May 2023 from https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html. (For information on methods used on DataFrame, such as .head() and .describe())
 
@@ -507,48 +509,55 @@ This concludes my project for the Programming and Scripting module. I found the 
 
 24.	(author/s unknown) (n.d). *Correlation Coefficient*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Correlation_coefficient 
 
-25.	(Arnaoot, N) 3rd June 2022. *Iris Statistical Analysis & Predictions*. Retrieved 11th May 2023 from Kaggle.com https://www.kaggle.com/code/narnaoot/iris-statistical-analysis-predictions?scriptVersionId=97348274 (line 16 – code for testing out correlation coefficients). (also: https://www.geeksforgeeks.org/create-a-correlation-matrix-using-python/ for explanation of [0,1])
+25.	(Arnaoot, N) 3rd June 2022. *Iris Statistical Analysis & Predictions*. Retrieved 11th May 2023 from Kaggle.com https://www.kaggle.com/code/narnaoot/iris-statistical-analysis-predictions?scriptVersionId=97348274 (line 16 – code for testing out correlation coefficients). 
+
+26.   ("rohanchopra96") (n.d). *Create a correlation Matrix using Python*. Geeksforgeeks.com. Retrieved 11th May from https://www.geeksforgeeks.org/create-a-correlation-matrix-using-python/ for explanation of [0,1])
 
 **Histograms:**
 
-26.	(author/s unknown) (n.d). *Histogram*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Histogram 
+27.	(author/s unknown) (n.d). *Histogram*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Histogram 
 
-27.	(author/s unknown) (n.d). *Visualizing distributions of data*. Seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/tutorial/distributions.html?highlight=histogram#visualizing-distributions-of-data  
+28.	(author/s unknown) (n.d). *Visualizing distributions of data*. Seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/tutorial/distributions.html?highlight=histogram#visualizing-distributions-of-data  
 
-28.	(Author/s unknown). 8th November 2022. *Seaborn Color Palettes and How to Use Them*. Github.io. Retrieved 11th May 2023 from https://r02b.github.io/seaborn_palettes/ 
+29.	(Author/s unknown). 8th November 2022. *Seaborn Color Palettes and How to Use Them*. Github.io. Retrieved 11th May 2023 from https://r02b.github.io/seaborn_palettes/ 
 
-29.	(Author/s unknown) (n.d). *Tight Layout guide*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/tutorials/intermediate/tight_layout_guide.html 
+30.	(Author/s unknown) (n.d). *Tight Layout guide*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/tutorials/intermediate/tight_layout_guide.html 
 
-30.	(Author/s unknown) (n.d). *seaborn.set_theme*. Seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/generated/seaborn.set_theme.html#seaborn.set_theme 
+31.	(Author/s unknown) (n.d). *seaborn.set_theme*. Seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/generated/seaborn.set_theme.html#seaborn.set_theme 
 
-31.	(“Zach”) 8th April 2021. *How to Add a Title to Seaborn Plots (With Examples)*. Statology.com. Retrieved 11th May 2023 from https://www.statology.org/seaborn-title/ 
+32.   (Author/s unknown) (n.d) *matplotlib.pyplot.savefig* matplotlib.org. Retrieved 12th May 2023 from https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html
+
+33.	(“Zach”) 8th April 2021. *How to Add a Title to Seaborn Plots (With Examples)*. Statology.com. Retrieved 11th May 2023 from https://www.statology.org/seaborn-title/ 
 
 **Scatterplots:**
 
-32.	(Author/s unknown) (n.d) *Scatter Plot*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Scatter_plot 
+34.	(Author/s unknown) (n.d) *Scatter Plot*. Wikipedia.org. Retrieved 11th May 2023 from https://en.wikipedia.org/wiki/Scatter_plot 
 
-33.	(Chen, J) 23rd August 2022. *Line of Best Fit: Definition, How It Works, and Calculation*. Investopedia.org. Retrieved 11th May 2023 from https://www.investopedia.com/terms/l/line-of-best-fit.asp 
+35.	(Chen, J) 23rd August 2022. *Line of Best Fit: Definition, How It Works, and Calculation*. Investopedia.org. Retrieved 11th May 2023 from https://www.investopedia.com/terms/l/line-of-best-fit.asp 
 
-34.	(Nickolas, S) 31st May 2021. *What Do Correlation Coefficients Positive, Negative, and Zero Mean?* Investopedia.com. Retrieved 11th May 2023 from https://www.investopedia.com/ask/answers/032515/what-does-it-mean-if-correlation-coefficient-positive-negative-or-zero.asp (For illustration of correlation coefficient/ regression lines)
+36.	(Nickolas, S) 31st May 2021. *What Do Correlation Coefficients Positive, Negative, and Zero Mean?* Investopedia.com. Retrieved 11th May 2023 from https://www.investopedia.com/ask/answers/032515/what-does-it-mean-if-correlation-coefficient-positive-negative-or-zero.asp (For illustration of correlation coefficient/ regression lines)
 
-35.	(author/s unknown) (n.d). *Seaborn.pairplot*. seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/generated/seaborn.pairplot.html 
+37.	(author/s unknown) (n.d). *Seaborn.pairplot*. seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/generated/seaborn.pairplot.html 
 
-36.	(author/s unknown) 21st January 2023. *Pandas DataFrame loc[] Syntax and Examples*. Sparkbyexamples.com. Retrieved 11th May 2023 from https://sparkbyexamples.com/pandas/pandas-dataframe-loc/ 
+38.	(author/s unknown) 21st January 2023. *Pandas DataFrame loc[] Syntax and Examples*. Sparkbyexamples.com. Retrieved 11th May 2023 from https://sparkbyexamples.com/pandas/pandas-dataframe-loc/ 
 
-37.	(“Learnerea”) 10th November 2021. *Python Seaborn - 15|What is a Pair Plot and How to Create this Using Seaborn in Python*. Youtube.com. Retrieved 11th May 2023 from https://www.youtube.com/watch?v=-eyiVTLJuqI 
+39.	(“Learnerea”) 10th November 2021. *Python Seaborn - 15|What is a Pair Plot and How to Create this Using Seaborn in Python*. Youtube.com. Retrieved 11th May 2023 from https://www.youtube.com/watch?v=-eyiVTLJuqI 
 
-38.	("Redox") 10th May 2023. *How to fit regression lines on each non-diagonal segment of a pairplot, while retaining breakdown of data points by hue*. Stackoverflow.com. Retrieved 11th May 2023 from https://stackoverflow.com/questions/76217544/how-to-fit-regression-lines-on-each-non-diagonal-segment-of-a-pairplot-while-re 
+40.	("Redox") 10th May 2023. *How to fit regression lines on each non-diagonal segment of a pairplot, while retaining breakdown of data points by hue*. Stackoverflow.com. Retrieved 11th May 2023 from https://stackoverflow.com/questions/76217544/how-to-fit-regression-lines-on-each-non-diagonal-segment-of-a-pairplot-while-re 
 
-39.	(Author/s unknown) (n.d) *Seaborn.regplot*. seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/generated/seaborn.regplot.html 
+41.	(Author/s unknown) (n.d) *Seaborn.regplot*. seaborn.pydata.org. Retrieved 11th May 2023 from https://seaborn.pydata.org/generated/seaborn.regplot.html 
 
-40.	(“Zach”) 7th April 2021. *How to Adjust the Figure Size of a Seaborn Plot*. Statology.org. Retrieved 11th May 2023 from https://www.statology.org/seaborn-figure-size/ 
+42.	(“Zach”) 7th April 2021. *How to Adjust the Figure Size of a Seaborn Plot*. Statology.org. Retrieved 11th May 2023 from https://www.statology.org/seaborn-figure-size/ 
 
-41.	(Author/s unknown) (n.d). *matplotlib.pyplot.suptitle*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html 
+43.	(Author/s unknown) (n.d). *matplotlib.pyplot.suptitle*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html 
 
-42.	(Author/s unknown) (n.d) *set_fontsize(fontsize)*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize 
+44.	(Author/s unknown) (n.d) *set_fontsize(fontsize)*. Matplotlib.org. Retrieved 11th May 2023 from https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontsize 
+
+**Summary:**
+45. (Burns, E.) March 2021. *Machine learning*. Techtarget.com. Retrieved 12th May 2023 from https://www.techtarget.com/searchenterpriseai/definition/machine-learning-ML 
 
 **Writing README:**
-43.   (Author/s unknown) (n.d) *Markdown Cheat Sheet*. Markdownguide.org. Retrieved 11th May 2023 from https://www.markdownguide.org/cheat-sheet/
+46.   (Author/s unknown) (n.d) *Markdown Cheat Sheet*. Markdownguide.org. Retrieved 11th May 2023 from https://www.markdownguide.org/cheat-sheet/
 
 
 

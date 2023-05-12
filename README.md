@@ -276,7 +276,7 @@ My first step was to set the style which I wanted my histograms to take, and I u
 
 I then specified that the histograms should be stacked on top of each other, rather than overlapping each other, as I found that this enabled me to more easily get a sense of how the data is distributed: to create these stacked histograms, I passed the argument *multiple = stack* into the function *sns.displot*.
 
-I added a title and changed the label on the x-axis by appending the *.set()* function to the *sns.displot* function. I also improved the appearance of each histogram by using the *plt.tight_layout()* to increase the amount of space for the heading at the top. I then saved each histogram as a .png file and these are included below:
+I added a title and changed the label on the x-axis by appending the *.set()* function to the *sns.displot* function. I also improved the appearance of each histogram by using the *plt.tight_layout()* to increase the amount of space for the heading at the top. I then saved each histogram as a .png file using the function *plt.savefig('filename.png')* and these are included below:
 
 code used to create histograms:
 
@@ -287,7 +287,7 @@ sepal_length = sns.displot(df, x ="sepal length", bins = 20, hue ="variety", pal
 plt.tight_layout()
 plt.savefig('sepal_length_hist.png')
 
-(similar code for the three other histograms)
+(similar code for the other three histograms)
 
 ```
 

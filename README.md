@@ -24,8 +24,18 @@ I will then carry out data visualisation on the Iris dataset, using histograms a
 
 My project will conclude with an overall summary of my findings, and my thoughts upon conclusion of the project. I will also provide a list of references (using APA reference style) which I used to complete my work.
 
-**To execute my script**:
-Please download *analysis.py* from my repository (*jmce22/pands-project*) into a code editor such as VS Code. While located in the folder in which you have saved *analysis.py*, go to the terminal window and type 'python analysis.py'. This should run the code and generate the text file with summary data for the dataset, and print into the folder the histograms, pairplots and other plots which analyse the data.
+**How to execute my script**:
+Please download *analysis.py* from my repository (*jmce22/pands-project*) into a code editor such as VS Code. 
+Next, please download the iris dataset from the following link: https://archive.ics.uci.edu/ml/datasets/iris.
+
+There are many sources for this dataset online (plus, the iris dataset is in available as preloaded dataset in some libraries such as Seaborn); however, since I used this version and wrote my code based on it (ie. to account for its lack of headings in the raw data), the code for opening the dataset as a pandas DataFrame may be slightly different if you download the dataset elsewhere.
+
+While located in the folder in which you have saved *analysis.py*, go to the terminal window and type 'python analysis.py'. 
+
+This should run the code, generate the following items, and save the items into the folder you are running the code from:
+- the text file with summary statistics and other summary data for the dataset
+- four histograms, each showing the distribution of values for each trait, colour-coded by species of Iris
+- four pairplots: one for the dataset as a whole, and one for each pf the three Iris species. Each pairplot consists of six scatterplots, depicting the relationship of each of the four traits with each other. Each scatterplot also contains a regression line, to further illustrate the correlations that exists between each trait. There are also four plots in each pairplot depicting for the marginal distribution of each trait (a depcition of the frequency distribution for the trait in the sample being tested, but without any numerical measurements).
 
 &nbsp; 
 
@@ -134,7 +144,7 @@ Before setting out to analyse the dataset, I wanted to ensure that the DataFrame
 
 One way of compiling summary statistics for a DataFrame is to use separate methods to generate separate individual summary statistics for the columns of numerical data in the DataFrame: examples include the *.mean()* and *.max()* methods, used to calculate the mean value and max value, respectively, of each column of numerical data in the DataFrame.
 
-It is possible, however, to produce multiple summary statistics with one command by using the *.describe()* method. I used this method here, where I looked for summary statistics for:  \
+It is possible, however, to produce multiple summary statistics with one command by using the *.describe()* method. I used this method here, where I looked for summary statistics for:  
 - each of the four measured traits ('sepal width', 'sepal length', 'petal width' and 'petal length') for all of the flowers as a group (sample size = 150)
 - each of the four measured traits for *each* variety of Iris flower (three groups, each with a sample size of 50).
 
@@ -323,7 +333,7 @@ In terms of sepal length and sepal width, the ranking of size from smallest to l
 
 ### Background ###
 
-A scatterplot is a type of plot in which the values of two variables are plotted separately along the x-axis and the y-axis, and the pattern of the plot can be used to determine the degree to which the two variables are correlated. A figure known as the sample correlation coefficient, 'r', can be calculated between two variables to put a figure on the degree of correlation, and it lies between -1 and 1. Regression lines ('line of least squares' or 'line of best fit') can be drawn through the plot, to visually illustrate the degree of correlation between the variables. This is the line that minimises the sum of distances between the data points and the line.
+A scatterplot is a type of plot in which the values of two variables are plotted separately along the x-axis and the y-axis, and the pattern of the plot can be used to determine the degree to which the two variables are correlated. A figure known as the sample correlation coefficient, 'r', can be calculated between two variables to put a figure on the degree of correlation, and it lies between -1 and 1. Regression lines (also called 'line of best fit') can be drawn through the plot, to visually illustrate the degree of correlation between the variables. This is the line that minimises the sum of distances between the data points and the line.
 
 * If x tends to increase while y increases, x is said to be positively correlated with y, and r > 0. This is indicated by a positively sloping line from the bottom left corner of the axis. A 45-degree angle with the x-axis indicates a perfect positive correlation between variables.
 * If x tends to decrease while y increases, x is said to be negatively correlated with y, and r < 0. This is indicated by a negatively sloping line from the top left corner of the axis. A 45-degree angle with the x-axis indicates a perfect negative correlation between variables.
@@ -343,7 +353,7 @@ These three scenarios are illustrated in the image below:
 
 To capture the six different trait-pair combinations within this sample I have used pairplots. Pairplots combine multiple scatterplots into one plot. I created a pairplot based on the data to show the correlation between the 6 different pairs of traits within the whole sample, and also created three further pairplots to depict the correlation between traits for each Iris species in isolation.
 
-To create the three pairplots for the individual Iris species, I needed to split the dataset into three sub-datasets. To do this, I used the *df.loc[]* property to create three 'sub-DataFrames' from the overall Dataframe. I split the dataset based on the condition that the entry in the 'variety' column equals one of the three varieties of Iris (for example, *df['variety']=="Iris-setosa"*). I then assigned each sub-DataFrame to an appropriate variable name for use in the formulas for the pairplots for each Iris species. I found this code within this page: https://sparkbyexamples.com/pandas/pandas-dataframe-loc/
+To create the three pairplots for the individual Iris species, I needed to split the dataset into three sub-datasets. To do this, I used the *df.loc[]* property to create three 'sub-DataFrames' from the overall DataFrame. I split the dataset based on the condition that the entry in the 'variety' column equals one of the three varieties of Iris (for example, *df['variety']=="Iris-setosa"*). I then assigned each sub-DataFrame to an appropriate variable name for use in the formulas for the pairplots for each Iris species. I found this code within this page: https://sparkbyexamples.com/pandas/pandas-dataframe-loc/
 
 I modified my plots to enhance their appearance and to make them easier to interpret. I used the *corner* argument to removes the top right corner of each pairplot, as the top right corner showed redundant information which I felt cluttered the appearance of the plot and made it harder to interpret. 
 

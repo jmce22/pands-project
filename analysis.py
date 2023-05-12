@@ -194,5 +194,37 @@ virginica_pairplot.fig.suptitle("Pairplot of virginica traits", fontsize = "xx-l
 plt.savefig('virginica_pairplot.png')
 
 
+# Boxplots
+# I had initially planned to include boxplots in my project but I had difficulty in getting the code to 
+# generate all of the plots correctly. 
+# I commented out this code because I haven't included it, or boxplots in general, in my project, 
+# but I want to leave it on my script so I can figure out at a future date why it wouldn't execute properly.
+# Reference: https://seaborn.pydata.org/generated/seaborn.boxplot.html
+
+# Boxplot for sepal length
+#sns.boxplot(x="variety", y="sepal length", data=df)
+#plt.title("Sepal length boxplot")
+#plt.tight_layout()
+#plt.savefig("sepal_length_boxplot.png")
+
+# Boxplot for sepal width
+#sns.boxplot(x="variety", y="sepal width", data=df)
+#plt.title("Sepal width boxplot")
+#plt.tight_layout()
+#plt.savefig("sepal_width_boxplot.png")
+
+# Boxplot for petal length
+#sns.boxplot(x="variety", y="petal length", data=df)
+#plt.title("Petal length boxplot")
+#plt.tight_layout()
+#plt.savefig("petal_length_boxplot.png")
+
+# Boxplot for petal width
+#sns.boxplot(x="variety", y="petal width", data=df)
+#plt.title("Petal width boxplot")
+#plt.tight_layout()
+#plt.savefig("petal_width_boxplot.png")
+
+
 # calling the function for printing out the text file
 summary_statistics()
